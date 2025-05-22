@@ -150,5 +150,5 @@
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
-<!-- TFX VERSION 0.95 -->
+<!-- TFX VERSION 0.92 -->
 <!-- TFX END -->
