@@ -151,5 +151,5 @@
             </UseTemplate>
         </Component>
 	</Component>
-<!-- TFX VERSION 0.9 -->
+<!-- TFX VERSION 0.92 -->
 <!-- TFX END -->
