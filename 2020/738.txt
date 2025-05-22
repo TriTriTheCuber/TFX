@@ -1,0 +1,155 @@
+<!-- TFX INSTALLED -->
+	<Component ID="FX_SMOKE_E1">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:Failure_ENG_1_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>1</FX_OFFSET_Z>
+            <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
+            <FX_NAME>FX_SMOKE_R</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SMOKE_ENGL" Node="fx_exhaust_left">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SMOKE_E2">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:Failure_ENG_2_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>1</FX_OFFSET_Z>
+            <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
+            <FX_NAME>FX_SMOKE_L</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SMOKE_ENGL" Node="fx_exhaust_right">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_FIRE_E1">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:Failure_ENG_1_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>2.3</FX_OFFSET_Z>
+            <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
+            <FX_NAME>FX_FIRE_R</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_FIRE_ENGL" Node="fx_exhaust_left">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_FIRE_E2">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:Failure_ENG_2_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>2.3</FX_OFFSET_Z>
+            <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
+            <FX_NAME>FX_FIRE_L</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_FIRE_ENGL" Node="fx_exhaust_right">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+
+	<Component ID="FX_SPARKS_C3">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(A:CONTACT POINT IS ON GROUND:3, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>-4.4</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1.4</FX_OFFSET_Y>
+            <FX_OFFSET_Z>14</FX_OFFSET_Z>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK3" Node="fx_exhaust_left">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+
+	<Component ID="FX_SPARKS_C4">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(A:CONTACT POINT IS ON GROUND:4, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>12.3</FX_OFFSET_X>
+            <FX_OFFSET_Y>2.6</FX_OFFSET_Y>
+            <FX_OFFSET_Z>-7.4</FX_OFFSET_Z>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_4</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK4" Node="fx_exhaust_left">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+
+	<Component ID="FX_SPARKS_C5">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(A:CONTACT POINT IS ON GROUND:5, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>-12.3</FX_OFFSET_X>
+            <FX_OFFSET_Y>2.6</FX_OFFSET_Y>
+            <FX_OFFSET_Z>-7.4</FX_OFFSET_Z>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_5</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK5" Node="fx_exhaust_right">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SPARKS_C6">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(A:CONTACT POINT IS ON GROUND:6, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>-5.4</FX_OFFSET_X>
+            <FX_OFFSET_Y>1.4</FX_OFFSET_Y>
+            <FX_OFFSET_Z>-14</FX_OFFSET_Z>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_6</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK6" Node="fx_exhaust_left">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SPARKS_C8">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(A:CONTACT POINT IS ON GROUND:8, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>1.5</FX_OFFSET_Z>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_8</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK8" Node="fx_exhaust_right">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SPARKS_C9">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(A:CONTACT POINT IS ON GROUND:9, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>1.5</FX_OFFSET_Z>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_9</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK9" Node="fx_exhaust_left">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+<!-- TFX VERSION 0.92 -->
+<!-- TFX END -->
