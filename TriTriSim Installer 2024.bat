@@ -294,7 +294,7 @@ powershell -Command ^
   "$insert = Get-Content %~2;" ^
   "$marker = '<!-- TFX INSTALLED -->';" ^
   "  $lines = Get-Content $file;" ^
-  "  $index = $lines.Count - 3;" ^
+  "  $index = $lines.Count - 4;" ^
   "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
   "  $newLines | Set-Content $file;" 
 setlocal enabledelayedexpansion 
