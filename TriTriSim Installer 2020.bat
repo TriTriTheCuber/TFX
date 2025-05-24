@@ -21,6 +21,7 @@ call :verifyfile "detect_community2020.ps1"
 call :verifyfile "zipdownloadmanager.ps1"
 
 call :buildstate
+call :prebuildcs
 call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
@@ -601,7 +602,7 @@ if not exist "state2020/state.txt" (
     (
         echo devmode=0
         echo version=1
-    ) > state\state.txt
+    ) > state2020\state.txt
 )
 exit /b 0
 
@@ -610,7 +611,7 @@ if not exist "state2020/community.txt" (
     (
         echo communitypath=%COMMUNITY_PATH%
         echo manualcommunity=0
-    ) > state\community.txt
+    ) > state2020\community.txt
 )
 call :getcommunitystate manualcommunity
 
@@ -704,7 +705,6 @@ exit /b 0
 
 
 
-
 :getstate
 :: Usage: call :getstate key → sets variable "state"
 setlocal enabledelayedexpansion
@@ -726,6 +726,15 @@ for /f "usebackq tokens=1,* delims==" %%A in ("state2020\community.txt") do (
 endlocal & set "state=%state%"
 exit /b 0
 
+
+:prebuildcs
+if not exist "state2020/community.txt" (
+    (
+        echo communitypath=%COMMUNITY_PATH%
+        echo manualcommunity=0
+    ) > state2020\community.txt
+)
+exit /b 0
 
 
 

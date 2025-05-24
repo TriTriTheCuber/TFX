@@ -21,6 +21,7 @@ call :verifyfile "detect_community2024.ps1"
 call :verifyfile "zipdownloadmanager.ps1"
 
 call :buildstate
+call :prebuildcs
 call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
@@ -559,7 +560,7 @@ if not exist "state2024/state.txt" (
     (
         echo devmode=0
         echo version=1
-    ) > state\state.txt
+    ) > state2024\state.txt
 )
 exit /b 0
 
@@ -568,7 +569,7 @@ if not exist "state2024/community.txt" (
     (
         echo communitypath=%COMMUNITY_PATH%
         echo manualcommunity=0
-    ) > state\community.txt
+    ) > state2024\community.txt
 )
 call :getcommunitystate manualcommunity
 
@@ -684,7 +685,24 @@ for /f "usebackq tokens=1,* delims==" %%A in ("state2024\community.txt") do (
 endlocal & set "state=%state%"
 exit /b 0
 
+:prebuildcs
+if not exist "state2024/community.txt" (
+    (
+        echo communitypath=%COMMUNITY_PATH%
+        echo manualcommunity=0
+    ) > state2024\community.txt
+)
+exit /b 0
 
+
+:prebuildcs
+if not exist "state2024/community.txt" (
+    (
+        echo communitypath=%COMMUNITY_PATH%
+        echo manualcommunity=0
+    ) > state2024\community.txt
+)
+exit /b 0
 
 
 
