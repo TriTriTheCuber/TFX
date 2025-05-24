@@ -159,10 +159,18 @@ call :fastprint "Welcome to the TriTriSim Installer.|White" "Please select a cat
 echo.
 call :fastprint "[1] TFX|White" "----------------------------|White" "[S] Settings|White"
 echo.
+call :fastprint "[H] Return to hub|White"
+echo.
 setlocal enabledelayedexpansion
 set /p choice="Enter your selection:  "
+if /i "!choice!"=="H" (
+call "TriTriSim Hub.bat"
+) else (
 call :page !choice!
+)
 exit /b 0
+
+
 
 
 :Settings
