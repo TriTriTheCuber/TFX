@@ -571,7 +571,7 @@ exit /b 0
 
 
 :installbasepackage
-echo "Attempting to install base package..."
+echo Attempting to install base package...
 call :fetchzip "https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2020.zip" , "%COMMUNITY_PATH%"
 exit /b 0
 
@@ -588,6 +588,7 @@ EXIT /B 0
 :uninstallbasepackage
 @RD /S /Q "%COMMUNITY_PATH%/TFX-fxlib"
 exit /b 0
+
 
 :page
 echo %~1 > temp\currentpage.tmp

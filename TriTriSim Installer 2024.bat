@@ -526,7 +526,7 @@ exit /b 0
 
 
 :installbasepackage
-echo "Attempting to install base package..."
+echo Attempting to install base package...
 call :fetchzip "https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2024.zip" , "%COMMUNITY_PATH%"
 exit /b 0
 
