@@ -79,6 +79,9 @@ call :fastprint "Page %cpage%|White"
 )
 
 
+call :getcommunitystate communitypath
+set "COMMUNITY_PATH=%state%"
+echo %state%
 
 
 IF %cpage% EQU 1 (

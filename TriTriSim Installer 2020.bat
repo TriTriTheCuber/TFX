@@ -79,6 +79,9 @@ call :fastprint "Page %cpage%|White"
 )
 
 
+call :getcommunitystate communitypath
+set "COMMUNITY_PATH=%state%"
+echo %state%
 
 
 IF %cpage% EQU 1 (
@@ -110,6 +113,7 @@ exit /b 0
 ::TFX Prompt
 
 :TFXprompt
+
 IF EXIST "Installerinserts" (
 call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---------------------------------------------------------------------|White" 
 call :planecheck "pmdg-aircraft-738\" , "[1] PMDG 737-800" , "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , "InstallerInserts/738.txt"
