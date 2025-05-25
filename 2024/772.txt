@@ -1,3 +1,4 @@
+
 <!-- TFX INSTALLED -->
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
@@ -150,5 +151,6 @@
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
-<!-- TFX VERSION 0.92 -->
+<!-- TFX VERSION 0.93 -->
 <!-- TFX END -->
+
