@@ -396,7 +396,7 @@ EXIT /B 0
 
 :getupdatedfiles
 setlocal disabledelayedexpansion 
-IF EXIST "Installerinserts" (
+IF EXIST "Installerinserts2024" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
 set FILES=772.txt
 REM Local target folder (change if needed)
