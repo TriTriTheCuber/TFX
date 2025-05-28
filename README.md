@@ -4,6 +4,7 @@
 ## What is this?
 This is an experimental mod i have been working on for MSFS 2020 & MSFS 2024.
 It adds emergency effects to pre-existing planes. You can join the discord for support:
+
 discord.gg/N7cHezb5
 ## Supported planes
 
