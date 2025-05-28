@@ -6,7 +6,7 @@
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
             <FX_OFFSET_Z>2</FX_OFFSET_Z>
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
-            <FX_NAME>FX_SMOKE_R</FX_NAME>
+            <FX_NAME>FX_SMOKE_L</FX_NAME>
         </OverrideTemplateParameters>
         <Component ID="FX_SMOKE_ENGL" Node="VFX_Exhaust_L">
             <UseTemplate Name="ASOBO_GT_FX">
@@ -21,9 +21,9 @@
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
             <FX_OFFSET_Z>2</FX_OFFSET_Z>
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
-            <FX_NAME>FX_SMOKE_L</FX_NAME>
+            <FX_NAME>FX_SMOKE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="VFX_Exhaust_R">
+        <Component ID="FX_SMOKE_ENGR" Node="VFX_Exhaust_R">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -36,7 +36,7 @@
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
             <FX_OFFSET_Z>4.5</FX_OFFSET_Z>
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
-            <FX_NAME>FX_FIRE_R</FX_NAME>
+            <FX_NAME>FX_FIRE_L</FX_NAME>
         </OverrideTemplateParameters>
         <Component ID="FX_FIRE_ENGL" Node="VFX_Exhaust_L">
             <UseTemplate Name="ASOBO_GT_FX">
@@ -51,9 +51,9 @@
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
             <FX_OFFSET_Z>4.5</FX_OFFSET_Z>
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
-            <FX_NAME>FX_FIRE_L</FX_NAME>
+            <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="VFX_Exhaust_R">
+        <Component ID="FX_FIRE_ENGR" Node="VFX_Exhaust_R">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
