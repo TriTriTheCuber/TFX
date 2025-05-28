@@ -25,7 +25,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=772.txt 320.txt
+set FILES=772.txt 320CFM.txt 320IAE.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts2024
@@ -113,10 +113,10 @@ exit /b 0
 IF EXIST "Installerinserts2024" (
 call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---------------------------------------------------------------------|White" 
 call :planecheck "pmdg-aircraft-77er\" , "[1] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , "InstallerInserts2024/772.txt"
-call :planecheck "fnx-aircraft-320\" , "[2] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml" , "InstallerInserts2024/320.txt"
+call :planecheck "fnx-aircraft-320\" , "[2] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , "InstallerInserts2024/320CFM.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
 call :uplanecheck "pmdg-aircraft-77er\" "[3] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
-call :uplanecheck "fnx-aircraft-320\" , "[4] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml"
+call :uplanecheck "fnx-aircraft-320\" , "[4] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
@@ -369,7 +369,8 @@ CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachm
 EXIT /B 0
 
 :Install320
-CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml" , 'Installerinserts2024\320.txt' , "Fenix A320" 4
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)" 3
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)" 3
 EXIT /B 0
 
 :UninstallAllPrompt
@@ -396,7 +397,8 @@ CALL :UninstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attac
 EXIT /B 0
 
 :Uninstall320
-CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml" , 'Installerinserts2024\320.txt' , "Fenix A320"
+CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)"
+CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)"
 EXIT /B 0
 
 
@@ -411,7 +413,7 @@ EXIT /B 0
 setlocal disabledelayedexpansion 
 IF EXIST "Installerinserts2024" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
-set FILES=772.txt 320.txt
+set FILES=772.txt 320CFM.txt 320IAE.txt
 REM Local target folder (change if needed)
 set TARGET=Installerinserts2024
 del Installerinserts2024\*.txt

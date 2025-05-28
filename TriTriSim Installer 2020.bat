@@ -26,7 +26,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=738.txt 772.txt 77w.txt 320.txt
+set FILES=738.txt 772.txt 77w.txt 320CFM.txt 320IAE.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2020/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts
@@ -118,12 +118,12 @@ call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---
 call :planecheck "pmdg-aircraft-738\" , "[1] PMDG 737-800" , "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , "InstallerInserts/738.txt"
 call :planecheck "pmdg-aircraft-77er\" , "[2] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , "InstallerInserts/772.txt"
 call :planecheck "pmdg-aircraft-77w\" , "[3] PMDG 777-300ER" , "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"  ,"InstallerInserts/77w.txt"
-call :planecheck "fnx-aircraft-320\" , "[4] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml"  ,"InstallerInserts/320.txt"
+call :planecheck "fnx-aircraft-320\" , "[4] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml"  ,"InstallerInserts/320CFM.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
 call :uplanecheck "pmdg-aircraft-738\" "[5] Uninstall PMDG 737-800" "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" 
 call :uplanecheck "pmdg-aircraft-77er\" "[6] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml"
 call :uplanecheck "pmdg-aircraft-77w\" "[7] Uninstall PMDG 777-300ER" "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"
-call :uplanecheck "fnx-aircraft-320\" , "[8] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml"
+call :uplanecheck "fnx-aircraft-320\" , "[8] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
@@ -400,9 +400,13 @@ EXIT /B 0
 CALL :InstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER" 3
 EXIT /B 0
 
+
 :Install320
-CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml" , 'Installerinserts\320.txt' , "Fenix A320" 2
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)" 2
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)" 2
 EXIT /B 0
+
+
 
 :UninstallAllPrompt
 cls
@@ -445,7 +449,8 @@ CALL :UninstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behavi
 EXIT /B 0
 
 :Uninstall320
-CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml" , 'Installerinserts\320.txt' , "Fenix A320"
+ CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)"
+CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)"
 EXIT /B 0
 
 
@@ -460,7 +465,7 @@ EXIT /B 0
 setlocal disabledelayedexpansion 
 IF EXIST "Installerinserts" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2020/
-set FILES=738.txt 772.txt 77w.txt 320.txt
+set FILES=738.txt 772.txt 77w.txt 320CFM.txt 320IAE.txt
 REM Local target folder (change if needed)
 set TARGET=Installerinserts
 del Installerinserts\*.txt
