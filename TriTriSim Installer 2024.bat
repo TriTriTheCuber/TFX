@@ -15,7 +15,6 @@ IF NOT EXIST "state2024" (
 	mkdir state2024
 )
 
-
 call :verifyfile "printmulti.ps1"
 call :verifyfile "detect_community2024.ps1"
 call :verifyfile "zipdownloadmanager.ps1"
@@ -114,8 +113,10 @@ exit /b 0
 IF EXIST "Installerinserts2024" (
 call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---------------------------------------------------------------------|White" 
 call :planecheck "pmdg-aircraft-77er\" , "[1] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , "InstallerInserts2024/772.txt"
+call :planecheck "fnx-aircraft-320\" , "[2] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml" , "InstallerInserts2024/320.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
-call :uplanecheck "pmdg-aircraft-77er\" "[2] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
+call :uplanecheck "pmdg-aircraft-77er\" "[3] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
+call :uplanecheck "fnx-aircraft-320\" , "[4] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
@@ -127,7 +128,9 @@ setlocal enabledelayedexpansion
 set /p choice=Enter your selection: 
 if /i "!choice!"=="Q" CALL :page 0
 if /i "!choice!"=="1" CALL :Install772
-if /i "!choice!"=="2" CALL :Uninstall772
+if /i "!choice!"=="2" CALL :Install320
+if /i "!choice!"=="3" CALL :Uninstall772
+if /i "!choice!"=="4" CALL :Uninstall320
 if /i "!choice!"=="A" CALL :InstallAll
 if /i "!choice!"=="U" CALL :UninstallAllPrompt
 if /i "!choice!"=="F" CALL :Reinstall
@@ -294,7 +297,7 @@ powershell -Command ^
   "$insert = Get-Content %~2;" ^
   "$marker = '<!-- TFX INSTALLED -->';" ^
   "  $lines = Get-Content $file;" ^
-  "  $index = $lines.Count - 4;" ^
+  "  $index = $lines.Count - %~4;" ^
   "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
   "  $newLines | Set-Content $file;" 
 setlocal enabledelayedexpansion 
@@ -358,10 +361,15 @@ EXIT /B 0
 
 :InstallAll
 CALL :Install772
+CALL :Install320
 EXIT /B 0
 
 :Install772
-CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER"
+CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER" 4
+EXIT /B 0
+
+:Install320
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml" , 'Installerinserts2024\320.txt' , "Fenix A320" 4
 EXIT /B 0
 
 :UninstallAllPrompt
@@ -378,12 +386,17 @@ EXIT /B 0
 :UninstallAll
 setlocal disabledelayedexpansion
 CALL :Uninstall772
+CALL :Uninstal320
 setlocal enabledelayedexpansion
 EXIT /B 0
 
 
 :Uninstall772
 CALL :UninstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER"
+EXIT /B 0
+
+:Uninstall320
+CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\Model\FNX32X_Exterior.xml" , 'Installerinserts2024\320.txt' , "Fenix A320"
 EXIT /B 0
 
 

@@ -26,7 +26,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=738.txt 772.txt 77w.txt
+set FILES=738.txt 772.txt 77w.txt 320.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2020/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts
@@ -118,10 +118,12 @@ call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---
 call :planecheck "pmdg-aircraft-738\" , "[1] PMDG 737-800" , "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , "InstallerInserts/738.txt"
 call :planecheck "pmdg-aircraft-77er\" , "[2] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , "InstallerInserts/772.txt"
 call :planecheck "pmdg-aircraft-77w\" , "[3] PMDG 777-300ER" , "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"  ,"InstallerInserts/77w.txt"
+call :planecheck "fnx-aircraft-320\" , "[4] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml"  ,"InstallerInserts/320.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
-call :uplanecheck "pmdg-aircraft-738\" "[4] Uninstall PMDG 737-800" "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" 
-call :uplanecheck "pmdg-aircraft-77er\" "[5] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml"
-call :uplanecheck "pmdg-aircraft-77w\" "[6] Uninstall PMDG 777-300ER" "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"
+call :uplanecheck "pmdg-aircraft-738\" "[5] Uninstall PMDG 737-800" "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" 
+call :uplanecheck "pmdg-aircraft-77er\" "[6] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml"
+call :uplanecheck "pmdg-aircraft-77w\" "[7] Uninstall PMDG 777-300ER" "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"
+call :uplanecheck "fnx-aircraft-320\" , "[8] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
@@ -135,9 +137,11 @@ if /i "!choice!"=="Q" CALL :page 0
 if /i "!choice!"=="1" CALL :Install738
 if /i "!choice!"=="2" CALL :Install772
 if /i "!choice!"=="3" CALL :Install77W
-if /i "!choice!"=="4" CALL :Uninstall738
-if /i "!choice!"=="5" CALL :Uninstall772
-if /i "!choice!"=="6" CALL :Uninstall77W
+if /i "!choice!"=="4" CALL :Install320
+if /i "!choice!"=="5" CALL :Uninstall738
+if /i "!choice!"=="6" CALL :Uninstall772
+if /i "!choice!"=="7" CALL :Uninstall77W
+if /i "!choice!"=="8" CALL :Uninstall320
 if /i "!choice!"=="A" CALL :InstallAll
 if /i "!choice!"=="U" CALL :UninstallAllPrompt
 if /i "!choice!"=="F" CALL :Reinstall
@@ -307,7 +311,7 @@ powershell -Command ^
   "$insert = Get-Content %~2;" ^
   "$marker = '<!-- TFX INSTALLED -->';" ^
   "  $lines = Get-Content $file;" ^
-  "  $index = $lines.Count - 3;" ^
+  "  $index = $lines.Count - %~4;" ^
   "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
   "  $newLines | Set-Content $file;" 
 setlocal enabledelayedexpansion 
@@ -373,26 +377,31 @@ EXIT /B 0
 CALL :Install738
 CALL :Install772
 CALL :Install77W
+CALL :Install320
 EXIT /B 0
 
 
 :Install738
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (BW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (SSW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (BW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (SSW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (BW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (SSW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (BW)"
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (SSW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (BW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (SSW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (BW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (SSW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (BW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (SSW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (BW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (SSW)" 3
 EXIT /B 0
 
 :Install772
-CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , 'Installerinserts\772.txt' , "PMDG 777-200ER"
+CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , 'Installerinserts\772.txt' , "PMDG 777-200ER" 3
 EXIT /B 0
 
 :Install77W
-CALL :InstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER"
+CALL :InstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER" 3
+EXIT /B 0
+
+:Install320
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml" , 'Installerinserts\320.txt' , "Fenix A320" 2
 EXIT /B 0
 
 :UninstallAllPrompt
@@ -411,6 +420,7 @@ setlocal disabledelayedexpansion
 CALL :Uninstall738
 CALL :Uninstall772
 CALL :Uninstall77W
+CALL :Uninstall320
 setlocal enabledelayedexpansion
 EXIT /B 0
 
@@ -434,6 +444,11 @@ EXIT /B 0
 CALL :UninstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER"
 EXIT /B 0
 
+:Uninstall320
+CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\model\FNX32X_Exterior.xml" , 'Installerinserts\320.txt' , "Fenix A320"
+EXIT /B 0
+
+
 :Reinstall
 call :InstallAll
 EXIT /B 0
@@ -445,7 +460,7 @@ EXIT /B 0
 setlocal disabledelayedexpansion 
 IF EXIST "Installerinserts" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2020/
-set FILES=738.txt 772.txt 77w.txt
+set FILES=738.txt 772.txt 77w.txt 320.txt
 REM Local target folder (change if needed)
 set TARGET=Installerinserts
 del Installerinserts\*.txt
