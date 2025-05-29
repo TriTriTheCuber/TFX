@@ -358,6 +358,10 @@ setlocal enabledelayedexpansion
 EXIT /B 0
 
 
+:updateLayout
+MSFSLayoutGenerator.exe "%COMMUNITY_PATH%\%~1\layout.json"
+exit /b 0
+
 
 
 
@@ -382,28 +386,32 @@ EXIT /B 0
 
 
 :Install738
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (BW)" 3
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (SSW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (BW)" 3 
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (SSW)" 3 
 CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (BW)" 3
 CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (SSW)" 3
 CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (BW)" 3
 CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (SSW)" 3
 CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (BW)" 3
 CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (SSW)" 3
+CALL :updateLayout "pmdg-aircraft-738"
 EXIT /B 0
 
 :Install772
 CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , 'Installerinserts\772.txt' , "PMDG 777-200ER" 3
+CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Install77W
 CALL :InstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER" 3
+CALL :updateLayout "pmdg-aircraft-77w"
 EXIT /B 0
 
 
 :Install320
 CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)" 2
 CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)" 2
+CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 
@@ -438,19 +446,24 @@ CALL :UninstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behav
 CALL :UninstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (SSW)"
 CALL :UninstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (BW)"
 CALL :UninstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (SSW)"
+CALL :updateLayout "pmdg-aircraft-738"
 EXIT /B 0
 
 :Uninstall772
 CALL :UninstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , 'Installerinserts\772.txt' , "PMDG 777-200ER"
+CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Uninstall77W
 CALL :UninstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER"
+CALL :updateLayout "pmdg-aircraft-77w"
 EXIT /B 0
 
 :Uninstall320
- CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)"
+CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)"
 CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)"
+CALL :updateLayout "fnx-aircraft-320"
+
 EXIT /B 0
 
 

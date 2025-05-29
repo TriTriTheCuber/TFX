@@ -5,6 +5,7 @@ setlocal enabledelayedexpansion
 echo Verifying files...
 call :verifyfile "TriTriSim Installer 2020.bat"
 call :verifyfile "TriTriSim Installer 2024.bat"
+call :verifyfile "MSFSLayoutGenerator.exe"
 
 :menu
 cls

@@ -344,6 +344,10 @@ setlocal enabledelayedexpansion
 EXIT /B 0
 
 
+:updateLayout
+MSFSLayoutGenerator.exe "%COMMUNITY_PATH%\%~1\layout.json"
+exit /b 0
+
 
 
 
@@ -366,11 +370,13 @@ EXIT /B 0
 
 :Install772
 CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER" 4
+CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Install320
 CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)" 3
 CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)" 3
+CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 :UninstallAllPrompt
@@ -394,11 +400,13 @@ EXIT /B 0
 
 :Uninstall772
 CALL :UninstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER"
+CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Uninstall320
 CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)"
 CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)"
+CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 
