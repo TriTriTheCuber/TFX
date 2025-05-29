@@ -137,5 +137,5 @@
         </Component>
 	</Component>
 
-<!-- TFX VERSION 0.95 -->
+<!-- TFX VERSION 0.96 -->
 <!-- TFX END -->
