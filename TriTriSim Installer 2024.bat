@@ -25,7 +25,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=772.txt 320CFM.txt 320IAE.txt
+set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts2024
@@ -114,9 +114,13 @@ IF EXIST "Installerinserts2024" (
 call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---------------------------------------------------------------------|White" 
 call :planecheck "pmdg-aircraft-77er\" , "[1] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , "InstallerInserts2024/772.txt"
 call :planecheck "fnx-aircraft-320\" , "[2] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , "InstallerInserts2024/320CFM.txt"
+call :planecheck "flybywire-aircraft-a320-neo\" , "[3] Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"  ,"InstallerInserts2024/320N.txt"
+call :planecheck "flybywire-aircraft-a380-842\" , "[4] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts2024/380.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
-call :uplanecheck "pmdg-aircraft-77er\" "[3] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
-call :uplanecheck "fnx-aircraft-320\" , "[4] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
+call :uplanecheck "pmdg-aircraft-77er\" "[U1] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
+call :uplanecheck "fnx-aircraft-320\" , "[U2] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
+call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U3] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
+call :uplanecheck "flybywire-aircraft-a380-842\" , "[U4] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
@@ -129,8 +133,14 @@ set /p choice=Enter your selection:
 if /i "!choice!"=="Q" CALL :page 0
 if /i "!choice!"=="1" CALL :Install772
 if /i "!choice!"=="2" CALL :Install320
-if /i "!choice!"=="3" CALL :Uninstall772
-if /i "!choice!"=="4" CALL :Uninstall320
+if /i "!choice!"=="3" CALL :Install320N
+if /i "!choice!"=="4" CALL :Install380
+
+if /i "!choice!"=="U1" CALL :Uninstall772
+if /i "!choice!"=="U2" CALL :Uninstall320
+if /i "!choice!"=="U3" CALL :Uninstall320N
+if /i "!choice!"=="U4" CALL :Uninstall380
+
 if /i "!choice!"=="A" CALL :InstallAll
 if /i "!choice!"=="U" CALL :UninstallAllPrompt
 if /i "!choice!"=="F" CALL :Reinstall
@@ -366,6 +376,8 @@ exit /b 0
 :InstallAll
 CALL :Install772
 CALL :Install320
+CALL :Install320N
+CALL :Install380
 EXIT /B 0
 
 :Install772
@@ -378,6 +390,17 @@ CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320
 CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)" 3
 CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
+
+:Install380
+CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts\380.txt' , "Flybywire A380" 2
+CALL :updateLayout "flybywire-aircraft-a380-842"
+EXIT /B 0
+
+:Install320N
+CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo" 2
+CALL :updateLayout "flybywire-aircraft-a320-neo"
+exit /b 0
+
 
 :UninstallAllPrompt
 cls
@@ -394,6 +417,8 @@ EXIT /B 0
 setlocal disabledelayedexpansion
 CALL :Uninstall772
 CALL :Uninstal320
+CALL :Unistall320N
+CALL :Uninstall380
 setlocal enabledelayedexpansion
 EXIT /B 0
 
@@ -409,6 +434,16 @@ CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX3
 CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
+:Uninstall380
+CALL :UninstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts\380.txt' , "Flybywire A380"
+CALL :updateLayout "flybywire-aircraft-a380-842"
+EXIT /B 0
+
+:Uninstall320N
+CALL :UninstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo"
+CALL :updateLayout "flybywire-aircraft-a320-neo"
+exit /b 0
+
 
 :Reinstall
 call :InstallAll
@@ -421,7 +456,7 @@ EXIT /B 0
 setlocal disabledelayedexpansion 
 IF EXIST "Installerinserts2024" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
-set FILES=772.txt 320CFM.txt 320IAE.txt
+set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt
 REM Local target folder (change if needed)
 set TARGET=Installerinserts2024
 del Installerinserts2024\*.txt
