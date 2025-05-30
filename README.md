@@ -13,11 +13,15 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - PMDG 777-300ER
 - PMDG 737-800
 - Fenix A320
+- FlyByWire A320 Neo
+- FlyByWire A380
 
 ### 2024
 
 - PMDG 777-200ER
 - Fenix A320
+- FlyByWire A320 Neo
+- FlyByWire A380
 
 ## Installation
 
