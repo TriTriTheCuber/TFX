@@ -392,12 +392,12 @@ CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 :Install380
-CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts\380.txt' , "Flybywire A380" 2
+CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts2024\380.txt' , "Flybywire A380" 2
 CALL :updateLayout "flybywire-aircraft-a380-842"
 EXIT /B 0
 
 :Install320N
-CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo" 2
+CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts2024\320N.txt' , "Flybywire A320 Neo" 2
 CALL :updateLayout "flybywire-aircraft-a320-neo"
 exit /b 0
 
@@ -435,12 +435,12 @@ CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 :Uninstall380
-CALL :UninstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts\380.txt' , "Flybywire A380"
+CALL :UninstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts2024\380.txt' , "Flybywire A380"
 CALL :updateLayout "flybywire-aircraft-a380-842"
 EXIT /B 0
 
 :Uninstall320N
-CALL :UninstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo"
+CALL :UninstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts2024\320N.txt' , "Flybywire A320 Neo"
 CALL :updateLayout "flybywire-aircraft-a320-neo"
 exit /b 0
 
