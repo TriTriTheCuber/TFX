@@ -26,7 +26,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=738.txt 772.txt 77w.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt
+set FILES=738.txt 772.txt 77w.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt ifly737.txt 77f.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2020/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts
@@ -38,6 +38,9 @@ set DEVMODE=1
 call :getupdatedfiles
 set DEVMODE=0
 )
+
+::77f filepath         pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\Behaviors\PMDG777F_EX.xml
+:: ifly737 filepath    ifly-aircraft-737max8\SimObjects\Airplanes\iFly 737-MAX8\model\iFly737Max.xml
 
 
 :f
@@ -118,18 +121,30 @@ call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---
 call :planecheck "pmdg-aircraft-738\" , "[1] PMDG 737-800" , "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , "InstallerInserts/738.txt"
 call :planecheck "pmdg-aircraft-77er\" , "[2] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , "InstallerInserts/772.txt"
 call :planecheck "pmdg-aircraft-77w\" , "[3] PMDG 777-300ER" , "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"  ,"InstallerInserts/77w.txt"
-call :planecheck "fnx-aircraft-320\" , "[4] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml"  ,"InstallerInserts/320CFM.txt"
-call :planecheck "flybywire-aircraft-a320-neo\" , "[5] Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"  ,"InstallerInserts/320N.txt"
-call :planecheck "flybywire-aircraft-a380-842\" , "[6] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts/380.txt"
+call :planecheck "pmdg-aircraft-77f\" , "[4] PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\Behaviors\PMDG777F_EX.xml"  ,"InstallerInserts/77f.txt"
+
+call :planecheck "fnx-aircraft-320\" , "[5] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml"  ,"InstallerInserts/320CFM.txt"
+call :planecheck "flybywire-aircraft-a320-neo\" , "[6] Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"  ,"InstallerInserts/320N.txt"
+call :planecheck "flybywire-aircraft-a380-842\" , "[7] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts/380.txt"
+
+call :planecheck "ifly-aircraft-737max8\" , "[8] iFly 737 Max 8" , "ifly-aircraft-737max8\SimObjects\Airplanes\iFly 737-MAX8\model\iFly737Max.xml"  ,"InstallerInserts/ifly737.txt"
+
+
+
+
 
 call :fastprint "---------------------------------------------------------------------|White" 
 
 call :uplanecheck "pmdg-aircraft-738\" "[U1] Uninstall PMDG 737-800" "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" 
 call :uplanecheck "pmdg-aircraft-77er\" "[U2] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml"
 call :uplanecheck "pmdg-aircraft-77w\" "[U3] Uninstall PMDG 777-300ER" "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml"
-call :uplanecheck "fnx-aircraft-320\" , "[U4] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml"
-call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U5] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
-call :uplanecheck "flybywire-aircraft-a380-842\" , "[U6] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
+call :uplanecheck "pmdg-aircraft-77f\" , "[U4] Uninstall PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\Behaviors\PMDG777F_EX.xml"
+
+call :uplanecheck "fnx-aircraft-320\" , "[U5] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml"
+call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U6] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
+call :uplanecheck "flybywire-aircraft-a380-842\" , "[U7] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
+
+call :uplanecheck "ifly-aircraft-737max8\" , "[U8] Uninstall iFly 737 Max 8" , "ifly-aircraft-737max8\SimObjects\Airplanes\iFly 737-MAX8\model\iFly737Max.xml"
 
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
@@ -144,16 +159,23 @@ if /i "!choice!"=="Q" CALL :page 0
 if /i "!choice!"=="1" CALL :Install738
 if /i "!choice!"=="2" CALL :Install772
 if /i "!choice!"=="3" CALL :Install77W
-if /i "!choice!"=="4" CALL :Install320
-if /i "!choice!"=="5" CALL :Install320N
-if /i "!choice!"=="6" CALL :Install380
+if /i "!choice!"=="4" CALL :Install77F
+
+if /i "!choice!"=="5" CALL :Install320
+if /i "!choice!"=="6" CALL :Install320N
+if /i "!choice!"=="7" CALL :Install380
+if /i "!choice!"=="8" CALL :InstallIF737M
+
 
 if /i "!choice!"=="u1" CALL :Uninstall738
 if /i "!choice!"=="u2" CALL :Uninstall772
 if /i "!choice!"=="u3" CALL :Uninstall77W
-if /i "!choice!"=="u4" CALL :Uninstall320
-if /i "!choice!"=="u5" CALL :Uninstall320N
-if /i "!choice!"=="u6" CALL :Uninstall380
+if /i "!choice!"=="u4" CALL :Uninstall77F
+
+if /i "!choice!"=="u5" CALL :Uninstall320
+if /i "!choice!"=="u6" CALL :Uninstall320N
+if /i "!choice!"=="u7" CALL :Uninstall380
+if /i "!choice!"=="u8" CALL :UninstallIF737M
 
 if /i "!choice!"=="A" CALL :InstallAll
 if /i "!choice!"=="U" CALL :UninstallAllPrompt
@@ -319,7 +341,9 @@ set RPath3="%COMMUNITY_PATH%\%~1"
 setlocal disabledelayedexpansion
 call :quietunins "%~1" , "%~2" , "%~3"
 setlocal disabledelayedexpansion
-powershell -Command ^
+if defined "%~4" (
+
+    powershell -Command ^
   "$file = '%RPath3%';" ^
   "$insert = Get-Content %~2;" ^
   "$marker = '<!-- TFX INSTALLED -->';" ^
@@ -327,6 +351,24 @@ powershell -Command ^
   "  $index = $lines.Count - %~4;" ^
   "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
   "  $newLines | Set-Content $file;" 
+
+) else (
+
+powershell -Command ^
+  "$file = '%RPath3%';" ^
+  "$insert = Get-Content %~2;" ^
+  "$marker = '<!-- TFX INSTALLED -->';" ^
+  "$lines = Get-Content $file;" ^
+  "$match = $lines | Select-String '</Behaviors>';" ^
+  "if ($match) {" ^
+  "  $index = $match.LineNumber - 1;" ^
+  "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
+  "  $newLines | Set-Content $file" ^
+  "} else {" ^
+  "  Write-Host 'Critical error: </Behaviors> tag not found!' -ForegroundColor Red" ^
+  "}"
+
+)
 setlocal enabledelayedexpansion 
 EXIT /B 0
 
@@ -394,6 +436,7 @@ exit /b 0
 CALL :Install738
 CALL :Install772
 CALL :Install77W
+CALL :Install77F
 CALL :Install320
 CALL :Install320N
 CALL :Install380
@@ -401,43 +444,56 @@ EXIT /B 0
 
 
 :Install738
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (BW)" 3 
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (SSW)" 3 
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (BW)" 3
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (SSW)" 3
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (BW)" 3
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (SSW)" 3
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (BW)" 3
-CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (SSW)" 3
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (BW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 (SSW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2BW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (BW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2SSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800 BBJ2 (SSW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (BW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BCF (SSW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (BW)"
+CALL :InstallTFX "pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml" , 'Installerinserts\738.txt' , "PMDG 737-800BDCF (SSW)"
 CALL :updateLayout "pmdg-aircraft-738"
 EXIT /B 0
 
 :Install772
-CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , 'Installerinserts\772.txt' , "PMDG 777-200ER" 3
+CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml" , 'Installerinserts\772.txt' , "PMDG 777-200ER"
 CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Install77W
-CALL :InstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER" 3
+CALL :InstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behaviors\PMDG773ER_EX.xml" , 'Installerinserts\77w.txt' , "PMDG 777-300ER"
 CALL :updateLayout "pmdg-aircraft-77w"
 EXIT /B 0
 
+:Install77F
+CALL :InstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\Behaviors\PMDG777F_EX.xml" , 'Installerinserts\77f.txt' , "PMDG 777F"
+CALL :updateLayout "pmdg-aircraft-77f"
+exit /b 0
+
 
 :Install320
-CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)" 2
-CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)" 2
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)"
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)"
 CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 :Install380
-CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts\380.txt' , "Flybywire A380" 2
+CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts\380.txt' , "Flybywire A380"
 CALL :updateLayout "flybywire-aircraft-a380-842"
 EXIT /B 0
 
 :Install320N
-CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo" 2
+CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo"
 CALL :updateLayout "flybywire-aircraft-a320-neo"
 exit /b 0
+
+:InstallIF737M
+CALL :InstallTFX "ifly-aircraft-737max8\SimObjects\Airplanes\iFly 737-MAX8\model\iFly737Max.xml" , 'Installerinserts\ifly737.txt' , "iFly 737 Max"
+CALL :updateLayout "ifly-aircraft-737max8"
+exit /b 0
+
+
+
 
 :UninstallAllPrompt
 cls
@@ -455,6 +511,7 @@ setlocal disabledelayedexpansion
 CALL :Uninstall738
 CALL :Uninstall772
 CALL :Uninstall77W
+CALL :Uninstall77F
 CALL :Uninstall320
 CALL :Uninstall320N
 CALL :Uninstall380
@@ -484,6 +541,13 @@ CALL :UninstallTFX "pmdg-aircraft-77w\SimObjects\Airplanes\PMDG 777-300ER\Behavi
 CALL :updateLayout "pmdg-aircraft-77w"
 EXIT /B 0
 
+:Uninstall77F
+CALL :UninstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\Behaviors\PMDG777F_EX.xml" , 'Installerinserts\77f.txt' , "PMDG 777F"
+CALL :updateLayout "pmdg-aircraft-77f"
+exit /b 0
+
+
+
 :Uninstall320
 CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\model\FNX320_Exterior_CFM.xml" , 'Installerinserts\320CFM.txt' , "Fenix A320 (CFM)"
 CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml" , 'Installerinserts\320IAE.txt' , "Fenix A320 (IAE)"
@@ -498,6 +562,12 @@ EXIT /B 0
 :Uninstall320N
 CALL :UninstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts\320N.txt' , "Flybywire A320 Neo"
 CALL :updateLayout "flybywire-aircraft-a320-neo"
+exit /b 0
+
+
+:UninstallIF737M
+CALL :UninstallTFX "ifly-aircraft-737max8\SimObjects\Airplanes\iFly 737-MAX8\model\iFly737Max.xml" , 'Installerinserts\ifly737.txt' , "iFly 737 Max"
+CALL :updateLayout "ifly-aircraft-737max8"
 exit /b 0
 
 
@@ -825,7 +895,7 @@ exit /b 0
 :title
 echo.
 echo        ================================================
-echo                     TriTriSim Installer v1.0            
+echo                     TriTriSim Installer v1.1            
 echo             Developed by TriTriTheCuber / TriTriSim     
 echo                            2020 ver
 echo        ================================================

@@ -25,7 +25,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt
+set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt 77f
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts2024
@@ -38,6 +38,7 @@ call :getupdatedfiles
 set DEVMODE=0
 )
 
+::77f filepath:           pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml
 
 :f
 call :prompt
@@ -113,14 +114,16 @@ exit /b 0
 IF EXIST "Installerinserts2024" (
 call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---------------------------------------------------------------------|White" 
 call :planecheck "pmdg-aircraft-77er\" , "[1] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , "InstallerInserts2024/772.txt"
-call :planecheck "fnx-aircraft-320\" , "[2] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , "InstallerInserts2024/320CFM.txt"
-call :planecheck "flybywire-aircraft-a320-neo\" , "[3] Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"  ,"InstallerInserts2024/320N.txt"
-call :planecheck "flybywire-aircraft-a380-842\" , "[4] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts2024/380.txt"
+call :planecheck "pmdg-aircraft-77f\" , "[2] PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml" , "InstallerInserts2024/772.txt"
+call :planecheck "fnx-aircraft-320\" , "[3] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , "InstallerInserts2024/320CFM.txt"
+call :planecheck "flybywire-aircraft-a320-neo\" , "[4] Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"  ,"InstallerInserts2024/320N.txt"
+call :planecheck "flybywire-aircraft-a380-842\" , "[5] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts2024/380.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
 call :uplanecheck "pmdg-aircraft-77er\" "[U1] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
-call :uplanecheck "fnx-aircraft-320\" , "[U2] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
-call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U3] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
-call :uplanecheck "flybywire-aircraft-a380-842\" , "[U4] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
+call :planecheck "pmdg-aircraft-77f\" , "[U2] PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml"
+call :uplanecheck "fnx-aircraft-320\" , "[U3] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
+call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U4] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
+call :uplanecheck "flybywire-aircraft-a380-842\" , "[U5] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
@@ -132,14 +135,16 @@ setlocal enabledelayedexpansion
 set /p choice=Enter your selection: 
 if /i "!choice!"=="Q" CALL :page 0
 if /i "!choice!"=="1" CALL :Install772
-if /i "!choice!"=="2" CALL :Install320
-if /i "!choice!"=="3" CALL :Install320N
-if /i "!choice!"=="4" CALL :Install380
+if /i "!choice!"=="2" CALL :Install77F
+if /i "!choice!"=="3" CALL :Install320
+if /i "!choice!"=="4" CALL :Install320N
+if /i "!choice!"=="5" CALL :Install380
 
 if /i "!choice!"=="U1" CALL :Uninstall772
-if /i "!choice!"=="U2" CALL :Uninstall320
-if /i "!choice!"=="U3" CALL :Uninstall320N
-if /i "!choice!"=="U4" CALL :Uninstall380
+if /i "!choice!"=="U2" CALL :Uninstall77F
+if /i "!choice!"=="U3" CALL :Uninstall320
+if /i "!choice!"=="U4" CALL :Uninstall320N
+if /i "!choice!"=="U5" CALL :Uninstall380
 
 if /i "!choice!"=="A" CALL :InstallAll
 if /i "!choice!"=="U" CALL :UninstallAllPrompt
@@ -302,7 +307,9 @@ set RPath3="%COMMUNITY_PATH%\%~1"
 setlocal disabledelayedexpansion
 call :quietunins "%~1" , "%~2" , "%~3"
 setlocal disabledelayedexpansion
-powershell -Command ^
+if defined "%~4" (
+
+    powershell -Command ^
   "$file = '%RPath3%';" ^
   "$insert = Get-Content %~2;" ^
   "$marker = '<!-- TFX INSTALLED -->';" ^
@@ -310,8 +317,27 @@ powershell -Command ^
   "  $index = $lines.Count - %~4;" ^
   "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
   "  $newLines | Set-Content $file;" 
+
+) else (
+
+powershell -Command ^
+  "$file = '%RPath3%';" ^
+  "$insert = Get-Content %~2;" ^
+  "$marker = '<!-- TFX INSTALLED -->';" ^
+  "$lines = Get-Content $file;" ^
+  "$match = $lines | Select-String '</Behaviors>';" ^
+  "if ($match) {" ^
+  "  $index = $match.LineNumber - 1;" ^
+  "  $newLines = $lines[0..($index-1)] + $insert + $lines[$index..($lines.Count-1)];" ^
+  "  $newLines | Set-Content $file" ^
+  "} else {" ^
+  "  Write-Host 'Critical error: </Behaviors> tag not found!' -ForegroundColor Red" ^
+  "}"
+  
+)
 setlocal enabledelayedexpansion 
 EXIT /B 0
+
 
 
 :quietunins
@@ -375,29 +401,36 @@ exit /b 0
 
 :InstallAll
 CALL :Install772
+CALL :Install77F
 CALL :Install320
 CALL :Install320N
 CALL :Install380
 EXIT /B 0
 
 :Install772
-CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER" 4
+CALL :InstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER"
 CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
+:Install77F
+CALL :InstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml" , 'Installerinserts2024\77f.txt' , "PMDG 777F"
+CALL :updateLayout "pmdg-aircraft-77f"
+EXIT /B 0
+
+
 :Install320
-CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)" 3
-CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)" 3
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)"
+CALL :InstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml" , 'Installerinserts2024\320IAE.txt' , "Fenix A320 (IAE)"
 CALL :updateLayout "fnx-aircraft-320"
 EXIT /B 0
 
 :Install380
-CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts2024\380.txt' , "Flybywire A380" 2
+CALL :InstallTFX "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml" , 'Installerinserts2024\380.txt' , "Flybywire A380"
 CALL :updateLayout "flybywire-aircraft-a380-842"
 EXIT /B 0
 
 :Install320N
-CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts2024\320N.txt' , "Flybywire A320 Neo" 2
+CALL :InstallTFX "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml" , 'Installerinserts2024\320N.txt' , "Flybywire A320 Neo"
 CALL :updateLayout "flybywire-aircraft-a320-neo"
 exit /b 0
 
@@ -416,6 +449,7 @@ EXIT /B 0
 :UninstallAll
 setlocal disabledelayedexpansion
 CALL :Uninstall772
+CALL :Uninstall77F
 CALL :Uninstal320
 CALL :Unistall320N
 CALL :Uninstall380
@@ -427,6 +461,12 @@ EXIT /B 0
 CALL :UninstallTFX "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , 'Installerinserts2024\772.txt' , "PMDG 777-200ER"
 CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
+
+:Uninstall77F
+CALL :UninstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml" , 'Installerinserts2024\77f.txt' , "PMDG 777F"
+CALL :updateLayout "pmdg-aircraft-77f"
+EXIT /B 0
+
 
 :Uninstall320
 CALL :UninstallTFX "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , 'Installerinserts2024\320CFM.txt' , "Fenix A320 (CFM)"
@@ -776,7 +816,7 @@ exit /b 0
 :title
 echo.
 echo        ================================================
-echo                     TriTriSim Installer v1.0            
+echo                     TriTriSim Installer v1.1            
 echo             Developed by TriTriTheCuber / TriTriSim     
 echo                            2024 ver
 echo        ================================================
