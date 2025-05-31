@@ -8,7 +8,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="fx_77F_engine1">
+        <Component ID="FX_SMOKE_ENGL" Node="fx_77X_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -23,7 +23,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="fx_77F_engine2">
+        <Component ID="FX_SMOKE_ENGL" Node="fx_77X_engine2">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -38,7 +38,7 @@
             <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="fx_77F_engine1">
+        <Component ID="FX_FIRE_ENGL" Node="fx_77X_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -53,7 +53,7 @@
             <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
             <FX_NAME>FX_FIRE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="fx_77F_engine2">
+        <Component ID="FX_FIRE_ENGL" Node="fx_77X_engine2">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -69,7 +69,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_3</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK3" Node="fx_77F_engine1">
+        <Component ID="FX_SPARK3" Node="fx_77X_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -85,7 +85,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_4</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK4" Node="fx_77F_engine1">
+        <Component ID="FX_SPARK4" Node="fx_77X_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -101,7 +101,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_5</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK5" Node="fx_77F_engine2">
+        <Component ID="FX_SPARK5" Node="fx_77X_engine2">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -116,7 +116,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_6</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK6" Node="fx_77F_engine1">
+        <Component ID="FX_SPARK6" Node="fx_77X_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -131,7 +131,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_8</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK8" Node="fx_77F_engine2">
+        <Component ID="FX_SPARK8" Node="fx_77X_engine2">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -146,7 +146,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_9</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK9" Node="fx_77F_engine1">
+        <Component ID="FX_SPARK9" Node="fx_77X_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
