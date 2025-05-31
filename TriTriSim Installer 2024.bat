@@ -120,7 +120,7 @@ call :planecheck "flybywire-aircraft-a320-neo\" , "[4] Flybywire A320 Neo" , "fl
 call :planecheck "flybywire-aircraft-a380-842\" , "[5] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts2024/380.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
 call :uplanecheck "pmdg-aircraft-77er\" "[U1] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
-call :planecheck "pmdg-aircraft-77f\" , "[U2] PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml"
+call :uplanecheck "pmdg-aircraft-77f\" , "[U2] Uninstall PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml"
 call :uplanecheck "fnx-aircraft-320\" , "[U3] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
 call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U4] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
 call :uplanecheck "flybywire-aircraft-a380-842\" , "[U5] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
