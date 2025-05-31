@@ -25,7 +25,7 @@ call :getCommunityPath
 call :buildcommunitystate
 echo Using Community path: %COMMUNITY_PATH%
 
-set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt 77f
+set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt 77f.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts2024
@@ -496,7 +496,7 @@ EXIT /B 0
 setlocal disabledelayedexpansion 
 IF EXIST "Installerinserts2024" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
-set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt
+set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt 77f.txt
 REM Local target folder (change if needed)
 set TARGET=Installerinserts2024
 del Installerinserts2024\*.txt
