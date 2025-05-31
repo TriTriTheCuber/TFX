@@ -114,13 +114,13 @@ exit /b 0
 IF EXIST "Installerinserts2024" (
 call :fastprint "TFX Installer - Please select a compatible aircraft|Green" "---------------------------------------------------------------------|White" 
 call :planecheck "pmdg-aircraft-77er\" , "[1] PMDG 777-200ER" , "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml" , "InstallerInserts2024/772.txt"
-call :planecheck "pmdg-aircraft-77f\" , "[2] PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml" , "InstallerInserts2024/772.txt"
+call :planecheck "pmdg-aircraft-77f\" , "[2] PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior_Behavior.xml" , "InstallerInserts2024/772.txt"
 call :planecheck "fnx-aircraft-320\" , "[3] Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml" , "InstallerInserts2024/320CFM.txt"
 call :planecheck "flybywire-aircraft-a320-neo\" , "[4] Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"  ,"InstallerInserts2024/320N.txt"
 call :planecheck "flybywire-aircraft-a380-842\" , "[5] Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"  ,"InstallerInserts2024/380.txt"
 call :fastprint "---------------------------------------------------------------------|White" 
 call :uplanecheck "pmdg-aircraft-77er\" "[U1] Uninstall PMDG 777-200ER" "pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml"
-call :uplanecheck "pmdg-aircraft-77f\" , "[U2] Uninstall PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml"
+call :uplanecheck "pmdg-aircraft-77f\" , "[U2] Uninstall PMDG 777F" , "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior_Behavior.xml"
 call :uplanecheck "fnx-aircraft-320\" , "[U3] Uninstall Fenix A320" , "fnx-aircraft-320\SimObjects\Airplanes\FNX_320_CFM\Model\FNX320_Exterior_CFM.xml"
 call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U4] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
 call :uplanecheck "flybywire-aircraft-a380-842\" , "[U5] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
@@ -413,7 +413,7 @@ CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Install77F
-CALL :InstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml" , 'Installerinserts2024\77f.txt' , "PMDG 777F"
+CALL :InstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior_Behavior.xml" , 'Installerinserts2024\77f.txt' , "PMDG 777F"
 CALL :updateLayout "pmdg-aircraft-77f"
 EXIT /B 0
 
@@ -463,7 +463,7 @@ CALL :updateLayout "pmdg-aircraft-77er"
 EXIT /B 0
 
 :Uninstall77F
-CALL :UninstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml" , 'Installerinserts2024\77f.txt' , "PMDG 777F"
+CALL :UninstallTFX "pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior_Behavior.xml" , 'Installerinserts2024\77f.txt' , "PMDG 777F"
 CALL :updateLayout "pmdg-aircraft-77f"
 EXIT /B 0
 
