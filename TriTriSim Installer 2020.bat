@@ -583,7 +583,7 @@ EXIT /B 0
 setlocal disabledelayedexpansion 
 IF EXIST "Installerinserts" (
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2020/
-set FILES=738.txt 772.txt 77w.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt
+set FILES=738.txt 772.txt 77w.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt 77f.txt
 REM Local target folder (change if needed)
 set TARGET=Installerinserts
 del Installerinserts\*.txt
