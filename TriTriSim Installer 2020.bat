@@ -148,6 +148,7 @@ call :uplanecheck "ifly-aircraft-737max8\" , "[U8] Uninstall iFly 737 Max 8" , "
 
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
 If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
+If EXIST "%COMMUNITY_PATH%/gf-material-lib" (call :fastprint "[M] Material package already installed.|White") else (call :fastprint "[M] Install material package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
 If %DEVMODE% EQU 1 (call :fastprint "[D] Disable devmode|Red" "---------------------------------------------------------------------|White") else (call :fastprint "[D] Enable devmode|Green" "---------------------------------------------------------------------|White") 
 echo.
@@ -183,6 +184,7 @@ if /i "!choice!"=="F" CALL :Reinstall
 if /i "!choice!"=="C" CALL :getupdatedfiles
 if /i "!choice!"=="D" CALL :toggledevmode
 if /i "!choice!"=="B" (If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :uninstallbasepackageprompt) else (call :installbasepackage))
+if /i "!choice!"=="M" call :installmaterialpackage
 if /i "!choice!"=="S" call :page s
 pause
 ) else (
@@ -715,6 +717,12 @@ exit /b 0
 echo Attempting to install base package...
 call :fetchzip "https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2020.zip" , "%COMMUNITY_PATH%"
 exit /b 0
+
+:installmaterialpackage
+echo Attempting to install material package...
+call :fetchzip "https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/materiallibs.zip" , "%COMMUNITY_PATH%"
+exit /b 0
+
 
 :uninstallbasepackageprompt
 cls
