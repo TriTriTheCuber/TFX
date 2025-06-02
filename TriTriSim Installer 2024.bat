@@ -15,6 +15,7 @@ IF NOT EXIST "state2024" (
 	mkdir state2024
 )
 
+
 call :verifyfile "printmulti.ps1"
 call :verifyfile "detect_community2024.ps1"
 call :verifyfile "zipdownloadmanager.ps1"
@@ -29,7 +30,6 @@ set FILES=772.txt 320CFM.txt 320IAE.txt 320N.txt 380.txt 77f.txt
 set BASEURL=https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/2024/
 set FILEPATH=%%~dp0
 set TARGET=Installerinserts2024
-
 call :getstate devmode
 IF %state% EQU 1 (
 set DEVMODE=1
@@ -37,6 +37,9 @@ set DEVMODE=1
 call :getupdatedfiles
 set DEVMODE=0
 )
+
+call :getbaseversion
+call :getremoteversion 2024
 
 ::77f filepath:           pmdg-aircraft-77f\SimObjects\Airplanes\PMDG 777F\attachments\pmdg\Function_Exterior_77F\model\77F_Exterior.xml
 
@@ -73,14 +76,17 @@ color 7
 call :title
 call :getpage
 
-If %DEVMODE% EQU 1 (
-call :fastprint "Devmode enabled|White"
-call :fastprint "Page %cpage%|White"
-)
-
 
 call :getcommunitystate communitypath
 set "COMMUNITY_PATH=%state%"
+
+If %DEVMODE% EQU 1 (
+call :fastprint "Devmode enabled|White"
+call :fastprint "Page %cpage%|White"
+call :fastprint "base version %baseversion%|White"
+call :fastprint "online base version %REMOTE_VER%|White"
+)
+
 
 IF %cpage% EQU 1 (
     call :TFXprompt
@@ -125,7 +131,17 @@ call :uplanecheck "fnx-aircraft-320\" , "[U3] Uninstall Fenix A320" , "fnx-aircr
 call :uplanecheck "flybywire-aircraft-a320-neo\" , "[U4] Uninstall Flybywire A320 Neo" , "flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml"
 call :uplanecheck "flybywire-aircraft-a380-842\" , "[U5] Uninstall Flybywire A380" , "flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml"
 call :fastprint "---------------------------------------------------------------------|White" "[F] Update all|White" "[C] Check for updates|White" "---------------------------------------------------------------------|White" "[A] Install All|Green" "[U] Uninstall All|Red" "---------------------------------------------------------------------|White" "[S] Settings|White" "---------------------------------------------------------------------|White"
-If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :fastprint "[B] Uninstall base package|Red") else (call :fastprint "[B] Install base package|Green") 
+if exist "%COMMUNITY_PATH%\TFX-fxlib" (
+    if "%REMOTE_VER%"=="%baseversion%" (
+        call :fastprint "[B] Uninstall base package|Red"
+    ) else (
+        call :fastprint "[B] Update base package (v%baseversion% -> v%REMOTE_VER%)|Yellow"
+    )
+) else (
+    call :fastprint "[B] Install base package|Green"
+)
+
+
 If EXIST "%COMMUNITY_PATH%/gf-material-lib" (call :fastprint "[M] Material package already installed.|White") else (call :fastprint "[M] Install material package|Green") 
 call :fastprint "---------------------------------------------------------------------|White" 
 If %DEVMODE% EQU 1 (call :fastprint "[D] Disable devmode|Red" "---------------------------------------------------------------------|White") else (call :fastprint "[D] Enable devmode|Green" "---------------------------------------------------------------------|White") 
@@ -146,13 +162,15 @@ if /i "!choice!"=="U2" CALL :Uninstall77F
 if /i "!choice!"=="U3" CALL :Uninstall320
 if /i "!choice!"=="U4" CALL :Uninstall320N
 if /i "!choice!"=="U5" CALL :Uninstall380
-
 if /i "!choice!"=="A" CALL :InstallAll
 if /i "!choice!"=="U" CALL :UninstallAllPrompt
 if /i "!choice!"=="F" CALL :Reinstall
 if /i "!choice!"=="C" CALL :getupdatedfiles
 if /i "!choice!"=="D" CALL :toggledevmode
-if /i "!choice!"=="B" (If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (call :uninstallbasepackageprompt) else (call :installbasepackage))
+if /i "!choice!"=="B" (If EXIST "%COMMUNITY_PATH%/TFX-fxlib" (if "%REMOTE_VER%"=="%baseversion%" (call :uninstallbasepackageprompt) else (
+call :uninstallbasepackage
+call :installbasepackage
+) ) else (call :installbasepackage) )
 if /i "!choice!"=="M" call :installmaterialpackage
 if /i "!choice!"=="S" call :page s
 pause
@@ -629,6 +647,7 @@ exit /b 0
 :installbasepackage
 echo Attempting to install base package...
 call :fetchzip "https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2024.zip" , "%COMMUNITY_PATH%"
+set "baseversion=%REMOTE_VER%"
 exit /b 0
 
 :installmaterialpackage
@@ -816,7 +835,54 @@ if not exist "state2024/community.txt" (
 exit /b 0
 
 
+:getbaseversion
+del temp\remotebase.txt
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/TriTriTheCuber/TFX/main/tfxbaseversions.txt' -OutFile 'temp\remotebase.txt' -UseBasicParsing"
 
+setlocal enabledelayedexpansion
+set "ver=0"
+:: Store full version file path first (avoid expansion issues)
+set "verfile=%COMMUNITY_PATH%\TFX-fxlib\tfx-base-version.txt"
+if exist "%COMMUNITY_PATH%\TFX-fxlib" (
+    set "ver=1"
+    if exist "!verfile!" (
+        for /f "usebackq delims=" %%i in ("!verfile!") do (
+            set "ver=%%i"
+            goto :gotverloc
+        )
+    )
+)
+:gotverloc
+endlocal & set "baseversion=%ver%"
+exit /b 0
+
+
+:getremoteversion
+:: Usage: call :getremoteversion 2020
+:: Result: sets REMOTE_VER to the version string for that base
+
+setlocal enabledelayedexpansion
+set "basever=%~1"
+set "REMOTE_VER=0"
+
+:: Assume _remotebasever.txt was downloaded from GitHub and exists
+set "VERFILE=temp\remotebase.txt"
+set "found=0"
+
+for /f "usebackq tokens=* delims=" %%L in ("%VERFILE%") do (
+    set "line=%%L"
+    if !found! equ 1 (
+        set "REMOTE_VER=!line!"
+        goto :done
+    )
+    if /i "!line!"=="%basever%" (
+        set "found=1"
+    )
+)
+
+:done
+endlocal & set "REMOTE_VER=%REMOTE_VER%"
+exit /b 0
 
 
 
