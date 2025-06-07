@@ -1,4 +1,7 @@
 <!-- TFX INSTALLED -->
+<!-- PATH = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml -->
+<!-- NAME = PMDG 737-800 (BW) -->
+<!-- TAG = </Behaviors> -->
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(L:Failure_ENG_1_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
