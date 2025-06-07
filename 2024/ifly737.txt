@@ -1,4 +1,8 @@
 <!-- TFX INSTALLED -->
+<!-- PATH = ifly-aircraft-737max8\SimObjects\Airplanes\iFly 737-MAX8\model\iFly737Max.xml -->
+<!-- NAME = iFly 737 Max 8 -->
+<!-- TAG = </Behaviors> -->
+
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(L:Animation_Engine_1_Fire_FX_Display_VAL, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
@@ -34,7 +38,7 @@
             <FX_CODE>(L:Animation_Engine_1_Fire_FX_Display_VAL, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>4</FX_OFFSET_Z>
+            <FX_OFFSET_Z>3.8</FX_OFFSET_Z>
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
@@ -49,7 +53,7 @@
 	    <FX_CODE>(L:Animation_Engine_2_Fire_FX_Display_VAL, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>4</FX_OFFSET_Z>
+            <FX_OFFSET_Z>3.8</FX_OFFSET_Z>
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>

@@ -1,4 +1,8 @@
 <!-- TFX INSTALLED -->
+<!-- PATH = fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\Model\FNX320_Exterior_IAE.xml -->
+<!-- NAME = Fenix A320 (IAE) -->
+<!-- TAG = </Behaviors> -->
+
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(L:A320_ProSimA320_ENG1_Fire, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
@@ -137,5 +141,5 @@
         </Component>
 	</Component>
 
-<!-- TFX VERSION 0.96-->
+<!-- TFX VERSION 0.95 -->
 <!-- TFX END -->

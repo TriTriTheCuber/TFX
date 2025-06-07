@@ -1,5 +1,8 @@
-
 <!-- TFX INSTALLED -->
+<!-- PATH = pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml -->
+<!-- NAME = PMDG 777-200ER -->
+<!-- TAG = </Behaviors> -->
+
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(L:Failure_ENG_L_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
