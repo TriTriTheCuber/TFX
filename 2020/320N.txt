@@ -1,4 +1,7 @@
 <!-- TFX INSTALLED -->
+<!-- PATH = flybywire-aircraft-a320-neo\SimObjects\AirPlanes\FlyByWire_A320_NEO\model\A320_NEO.xml -->
+<!-- NAME = FlyByWire A320 Neo -->
+<!-- TAG = </Behaviors> -->
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
@@ -153,5 +156,5 @@
 	</Component>
 
 
-<!-- TFX VERSION 0.95 -->
+<!-- TFX VERSION 1 -->
 <!-- TFX END -->

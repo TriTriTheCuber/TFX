@@ -1,4 +1,7 @@
 <!-- TFX INSTALLED -->
+<!-- PATH = flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml -->
+<!-- NAME = FlyByWire A380 -->
+<!-- TAG = </Behaviors> -->
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(L:A32NX_ENG_1_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
@@ -359,8 +362,5 @@
 
 
 
-
-
-
-<!-- TFX VERSION 0.96 -->
+<!-- TFX VERSION 1 -->
 <!-- TFX END -->

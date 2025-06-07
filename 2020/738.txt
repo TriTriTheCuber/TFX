@@ -1,6 +1,14 @@
 <!-- TFX INSTALLED -->
-<!-- PATH = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml -->
-<!-- NAME = PMDG 737-800 (BW) -->
+<!-- PATH1 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800BW.xml -->
+<!-- PATH2 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800\Behaviors\PMDG_NG3_800SSW.xml -->
+<!-- PATH3 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2BW.xml -->
+<!-- PATH4 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BBJ2\Behaviors\PMDG_NG3_BBJ2SSW.xml -->
+<!-- PATH5 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFBW.xml -->
+<!-- PATH6 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BCF\Behaviors\PMDG_NG3_800BCFSSW.xml -->
+<!-- PATH7 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFBW.xml -->
+<!-- PATH8 = pmdg-aircraft-738\SimObjects\Airplanes\PMDG 737-800BDSF\Behaviors\PMDG_NG3_800BDSFSSW.xml -->
+
+<!-- NAME = PMDG 737-800 -->
 <!-- TAG = </Behaviors> -->
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
@@ -154,5 +162,7 @@
             </UseTemplate>
         </Component>
 	</Component>
-<!-- TFX VERSION 0.92 -->
+
+
+<!-- TFX VERSION 1 -->
 <!-- TFX END -->
