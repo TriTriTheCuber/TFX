@@ -155,6 +155,7 @@
             </UseTemplate>
         </Component>
 	</Component>
-<!-- TFX VERSION 0.96 -->
-<!-- TFX END -->
 
+
+<!-- TFX VERSION 1 -->
+<!-- TFX END -->

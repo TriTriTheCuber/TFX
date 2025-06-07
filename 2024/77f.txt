@@ -158,5 +158,5 @@
 
 <!-- CREDITS:  @DindilloYT, testing -->
 
-<!-- TFX VERSION 0.96 -->
+<!-- TFX VERSION 1 -->
 <!-- TFX END -->

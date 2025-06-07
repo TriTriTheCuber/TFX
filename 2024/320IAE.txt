@@ -141,5 +141,5 @@
         </Component>
 	</Component>
 
-<!-- TFX VERSION 0.95 -->
+<!-- TFX VERSION 1 -->
 <!-- TFX END -->
