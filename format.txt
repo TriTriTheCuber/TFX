@@ -1,0 +1,10 @@
+<!-- TFX INSTALLED -->
+<!-- PATH = (path) -->
+<!-- NAME = (name) -->
+<!-- TAG = (tag) -->
+
+Stuff goes here
+
+<!-- Credits : anyone that may have helped you -->
+<!-- TFX VERSION ver -->
+<!-- TFX END -->
