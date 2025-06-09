@@ -28,13 +28,9 @@ def resetapplication():
 #Not reliable
 
 
-
 def restart_app():
-    if os.path.isfile("restartinstaller.py"):
-        subprocess.Popen([sys.executable, "restartinstaller.py"])
-    else:
-        subprocess.Popen([sys.executable, "restartinstaller.exe"])
-    sys.exit(0)
+    dpg.delete_item("main_panel")
+    mainwindow()
 
 
 def specialbuttoncallback(sender, appdata, user_data):
@@ -46,7 +42,7 @@ def specialbuttoncallback(sender, appdata, user_data):
     pass
     if simversion == "2020":
         if action == "bdown":
-            fetch_zip(zip_url=r"https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2020.zip",community_path=community_2020)
+            fetch_zip(zip_url=r"https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2020.zip", community_path=community_2020)
         if action == "br":
             remove_folder_from_community(folder_name="TFX-fxlib", community_path=community_2020)
         if action == "u":
@@ -64,9 +60,7 @@ def specialbuttoncallback(sender, appdata, user_data):
             fetch_zip(zip_url=r"https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/TFX.2024.zip",community_path=community_2024)
         if action == "mat":
             fetch_zip(zip_url=r"https://github.com/TriTriTheCuber/TFX/releases/download/openbeta/materiallibs.zip",community_path=community_2024)
-
-
-
+    restart_app()
 
 
 def createspecialbuttons(buttontag="2020tab", simversion="2020"):
@@ -139,17 +133,6 @@ def createspecialbuttons(buttontag="2020tab", simversion="2020"):
         dpg.add_button(label=buttonlabel2, tag="2024matbutton", callback=specialbuttoncallback, user_data = [simversion, action2], parent=buttontag, enabled=enabled2)
 
 
-
-
-
-
-
-
-
-
-
-
-
 def checkfiledifferences(remotelines, locallines, simver="2020"):
     if simver == "2020":
         if locallines[0] == None:
@@ -167,7 +150,6 @@ def checkfiledifferences(remotelines, locallines, simver="2020"):
             return "Update"
 
 
-
 def fetch_remote_file(url):
     try:
         response = requests.get(url)
@@ -183,9 +165,6 @@ def read_local_file(filepath):
         return None
     with open(filepath, "r", encoding="utf-8") as f:
         return f.read().strip().splitlines()
-
-
-
 
 
 def get_top_level_folder(path):
@@ -223,8 +202,6 @@ def remove_folder_from_community(folder_name, community_path):
     else:
         print(f"Folder not found: {target_path}")
         return False
-
-
 
 
 def fetch_zip(zip_url, community_path):
@@ -388,16 +365,10 @@ def check_plane(filepath, simversion="2020"):
     return (parse_tfx_metadata(file_path=selpath))
 
 
-
 def check_plane_from_file(file, simv="2020"):
     pathv, namev, versionv, tagv, inv = parse_tfx_metadata(file_path=file)
     return (check_plane(filepath=pathv, simversion=simv))
 
-
-
-# Folder to scan (relative or absolute path)
-
-# Callback for when a button is clicked
 def planebutton(sender, app_data, user_data):
     print(f"Clicked: {user_data[0]}")
     print(f"Sim version: {user_data[1]}")
@@ -409,6 +380,7 @@ def planebutton(sender, app_data, user_data):
         uninstall_from_module(modulepath=user_data[0], simversion=user_data[1])
     if action == "Update":
         install_from_module(modulepath=user_data[0], simversion=user_data[1])
+    restart_app()
 
 
 def generate_file_buttons(folder_path, buttontag=None, simversion="2020"):
@@ -456,9 +428,6 @@ def generate_file_buttons(folder_path, buttontag=None, simversion="2020"):
 
             if not buttontag: buttontag = "</Behaviors>"
             dpg.add_button(label=button_label, callback=planebutton, user_data = [full_path, simversion, action], parent=buttontag, enabled=planeinstalled, tag=f"button.{full_path}.{simversion}")
-
-
-
 
 def quiet_uninstall(target_file):
     with open(target_file, 'r', encoding='utf-8') as f:
@@ -536,8 +505,7 @@ def domenu(sender):
         print ("Fetching files...")
         fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2020", destination="InstallerInserts", branch="main")
         fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2024", destination="InstallerInserts2024", branch="main")
-
-
+        restart_app()
 
 
 def verify_and_download(filename, base_url):
@@ -614,10 +582,6 @@ def uninstall_from_module(modulepath,simversion):
     print (spath)
     regenlayout(spath)
 
-
-
-
-
 def install_from_module(modulepath, simversion):
     outpat, outname, outver, outtag, outinstall = parse_tfx_metadata(modulepath)
     outpath = []
@@ -642,8 +606,6 @@ def on_window_close():
     print("Window closed. Shutting down.")
     dpg.stop_dearpygui()
 
-# Add a handler for the close event
-
 
 def regenlayout(path):
     subprocess.run(["MSFSLayoutGenerator.exe", path])
@@ -652,12 +614,9 @@ def set_state(value):
     with open("state.txt", "w", encoding="utf-8") as f:
         f.write(str(value) + "\n")
 
-
 if not os.path.isfile("state.txt"):
     with open("state.txt", 'x') as state:
         state.write("0")
-
-
 
 
 def get_state():
@@ -668,24 +627,48 @@ def get_state():
         return None  # or default to "0"
 
 
-
 def devtoggle():
     current = get_state()
     new_value = "1" if current == "0" else "0"
     set_state(new_value)
     print (rf"New devmode = {new_value}")
+    restart_app()
 
 
-
-
+def mainwindow():
+    devmode = get_state()
+    if devmode == "1":
+        devmodet = True
+    else:
+        devmodet = False
+    with dpg.window(tag="main_panel", width=500, height=400, pos=[0,0],label="TriTriSim Installer",on_close=on_window_close):
+        with dpg.menu_bar():
+            with dpg.menu(label="File"):
+                dpg.add_menu_item(label="Check for updates", tag="cfu", callback=domenu)
+                dpg.add_menu_item(label="Restart Installer", callback=lambda: restart_app())
+            with dpg.menu(label="Settings"):
+                dpg.add_checkbox(label="Devmode", tag="devtoggle", default_value=devmodet, callback=devtoggle)
+            if devmode=="1":
+                with dpg.menu(label="Devmode"):
+                    dpg.add_menu_item(label="Reset installer", callback=resetapplication)
+        dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an installer:")
+        with dpg.tab_bar(label="tab bar"):
+            with dpg.tab(label="2020",tag="2020tab"):
+                with dpg.group(horizontal=True, tag="2020sg"):
+                    createspecialbuttons(buttontag="2020sg", simversion="2020")
+                generate_file_buttons(folder_path="InstallerInserts", buttontag="2020tab", simversion="2020")
+            with dpg.tab(label="2024",tag="2024tab"):
+                with dpg.group(horizontal=True, tag="2024sg"):
+                    createspecialbuttons(buttontag="2024sg", simversion="2024")
+                generate_file_buttons(folder_path="InstallerInserts2024", buttontag="2024tab", simversion="2024")
 
 # End of important stuff
 
-
 devmode = get_state()
-
-
-
+if devmode == "1":
+    devmodet = True
+else:
+    devmodet = False
 
 
 if not os.path.exists("InstallerInserts"):
@@ -716,33 +699,19 @@ else:
             community_2020 = path
 
 
-
 print(f"{community_2020}\n{community_2024}")
-
 
 currentver = 1
 base_url = "https://raw.githubusercontent.com/TriTriTheCuber/TFX/main"
-required_files = ["MSFSLayoutGenerator.exe", "restartinstaller.exe", "Dark.ico"]
-if devmode == "1":
-    devmodet = True
-else:
-    devmodet = False
-
-
+required_files = ["MSFSLayoutGenerator.exe"]
 
 for file in required_files:
     verify_and_download(file, base_url)
-
-
 
 dpg.create_context()
 
 # Set to fullscreen
 dpg.create_viewport(clear_color=[0,0,0,0], title="TriTriSim Installer_87498378")
-
-
-
-
 
 with dpg.theme() as disabled_theme:
     with dpg.theme_component(dpg.mvButton, enabled_state=False):
@@ -752,57 +721,24 @@ with dpg.theme() as disabled_theme:
 
 dpg.bind_theme(disabled_theme)
 
-
-
-
-
-
-with dpg.window(tag="main_panel", width=500, height=400, pos=[0,0],label="TriTriSim Installer",on_close=on_window_close):
-        with dpg.menu_bar():
-            with dpg.menu(label="File"):
-                dpg.add_menu_item(label="Check for updates", tag="cfu", callback=domenu)
-                dpg.add_menu_item(label="Restart Installer", callback=lambda: restart_app())
-            with dpg.menu(label="Settings"):
-                dpg.add_checkbox(label="Devmode", tag="devtoggle", default_value=devmodet, callback=devtoggle)
-            if devmode=="1":
-                with dpg.menu(label="Devmode"):
-                    dpg.add_menu_item(label="Reset installer", callback=resetapplication)
-
-
-        dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an installer:")
-        with dpg.tab_bar(label="tab bar"):
-            with dpg.tab(label="2020",tag="2020tab"):
-                with dpg.group(horizontal=True, tag="2020sg"):
-                    createspecialbuttons(buttontag="2020sg", simversion="2020")
-                generate_file_buttons(folder_path="InstallerInserts", buttontag="2020tab", simversion="2020")
-            with dpg.tab(label="2024",tag="2024tab"):
-                with dpg.group(horizontal=True, tag="2024sg"):
-                    createspecialbuttons(buttontag="2024sg", simversion="2024")
-                generate_file_buttons(folder_path="InstallerInserts2024", buttontag="2024tab", simversion="2024")
-
-
-
+#init main window
+mainwindow()
 
 dpg.setup_dearpygui()
 dpg.show_viewport()
 dpg.toggle_viewport_fullscreen()
 
-
 # Get native HWND handle
 hwnd = ctypes.windll.user32.FindWindowW(None, "TriTriSim Installer_87498378")
-
 # Set window style to layered (NOT transparent to input)
 GWL_EXSTYLE = -20
 WS_EX_LAYERED = 0x00080000
-
 # Apply the style
 style = ctypes.windll.user32.GetWindowLongW(hwnd, GWL_EXSTYLE)
 style |= WS_EX_LAYERED
 ctypes.windll.user32.SetWindowLongW(hwnd, GWL_EXSTYLE, style)
-
 # Enable transparency with color key (pure black = transparent)
 ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0x000000, 0, 0x01)
-
 
 while dpg.is_dearpygui_running():
     dpg.render_dearpygui_frame()
