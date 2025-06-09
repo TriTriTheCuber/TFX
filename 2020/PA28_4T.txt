@@ -108,5 +108,5 @@
 </Component>
 </Component>
 <!-- Credits: DindilloYT -->
-<!-- TFX VERSION 0.9-->
+<!-- TFX VERSION 1 -->
 <!-- TFX END-->
