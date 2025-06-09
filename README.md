@@ -3,7 +3,7 @@
 
 ## What is this?
 This is an experimental mod i have been working on for MSFS 2020 & MSFS 2024.
-It adds emergency effects to pre-existing planes. You can join the [discord](https://discord.gg/N7cHezb5) for support.
+It adds emergency effects to pre-existing planes. You can join the [discord](https://discord.gg/g4bJ3nBmck) for support.
 
 ## Supported planes
 
@@ -16,31 +16,32 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - Fenix A320
 - FlyByWire A320 Neo
 - FlyByWire A380
-- iFly 737 Max 8 (special thanks to @DindilloYT)
+- iFly 737 Max 8
+- Piper PA28 Turboarrow III/IV
+- Inibuilds A350
 
 ### 2024
 
 - PMDG 777-200ER
 - PMDG 777F
 - Fenix A320
-- FlyByWire A320 Neo
-- FlyByWire A380
+- FlyByWire A320 Neo*
+- FlyByWire A380*
+- iFly 737 Max 8*
 
 ## Installation
 
 Here's how to install this mod:
 
-- First, download `TriTriSim Hub.bat` from this repository, and place it into an empty folder.
+- First, download either `TriTriSim Installer.exe`(executable) or `tritrisim_installer.py`(source) from this repository, and place it into an empty folder.
 
-- Next, run the file, select 2020, reopen, select 2024, and initialization is complete.
+- Next, run the file.
 
-- Now, using `TriTriSim Hub.bat`, open the installer for your simulator, go to settings, and make sure the community folder is correct. If not, set it.
+- Install the base package and the material package for each simulator through the installer, and then install TFX for any plane you own and is supported.
 
-- Finally, go to the main menu of your sim-specific installer, select TFX, install the base package, and select any planes you need.
-
-- You are done.
+- You are done :)
 
 If you experience issues, please contact me via the discord server.
 
-[TriTriSim Discord Server](https://discord.gg/N7cHezb5)
+[TriTriSim Discord Server](https://discord.gg/g4bJ3nBmck)
 
