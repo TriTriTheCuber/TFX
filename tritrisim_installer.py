@@ -653,16 +653,52 @@ def mainwindow():
                     dpg.add_menu_item(label="Reset installer", callback=resetapplication)
         dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an installer:")
         with dpg.tab_bar(label="tab bar"):
-            with dpg.tab(label="2020",tag="2020tab"):
-                with dpg.group(horizontal=True, tag="2020sg"):
-                    createspecialbuttons(buttontag="2020sg", simversion="2020")
-                generate_file_buttons(folder_path="InstallerInserts", buttontag="2020tab", simversion="2020")
-            with dpg.tab(label="2024",tag="2024tab"):
-                with dpg.group(horizontal=True, tag="2024sg"):
-                    createspecialbuttons(buttontag="2024sg", simversion="2024")
-                generate_file_buttons(folder_path="InstallerInserts2024", buttontag="2024tab", simversion="2024")
+            if community_2020 and not community_2020 == " ":
+                with dpg.tab(label="2020",tag="2020tab"):
+                    with dpg.group(horizontal=True, tag="2020sg"):
+                        createspecialbuttons(buttontag="2020sg", simversion="2020")
+                    generate_file_buttons(folder_path="InstallerInserts", buttontag="2020tab", simversion="2020")
+            if community_2024 and not community_2024 == " ":
+                with dpg.tab(label="2024",tag="2024tab"):
+                    with dpg.group(horizontal=True, tag="2024sg"):
+                        createspecialbuttons(buttontag="2024sg", simversion="2024")
+                    generate_file_buttons(folder_path="InstallerInserts2024", buttontag="2024tab", simversion="2024")
+
+def none2020():
+    global community_2020
+    community_2020 = " "
+
+def none2024():
+    global community_2024
+    community_2024 = " "
+
+
+def fileset2020(sender, appdata):
+    global community_2020
+    community_2020 = appdata['file_path_name']
+
+def fileset2024(sender, appdata):
+    global community_2024
+    community_2024 = appdata['file_path_name']
+
+def getcommunity():
+    found = find_msfs_community_folders()
+    if not found:
+        print("❌ No Community folders found from UserCfg.opt files.")
+    else:
+        for origin, path in found:
+            if "2024" in origin:
+                print(f"Found MSFS 2024 Community folder:\n{path}")
+                community_2024 = path
+            else:
+                print(f"Found MSFS 2020 Community folder:\n{path}")
+                community_2020 = path
+    return community_2020, community_2024
+
 
 # End of important stuff
+community_2020 = None
+community_2024 = None
 
 devmode = get_state()
 if devmode == "1":
@@ -680,27 +716,6 @@ if not devmode=="1":
     fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2020", destination="InstallerInserts", branch="main")
     fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2024", destination="InstallerInserts2024", branch="main")
 
-community_2020 = None
-community_2024 = None
-
-
-found = find_msfs_community_folders()
-
-
-if not found:
-    print("❌ No Community folders found from UserCfg.opt files.")
-else:
-    for origin, path in found:
-        if "2024" in origin:
-            print(f"Found MSFS 2024 Community folder:\n{path}")
-            community_2024 = path
-        else:
-            print(f"Found MSFS 2020 Community folder:\n{path}")
-            community_2020 = path
-
-
-print(f"{community_2020}\n{community_2024}")
-
 currentver = 1
 base_url = "https://raw.githubusercontent.com/TriTriTheCuber/TFX/main"
 required_files = ["MSFSLayoutGenerator.exe"]
@@ -710,8 +725,25 @@ for file in required_files:
 
 dpg.create_context()
 
-# Set to fullscreen
+
+
 dpg.create_viewport(clear_color=[0,0,0,0], title="TriTriSim Installer_87498378")
+
+if not os.path.isfile("community.txt"):
+    community_2020, community_2024 = getcommunity()
+    if community_2020 == None:
+        dpg.add_file_dialog(directory_selector=True, show=True, callback=fileset2020, cancel_callback=none2020, tag="2020filedialogue", width=700, height=400, label="Please select your 2020 community folder, it was not detected. If you do not have MSFS 2020 installed, please press 'cancel'.")
+    if community_2024 == None:
+        dpg.add_file_dialog(directory_selector=True, show=True, callback=fileset2024, cancel_callback=none2024, tag="2024filedialogue", width=700, height=400, label="Please select your 2024 community folder, it was not detected. If you do not have MSFS 2024 installed, please press 'cancel'.")
+else:
+    with open("community.txt", "r") as c:
+        communitylines = c.readlines()
+        community_2020 = communitylines[0].strip()
+        community_2024 = communitylines[1].strip()
+
+print (f"{community_2020}\n{community_2024}")
+
+
 
 with dpg.theme() as disabled_theme:
     with dpg.theme_component(dpg.mvButton, enabled_state=False):
@@ -721,11 +753,21 @@ with dpg.theme() as disabled_theme:
 
 dpg.bind_theme(disabled_theme)
 
+
 #init main window
 mainwindow()
 
+
+
+
+
+
+
 dpg.setup_dearpygui()
 dpg.show_viewport()
+
+
+
 dpg.toggle_viewport_fullscreen()
 
 # Get native HWND handle
@@ -742,5 +784,13 @@ ctypes.windll.user32.SetLayeredWindowAttributes(hwnd, 0x000000, 0, 0x01)
 
 while dpg.is_dearpygui_running():
     dpg.render_dearpygui_frame()
+    if community_2020 and community_2024:
+        if not os.path.isfile("community.txt"):
+            with open("community.txt", 'x') as community:
+                community.write(community_2020)
+                community.write("\n")
+                community.write(community_2024)
+                restart_app()
+
 dpg.start_dearpygui()
 dpg.destroy_context()
