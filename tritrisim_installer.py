@@ -682,6 +682,8 @@ def fileset2024(sender, appdata):
     community_2024 = appdata['file_path_name']
 
 def getcommunity():
+    community_2020f = None
+    community_2024f = None
     found = find_msfs_community_folders()
     if not found:
         print("❌ No Community folders found from UserCfg.opt files.")
@@ -689,11 +691,15 @@ def getcommunity():
         for origin, path in found:
             if "2024" in origin:
                 print(f"Found MSFS 2024 Community folder:\n{path}")
-                community_2024 = path
+                community_2024f = path
             else:
                 print(f"Found MSFS 2020 Community folder:\n{path}")
-                community_2020 = path
-    return community_2020, community_2024
+                community_2020f = path
+    if not community_2020f:
+        community_2020f = " "
+    if not community_2024f:
+        community_2024f = " "
+    return community_2020f, community_2024f
 
 
 # End of important stuff
@@ -731,6 +737,10 @@ dpg.create_viewport(clear_color=[0,0,0,0], title="TriTriSim Installer_87498378")
 
 if not os.path.isfile("community.txt"):
     community_2020, community_2024 = getcommunity()
+    if community_2020 == " ":
+        community_2020 = None
+    if community_2024 == " ":
+        community_2024 = None
     if community_2020 == None:
         dpg.add_file_dialog(directory_selector=True, show=True, callback=fileset2020, cancel_callback=none2020, tag="2020filedialogue", width=700, height=400, label="Please select your 2020 community folder, it was not detected. If you do not have MSFS 2020 installed, please press 'cancel'.")
     if community_2024 == None:
