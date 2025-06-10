@@ -1,5 +1,5 @@
 <!-- TFX INSTALLED -->
-<!-- PATH = pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml -->
+<!-- PATH = pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\attachments\pmdg\Function_Exterior_772\model\772_Exterior_Behavior.xml -->
 <!-- NAME = PMDG 777-200ER  -->
 <!-- TAG = </Behaviors> -->
 
@@ -223,5 +223,5 @@
     </Component>
 
 
-<!-- TFX VERSION 1.4 -->
+<!-- TFX VERSION 1.3 -->
 <!-- TFX END -->
