@@ -1,9 +1,7 @@
 <!-- TFX INSTALLED -->
 <!-- PATH = pmdg-aircraft-77er\SimObjects\Airplanes\PMDG 777-200ER\model\PMDG772ER_EX.xml -->
-<!-- NAME = PMDG 777-200ER  -->
+<!-- NAME = PMDG 777-200ER -->
 <!-- TAG = </Behaviors> -->
-
-
 
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
