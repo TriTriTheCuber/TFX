@@ -206,9 +206,9 @@
 <FX_OFFSET_Y>-1</FX_OFFSET_Y>
 <FX_OFFSET_Z>7</FX_OFFSET_Z>
 <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
-<FX_NAME>FX_SPARK_15</FX_NAME>
+<FX_NAME>FX_SPARK_17</FX_NAME>
 </OverrideTemplateParameters>
-<Component ID="FX_SPARK15" Node="fx_exhaust_left">
+<Component ID="FX_SPARK17" Node="fx_exhaust_right">
 <UseTemplate Name="ASOBO_GT_FX">
 </UseTemplate>
 </Component>
@@ -222,13 +222,14 @@
 <FX_OFFSET_Y>-1</FX_OFFSET_Y>
 <FX_OFFSET_Z>7</FX_OFFSET_Z>
 <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
-<FX_NAME>FX_SPARK_17</FX_NAME>
+<FX_NAME>FX_SPARK_15</FX_NAME>
 </OverrideTemplateParameters>
-<Component ID="FX_SPARK17" Node="fx_exhaust_right">
+<Component ID="FX_SPARK15" Node="fx_exhaust_left">
 <UseTemplate Name="ASOBO_GT_FX">
 </UseTemplate>
 </Component>
 </Component>
+
 
 
 
@@ -332,6 +333,6 @@
         </UseTemplate>
     </Component>
 
-<!-- Credits: DindilloYT -->
-<!-- TFX VERSION 1.3 -->
+<!-- Credits: DindilloYT, Tritrithecuber -->
+<!-- TFX VERSION 1.4 -->
 <!-- TFX END -->
