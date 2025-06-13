@@ -14,6 +14,7 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - PMDG 777F
 - PMDG 737-800
 - Fenix A320
+- Fenix A319-A321
 - FlyByWire A320 Neo
 - FlyByWire A380
 - iFly 737 Max 8
@@ -25,9 +26,10 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - PMDG 777-200ER
 - PMDG 777F
 - Fenix A320
+- Fenix A319-A321
 - FlyByWire A320 Neo*
 - FlyByWire A380*
-- iFly 737 Max 8*
+- iFly 737 Max 8**
 
 ## Installation
 
