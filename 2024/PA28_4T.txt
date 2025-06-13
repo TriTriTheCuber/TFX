@@ -1,6 +1,6 @@
 <!-- TFX INSTALLED -->
 <!-- PATH = justflight-aircraft-pa28-turboarrow\SimObjects\Airplanes\JF_PA28_TurboArrow_IV\model\JF_PA28_4T_EXT.xml -->
-<!-- NAME = Piper PA28 Arrow IV -->
+<!-- NAME = Piper PA28 Turbo Arrow IV -->
 <!-- TAG = </Behaviors> -->
 
 <Component ID="FX_SMOKE_E1">
@@ -165,5 +165,5 @@
     </Component>
 
 <!-- Credits: DindilloYT -->
-<!-- TFX VERSION 1.4 -->
+<!-- TFX VERSION 1.41 -->
 <!-- TFX END -->
