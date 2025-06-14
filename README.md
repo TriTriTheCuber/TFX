@@ -24,6 +24,7 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 ### 2024
 
 - PMDG 777-200ER
+- PMDG 777-300ER
 - PMDG 777F
 - Fenix A320
 - Fenix A319-A321
