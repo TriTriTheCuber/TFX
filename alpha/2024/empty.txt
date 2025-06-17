@@ -1,0 +1,6 @@
+<!-- TFX INSTALLED -->
+<!-- PATH = exampleplane/simobjects/airplanes -->
+<!-- TAG = </Behaviors> -->
+<!-- CREDITS = None -->
+<!-- TFX VERSION 1 -->
+<!-- TFX END -->
