@@ -1,4 +1,5 @@
 <!-- TFX INSTALLED -->
+<!-- NAME = Placeholder -->
 <!-- PATH = exampleplane/simobjects/airplanes -->
 <!-- TAG = </Behaviors> -->
 <!-- CREDITS = None -->
