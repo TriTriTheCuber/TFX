@@ -13,6 +13,61 @@ import shutil
 import zipfile
 import tempfile
 import threading
+import base64
+import math
+clear = lambda: os.system('cls')
+global goodlogin
+goodlogin = 0
+# Validation
+
+keyform = [5,5,5]
+choices = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F"]
+worth = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+
+def calculateworth(code):
+    worthout = 0
+    a = list(code)
+    for b in a:
+        if not b == "-":
+            worthout = worthout + worth[choices.index(b)]
+    return worthout
+
+def calculatepin(worth, size = 100000):
+    pinout = worth
+    for f in range(pinout):
+        pinout = pinout + worth * pinout/(15*(f+1))
+    pinout = pinout / worth
+    pinout = math.cos(pinout) + 1
+    pinout = (pinout * size * 0.4) + size * 0.1
+    pinout = round(pinout)
+    return pinout
+        
+def getformat(key):
+    kel = list(key)
+    form = []
+    formcount = 0
+    for a in kel:
+        if a == "-":
+            form.append(formcount)
+            formcount = 0
+            continue
+        formcount = formcount + 1
+    form.append(formcount)
+    return form
+
+def showformat(form):
+    outt = []
+    for a in form:
+        for b in range(a):
+            outt.append("x")
+        outt.append("-")
+    outt.reverse()
+    outt.remove("-")
+    outt.reverse()
+    out = "".join(outt)
+    return out
+
+
 
 # Important stuff
 
@@ -67,18 +122,13 @@ def createspecialbuttons(buttontag="2020tab", simversion="2020"):
     user_data = []
     if simversion == "2020":
         remotelines = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/tfxbaseversions.txt")
-        print ("setting locallines")
         locallines = read_local_file(os.path.join(community_2020, r"TFX-fxlib\tfx-base-version.txt"))
         if locallines == None:
             if os.path.exists(os.path.join(community_2020, r"TFX-fxlib")):
                 locallines = [1,1,1,1]
             else:
                 locallines = [None]
-        print (f"locallines = {locallines}")
         status = checkfiledifferences(remotelines, locallines, "2020")
-        print (locallines[0])
-        print (remotelines[1])
-        print (status)
         if status == "Not installed":
             buttonlabel1 = "Install Base Package"
             action1 = "bdown"
@@ -100,18 +150,13 @@ def createspecialbuttons(buttontag="2020tab", simversion="2020"):
         dpg.add_button(label=buttonlabel2, tag="2020matbutton", user_data=[simversion, action2], callback=specialbuttoncallback, parent=buttontag, enabled=enabled2)
     else:
         remotelines = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/tfxbaseversions.txt")
-        print ("setting locallines")
         locallines = read_local_file(os.path.join(community_2024, r"TFX-fxlib\tfx-base-version.txt"))
         if locallines == None:
             if os.path.exists(os.path.join(community_2024, r"TFX-fxlib")):
                 locallines = [1,1,1,1]
             else:
                 locallines = [None]
-        print (f"locallines = {locallines}")
         status = checkfiledifferences(remotelines, locallines, "2024")
-        print (locallines[0])
-        print (remotelines[3])
-        print (status)
         if status == "Not installed":
             buttonlabel1 = "Install Base Package"
             action1 = "bdown"
@@ -361,7 +406,6 @@ def check_plane(filepath, simversion="2020"):
         selpath = os.path.join(community_2024, filepath)
     with open(selpath, "r") as file:
         lines=file.readlines()
-    print (selpath)
     return (parse_tfx_metadata(file_path=selpath))
 
 
@@ -383,7 +427,7 @@ def planebutton(sender, app_data, user_data):
     restart_app()
 
 
-def generate_file_buttons(folder_path, buttontag=None, simversion="2020"):
+def generate_file_buttons(folder_path, buttontag=None, simversion="2020", extraprefix=None):
 
     if not os.path.exists(folder_path):
         print(f"[!] Folder '{folder_path}' not found!")
@@ -408,7 +452,6 @@ def generate_file_buttons(folder_path, buttontag=None, simversion="2020"):
                 install = check_plane(pathv[0], simversion)[4]
             except:
                 install = False
-            print(install)
             planeinstalled = os.path.isfile(pathnv[0])
             action = None
             if planeinstalled:
@@ -427,7 +470,18 @@ def generate_file_buttons(folder_path, buttontag=None, simversion="2020"):
                 button_label = rf"{namev}... aircraft not installed"
 
             if not buttontag: buttontag = "</Behaviors>"
+            if extraprefix:
+                button_label = extraprefix + button_label
             dpg.add_button(label=button_label, callback=planebutton, user_data = [full_path, simversion, action], parent=buttontag, enabled=planeinstalled, tag=f"button.{full_path}.{simversion}")
+
+
+
+def get_last_index_containing(lines, substring):
+    for i in reversed(range(len(lines))):
+        if substring in lines[i]:
+            return i
+    return -1  # Not found
+
 
 def quiet_uninstall(target_file):
     with open(target_file, 'r', encoding='utf-8') as f:
@@ -435,7 +489,7 @@ def quiet_uninstall(target_file):
 
     try:
         start = lines.index('<!-- TFX INSTALLED -->\n')
-        end = lines.index('<!-- TFX END -->\n')
+        end = get_last_index_containing(lines, "TFX END")
         del lines[start:end + 1]
         print(f"TFX update/reinstall completed successfully.")
     except ValueError:
@@ -481,7 +535,7 @@ def install_tfx(filename, insert_path, module_name, custom_tag="</Behaviors>"):
         lines = f.readlines()
 
     if custom_tag is not None:
-        print(f"Using custom tag {custom_tag}")
+        print(f"Using tag {custom_tag}")
         index = next((i for i, line in enumerate(lines) if f'{custom_tag}' in line), -1)
         if index == -1:
             print(f"Critical error: '{custom_tag}' tag not found!")
@@ -499,13 +553,82 @@ def install_tfx(filename, insert_path, module_name, custom_tag="</Behaviors>"):
 
     print(f"TFX installed successfully into {module_name}.")
 
+def deleteitem(sender):
+    dpg.delete_item(sender)
+    global goodlogin
+
+
+def createloginfile(key,pin):
+    with open("alphakey.txt", "x") as l:
+        pile = f"{key}{pin}"
+        encoded=base64.b64encode(pile.encode('utf-8'))
+        l.write(encoded.decode())
+
+
+def svalidatedetails(pekey, pepin):
+    global goodlogin
+    reqpin = calculatepin(calculateworth(pekey), 10000000000)
+    format = showformat(getformat(pekey))
+    if format == "xxxxx-xxxxx-xxxxx":
+        reqpin = f"{reqpin}"
+        if pepin == reqpin:
+            goodlogin = 1
+        else:
+            goodlogin = 0
+    else:
+        goodlogin = 0
+
+
+
+def validatedetails(pekey, pepin):
+    global goodlogin
+    reqpin = calculatepin(calculateworth(pekey), 10000000000)
+    format = showformat(getformat(pekey))
+    if format == "xxxxx-xxxxx-xxxxx":
+        reqpin = f"{reqpin}"
+        if pepin == reqpin:
+            goodlogin = 1
+            createloginfile(pekey, pepin)
+        else:
+            print ("Sorry, nope.")
+            goodlogin = 0
+    else:
+        goodlogin = 0
+    deleteitem("alwin")
+    restart_app()
+
+
+
+def alphalogin():
+    with dpg.window(modal=True, label="Alpha testing login", tag="alwin", width=300, height=200, on_close=lambda: deleteitem("alwin")):
+        dpg.add_text("Please enter your credentials.")
+        dpg.add_input_text(label="Key", tag="keybox",hint="xxxxx-xxxxx-xxxxx")
+        dpg.add_input_text(label="Pin", tag="pinbox",hint="xxxxxxxxxx")
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="Submit", callback=lambda: validatedetails(dpg.get_value("keybox"), dpg.get_value("pinbox")))
+            dpg.add_button(label="Cancel", callback=lambda: deleteitem("alwin"))
+
+
+
 
 def domenu(sender):
+    if sender=="alphalog":
+        alphalogin()
+    if sender=="alphalogo":
+        removefile("alphakey.txt")
+        print("Opting out of alpha testing...")
+        restart_app()
     if sender=="cfu":
         print ("Fetching files...")
         fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2020", destination="InstallerInserts", branch="main")
         fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2024", destination="InstallerInserts2024", branch="main")
         restart_app()
+    if sender=="cfua":
+        print ("Fetching alpha files...")
+        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2020", destination=r"alpha\2020", branch="main")
+        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2024", destination=r"alpha\2024", branch="main")
+        restart_app()
+
 
 
 def verify_and_download(filename, base_url):
@@ -636,6 +759,9 @@ def devtoggle():
 
 
 def mainwindow():
+    global alpha
+    global alphareg
+    alpha, alphareg = getalphastatus()
     devmode = get_state()
     if devmode == "1":
         devmodet = True
@@ -645,24 +771,43 @@ def mainwindow():
         with dpg.menu_bar():
             with dpg.menu(label="File"):
                 dpg.add_menu_item(label="Check for updates", tag="cfu", callback=domenu)
+                if alpha == 1:
+                    dpg.add_menu_item(label="Check for updates (Alpha)", tag="cfua", callback=domenu)
                 dpg.add_menu_item(label="Restart Installer", callback=lambda: restart_app())
             with dpg.menu(label="Settings"):
                 dpg.add_checkbox(label="Devmode", tag="devtoggle", default_value=devmodet, callback=devtoggle)
+            with dpg.menu(label="Programs"):
+                if alpha == 0:
+                    dpg.add_menu_item(label="Alpha testing login", tag="alphalog", callback=domenu)
+                else:
+                    dpg.add_menu_item(label="Opt out of alpha testing", tag="alphalogo", callback=domenu)
             if devmode=="1":
                 with dpg.menu(label="Devmode"):
                     dpg.add_menu_item(label="Reset installer", callback=resetapplication)
+            
         dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an installer:")
+        exist_2020 = community_2020 and not community_2020 == " "
+        exist_2024 = community_2024 and not community_2024 == " "
         with dpg.tab_bar(label="tab bar"):
-            if community_2020 and not community_2020 == " ":
+            if exist_2020:
                 with dpg.tab(label="2020",tag="2020tab"):
                     with dpg.group(horizontal=True, tag="2020sg"):
                         createspecialbuttons(buttontag="2020sg", simversion="2020")
                     generate_file_buttons(folder_path="InstallerInserts", buttontag="2020tab", simversion="2020")
-            if community_2024 and not community_2024 == " ":
+            if exist_2024:
                 with dpg.tab(label="2024",tag="2024tab"):
                     with dpg.group(horizontal=True, tag="2024sg"):
                         createspecialbuttons(buttontag="2024sg", simversion="2024")
                     generate_file_buttons(folder_path="InstallerInserts2024", buttontag="2024tab", simversion="2024")
+            if alpha == 1:
+                with dpg.tab(label="Alpha",tag="altab"):
+                    generate_file_buttons(folder_path=r"alpha\2020", buttontag="altab", simversion="2020", extraprefix="(2020) ")
+                    generate_file_buttons(folder_path=r"alpha\2024", buttontag="altab", simversion="2024", extraprefix="(2024) ")
+
+            
+
+
+
 
 def none2020():
     global community_2020
@@ -712,11 +857,44 @@ if devmode == "1":
 else:
     devmodet = False
 
+def getalphastatus():
+    global goodlogin
+    if os.path.isfile("alphakey.txt"):
+        with open("alphakey.txt", "r") as al:
+            lines = al.readlines()
+            delines = base64.b64decode(lines[0]).decode('utf-8')
+        key = delines[:17]
+        pin = delines[-10:]
+        print (f"Key is {key}, pin is {pin}")
+        svalidatedetails(key,pin)
+        if goodlogin == 1:
+            ar = [key,pin]
+            a = 1
+            print(f"Login was sucessful")
+        else:
+            a = 0
+            ar = []
+            print(f"Login was unsucessful. File deleting.")
+            print("Reason: Invalid credentials")
+            removefile("alphakey.txt")
+    else:
+        a = 0
+        ar = []
+    return a, ar
+
+
+
+
+global alpha
+global alphareg
+
+
 
 if not os.path.exists("InstallerInserts"):
     os.makedirs("InstallerInserts")
 if not os.path.exists("InstallerInserts2024"):
     os.makedirs("InstallerInserts2024")
+
 
 if not devmode=="1":
     fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2020", destination="InstallerInserts", branch="main")
@@ -766,7 +944,13 @@ dpg.bind_theme(disabled_theme)
 
 #init main window
 mainwindow()
-
+if alpha == 1:
+    if not os.path.exists("alpha"):
+        os.makedirs("alpha")
+    if not os.path.exists(r"alpha\2020"):
+        os.makedirs(r"alpha\2020")
+    if not os.path.exists(r"alpha\2024"):
+        os.makedirs(r"alpha\2024")
 
 
 
