@@ -33,8 +33,8 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - iFly 737 Max 8**
 
 
-* means same plane as fs2020
-** means currently not functioning
+*means same plane as fs2020
+**means currently not functioning
 
 ## Installation
 
