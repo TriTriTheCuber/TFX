@@ -18,6 +18,7 @@ import math
 clear = lambda: os.system('cls')
 global goodlogin
 goodlogin = 0
+version = "1.3.5"
 # Validation
 
 keyform = [5,5,5]
@@ -395,7 +396,6 @@ def find_msfs_community_folders():
         community = get_community_folder_from_usercfg(cfg_path)
         if community:
             community_folders.append((cfg_path, community))
-
     return community_folders
 
 
@@ -482,13 +482,19 @@ def get_last_index_containing(lines, substring):
             return i
     return -1  # Not found
 
+def get_first_index_containing(lines, substring):
+    for i in range(len(lines)):
+        if substring in lines[i]:
+            return i
+    return -1  # Not found
+
 
 def quiet_uninstall(target_file):
     with open(target_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
     try:
-        start = lines.index('<!-- TFX INSTALLED -->\n')
+        start = get_first_index_containing(lines, "TFX INSTALLED")
         end = get_last_index_containing(lines, "TFX END")
         del lines[start:end + 1]
         print(f"TFX update/reinstall completed successfully.")
