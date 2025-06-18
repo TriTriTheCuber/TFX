@@ -32,6 +32,10 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - FlyByWire A380*
 - iFly 737 Max 8**
 
+
+* means same plane as fs2020
+** means currently not functioning
+
 ## Installation
 
 Here's how to install this mod:
