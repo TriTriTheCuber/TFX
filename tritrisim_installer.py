@@ -19,7 +19,7 @@ clear = lambda: os.system('cls')
 global goodlogin
 global installerversion
 goodlogin = 0
-installerversion = "1.3.6"
+installerversion = "1.3.7"
 global installertype
 installertype = "exe"
 # Validation
@@ -868,7 +868,7 @@ def getcommunity():
     return community_2020f, community_2024f
 
 def updateinstaller():
-    subprocess.run([sys.executable, "ttsupdater.exe", "py", str(os.getpid())])
+    subprocess.run(["ttsupdater.exe", "exe", str(os.getpid())])
 
 
 
