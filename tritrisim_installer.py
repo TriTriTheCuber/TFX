@@ -868,7 +868,7 @@ def getcommunity():
     return community_2020f, community_2024f
 
 def updateinstaller():
-    subprocess.run(["ttsupdater.exe", "exe", str(os.getpid())])
+    subprocess.run(["ttsupdater.exe", "py", str(os.getpid())])
 
 
 
