@@ -17,8 +17,11 @@ import base64
 import math
 clear = lambda: os.system('cls')
 global goodlogin
+global installerversion
 goodlogin = 0
-version = "1.3.5"
+installerversion = "1.3.6"
+global installertype
+installertype = "exe"
 # Validation
 
 keyform = [5,5,5]
@@ -637,8 +640,8 @@ def domenu(sender):
 
 
 
-def verify_and_download(filename, base_url):
-    if not os.path.exists(filename):
+def verify_and_download(filename, base_url, force = False):
+    if not os.path.exists(filename) or force == True:
         url = f"{base_url}/{filename}"
         response = requests.get(url)
         if response.status_code == 200:
@@ -810,6 +813,18 @@ def mainwindow():
                     generate_file_buttons(folder_path=r"alpha\2020", buttontag="altab", simversion="2020", extraprefix="(2020) ")
                     generate_file_buttons(folder_path=r"alpha\2024", buttontag="altab", simversion="2024", extraprefix="(2024) ")
 
+def checkforinstallerupdates():
+    global installerversion
+    try:
+        rinstallverf = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/versions.txt")
+        rinstallver = rinstallverf[1]
+        if installerversion == rinstallver:
+            return False
+        else:
+            return True
+    except:
+        return None
+
             
 
 
@@ -852,8 +867,15 @@ def getcommunity():
         community_2024f = " "
     return community_2020f, community_2024f
 
+def updateinstaller():
+    subprocess.run([sys.executable, "ttsupdater.exe", "exe", str(os.getpid())])
+
+
+
 
 # End of important stuff
+
+
 community_2020 = None
 community_2024 = None
 
@@ -908,11 +930,9 @@ if not devmode=="1":
 
 currentver = 1
 base_url = "https://raw.githubusercontent.com/TriTriTheCuber/TFX/main"
-required_files = ["MSFSLayoutGenerator.exe"]
-
+required_files = ["MSFSLayoutGenerator.exe", "ttsupdater.exe"]
 for file in required_files:
     verify_and_download(file, base_url)
-
 dpg.create_context()
 
 
@@ -938,7 +958,6 @@ else:
 print (f"{community_2020}\n{community_2024}")
 
 
-
 with dpg.theme() as disabled_theme:
     with dpg.theme_component(dpg.mvButton, enabled_state=False):
         dpg.add_theme_color(dpg.mvThemeCol_Button, (30, 30, 30, 255))
@@ -948,8 +967,20 @@ with dpg.theme() as disabled_theme:
 dpg.bind_theme(disabled_theme)
 
 
+
 #init main window
 mainwindow()
+
+updateneeded = checkforinstallerupdates()
+print (updateneeded)
+if updateneeded == True:
+    with dpg.window(label="Update available!", tag="updatewindow"):
+        dpg.add_text("An update is available! Would you like to update now?")
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="Don't update", callback=lambda: deleteitem("updatewindow"))
+            dpg.add_button(label="Update", callback=updateinstaller)
+
+
 if alpha == 1:
     if not os.path.exists("alpha"):
         os.makedirs("alpha")
