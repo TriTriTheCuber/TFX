@@ -20,8 +20,6 @@ global goodlogin
 global installerversion
 goodlogin = 0
 installerversion = "1.3.7"
-global installertype
-installertype = "exe"
 # Validation
 
 keyform = [5,5,5]
