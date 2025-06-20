@@ -19,7 +19,18 @@ clear = lambda: os.system('cls')
 global goodlogin
 global installerversion
 goodlogin = 0
-installerversion = "1.3.7"
+global installertype
+installerversion = "1.3.9"
+disableupdate = False
+
+if getattr(sys, 'frozen', False):
+    print("Executable Version")
+    installertype = "exe"
+else:
+    print("Python Version")
+    installertype = "py"
+
+
 # Validation
 
 keyform = [5,5,5]
@@ -566,10 +577,9 @@ def deleteitem(sender):
 
 
 def createloginfile(key,pin):
-    with open("alphakey.txt", "x") as l:
-        pile = f"{key}{pin}"
-        encoded=base64.b64encode(pile.encode('utf-8'))
-        l.write(encoded.decode())
+    pile = f"{key}{pin}"
+    encoded=base64.b64encode(pile.encode('utf-8'))
+    set_state("AlphaLog", encoded.decode())
 
 
 def svalidatedetails(pekey, pepin):
@@ -622,7 +632,7 @@ def domenu(sender):
     if sender=="alphalog":
         alphalogin()
     if sender=="alphalogo":
-        removefile("alphakey.txt")
+        set_state("AlphaLog", "")
         print("Opting out of alpha testing...")
         restart_app()
     if sender=="cfu":
@@ -740,28 +750,71 @@ def on_window_close():
 def regenlayout(path):
     subprocess.run(["MSFSLayoutGenerator.exe", path])
 
-def set_state(value):
-    with open("state.txt", "w", encoding="utf-8") as f:
-        f.write(str(value) + "\n")
+stateemptylines = "Devmode = 0\nAlphaLog = \nDisableUpdates = False"
+statelinecount = 3
+
+def set_state(header, value):
+    ahead = header + " = "
+    with open("state.txt", "r", encoding="utf-8") as f:
+        index = -1
+        lines = f.readlines()
+        for l in lines:
+            index = index+1 
+            if l.startswith(ahead):
+                exit = 1
+                break
+        if exit:
+            with open("state.txt", 'w', encoding='utf-8') as f:
+                add = [(ahead + value), "\n"]
+                new_lines = lines[:(index)] + add + lines[(index+1):]
+                f.writelines(new_lines)
+
 
 if not os.path.isfile("state.txt"):
     with open("state.txt", 'x') as state:
-        state.write("0")
+        state.write(stateemptylines)
+else:
+    with open("state.txt", "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    if not len(lines) == statelinecount:
+        removefile("state.txt")
+        with open("state.txt", 'x') as state:
+            state.write(stateemptylines)
 
 
-def get_state():
-    try:
-        with open("state.txt", "r", encoding="utf-8") as f:
-            return f.read().strip()
-    except FileNotFoundError:
-        return None  # or default to "0"
+
+def get_state(header):
+    ahead = header + " = "
+    with open("state.txt", "r", encoding="utf-8") as f:
+        index = -1
+        lines = f.readlines()
+        for l in lines:
+            index = index+1 
+            if l.startswith(ahead):
+                exit = 1
+                break
+        if exit:
+            return lines[index].removeprefix(ahead).strip()
+
 
 
 def devtoggle():
-    current = get_state()
-    new_value = "1" if current == "0" else "0"
-    set_state(new_value)
+    current = get_state("Devmode")
+    if current == "0":
+        new_value = "1"
+    else:
+        new_value = "0"
+    set_state("Devmode", new_value)
     print (rf"New devmode = {new_value}")
+    restart_app()
+
+def uptoggle():
+    current = get_state("DisableUpdates")
+    if current == "False":
+        new_value = "True"
+    else:
+        new_value = "False"
+    set_state("DisableUpdates", new_value)
     restart_app()
 
 
@@ -769,11 +822,19 @@ def mainwindow():
     global alpha
     global alphareg
     alpha, alphareg = getalphastatus()
-    devmode = get_state()
+    devmode = get_state("Devmode")
     if devmode == "1":
         devmodet = True
     else:
         devmodet = False
+    updateneeded = checkforinstallerupdates()
+    if updateneeded == True:
+        print("Installer update available")
+
+    if get_state("DisableUpdates") == "True":
+        disableupdate=True
+    else:
+        disableupdate=False
     with dpg.window(tag="main_panel", width=500, height=400, pos=[0,0],label="TriTriSim Installer",on_close=on_window_close):
         with dpg.menu_bar():
             with dpg.menu(label="File"):
@@ -790,6 +851,7 @@ def mainwindow():
                     dpg.add_menu_item(label="Opt out of alpha testing", tag="alphalogo", callback=domenu)
             if devmode=="1":
                 with dpg.menu(label="Devmode"):
+                    dpg.add_checkbox(label="Disable updates", tag="uptog", default_value=disableupdate, callback=uptoggle)
                     dpg.add_menu_item(label="Reset installer", callback=resetapplication)
             
         dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an installer:")
@@ -810,6 +872,12 @@ def mainwindow():
                 with dpg.tab(label="Alpha",tag="altab"):
                     generate_file_buttons(folder_path=r"alpha\2020", buttontag="altab", simversion="2020", extraprefix="(2020) ")
                     generate_file_buttons(folder_path=r"alpha\2024", buttontag="altab", simversion="2024", extraprefix="(2024) ")
+    if updateneeded == True and disableupdate == False:
+        with dpg.window(label="Update available!", tag="updatewindow"):
+            dpg.add_text("An update is available! Would you like to update now?")
+            with dpg.group(horizontal=True):
+                dpg.add_button(label="Don't update", callback=lambda: deleteitem("updatewindow"))
+                dpg.add_button(label="Update", callback=updateinstaller)
 
 def checkforinstallerupdates():
     global installerversion
@@ -866,7 +934,8 @@ def getcommunity():
     return community_2020f, community_2024f
 
 def updateinstaller():
-    subprocess.run(["ttsupdater.exe", "py", str(os.getpid())])
+    global installertype
+    subprocess.run(["ttsupdater.exe", installertype, str(os.getpid())])
 
 
 
@@ -877,37 +946,39 @@ def updateinstaller():
 community_2020 = None
 community_2024 = None
 
-devmode = get_state()
+devmode = get_state("Devmode")
 if devmode == "1":
     devmodet = True
 else:
     devmodet = False
 
+if get_state("DisableUpdates") == "True":
+    disableupdate=True
+else:
+    disableupdate=False
+
 def getalphastatus():
     global goodlogin
-    if os.path.isfile("alphakey.txt"):
-        with open("alphakey.txt", "r") as al:
-            lines = al.readlines()
-            delines = base64.b64decode(lines[0]).decode('utf-8')
+    if not get_state("AlphaLog") == "":
+        line = get_state("AlphaLog")
+        delines = base64.b64decode(line).decode('utf-8')
         key = delines[:17]
         pin = delines[-10:]
-        print (f"Key is {key}, pin is {pin}")
         svalidatedetails(key,pin)
         if goodlogin == 1:
             ar = [key,pin]
             a = 1
-            print(f"Login was sucessful")
+            print(f"Login to alpha program was sucessful")
         else:
             a = 0
             ar = []
             print(f"Login was unsucessful. File deleting.")
             print("Reason: Invalid credentials")
-            removefile("alphakey.txt")
+            set_state("AlphaLog", "")
     else:
         a = 0
         ar = []
     return a, ar
-
 
 
 
@@ -969,14 +1040,8 @@ dpg.bind_theme(disabled_theme)
 #init main window
 mainwindow()
 
-updateneeded = checkforinstallerupdates()
-print (updateneeded)
-if updateneeded == True:
-    with dpg.window(label="Update available!", tag="updatewindow"):
-        dpg.add_text("An update is available! Would you like to update now?")
-        with dpg.group(horizontal=True):
-            dpg.add_button(label="Don't update", callback=lambda: deleteitem("updatewindow"))
-            dpg.add_button(label="Update", callback=updateinstaller)
+
+
 
 
 if alpha == 1:
