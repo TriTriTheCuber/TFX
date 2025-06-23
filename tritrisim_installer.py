@@ -20,7 +20,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.3.9"
+installerversion = "1.3.95"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -597,7 +597,7 @@ def svalidatedetails(pekey, pepin):
 
 
 
-def validatedetails(pekey, pepin):
+def validatedetails(pekey, pepin, istlog = False):
     global goodlogin
     reqpin = calculatepin(calculateworth(pekey), 10000000000)
     format = showformat(getformat(pekey))
@@ -612,6 +612,9 @@ def validatedetails(pekey, pepin):
     else:
         goodlogin = 0
     deleteitem("alwin")
+    if istlog == True:
+        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2020", destination=r"alpha\2020", branch="main")
+        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2024", destination=r"alpha\2024", branch="main")
     restart_app()
 
 
@@ -622,7 +625,7 @@ def alphalogin():
         dpg.add_input_text(label="Key", tag="keybox",hint="xxxxx-xxxxx-xxxxx")
         dpg.add_input_text(label="Pin", tag="pinbox",hint="xxxxxxxxxx")
         with dpg.group(horizontal=True):
-            dpg.add_button(label="Submit", callback=lambda: validatedetails(dpg.get_value("keybox"), dpg.get_value("pinbox")))
+            dpg.add_button(label="Submit", callback=lambda: validatedetails(dpg.get_value("keybox"), dpg.get_value("pinbox"), True))
             dpg.add_button(label="Cancel", callback=lambda: deleteitem("alwin"))
 
 
@@ -891,7 +894,19 @@ def checkforinstallerupdates():
     except:
         return None
 
-            
+def sluce(array=[],length=1,extra=" "):
+    ar = []
+    l = len(array)
+    if l == length:
+        return array
+    else:
+        for a in range(length):
+            if not a < l:
+                ar.append(extra)
+            else:
+                ar.append(array[a])
+        return ar
+                
 
 
 
@@ -903,7 +918,6 @@ def none2020():
 def none2024():
     global community_2024
     community_2024 = " "
-
 
 def fileset2020(sender, appdata):
     global community_2020
@@ -1021,8 +1035,14 @@ if not os.path.isfile("community.txt"):
 else:
     with open("community.txt", "r") as c:
         communitylines = c.readlines()
+        l = len(communitylines)
+        communitylines = sluce(communitylines, 2, " ")
+        if not l == len(communitylines):
+            print("Community line mismatch. Proceed with caution. This can be caused by several factors. Contact support if you experience any issues following this message.")
         community_2020 = communitylines[0].strip()
         community_2024 = communitylines[1].strip()
+
+
 
 print (f"{community_2020}\n{community_2024}")
 
@@ -1080,11 +1100,19 @@ while dpg.is_dearpygui_running():
     dpg.render_dearpygui_frame()
     if community_2020 and community_2024:
         if not os.path.isfile("community.txt"):
-            with open("community.txt", 'x') as community:
-                community.write(community_2020)
-                community.write("\n")
-                community.write(community_2024)
+            ec = "-1"
+            try:
+                with open("community.txt", 'x') as community:
+                    ec = "20"
+                    community.write(community_2020)
+                    ec = "n"
+                    community.write("\n")
+                    ec = "24"
+                    community.write(community_2024)
+                    ec = "r"
                 restart_app()
+            except:
+                print(f"Failed to make community file. Error {ec}, {Exception}")
 
 dpg.start_dearpygui()
 dpg.destroy_context()
