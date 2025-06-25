@@ -38,7 +38,7 @@
             <FX_CODE>(L:Failure_ENG_L_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>4.5</FX_OFFSET_Z>
+            <FX_OFFSET_Z>5.1</FX_OFFSET_Z>
             <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
@@ -53,7 +53,7 @@
 	    <FX_CODE>(L:Failure_ENG_R_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0</FX_OFFSET_Y>
-            <FX_OFFSET_Z>4.5</FX_OFFSET_Z>
+            <FX_OFFSET_Z>5.1</FX_OFFSET_Z>
             <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
             <FX_NAME>FX_FIRE_L</FX_NAME>
         </OverrideTemplateParameters>
@@ -224,7 +224,6 @@
 
 
 
-<!-- CREDITS:  @DindilloYT, testing -->
-
+<!-- CREDITS:  @DindilloYT, @TriTriTheCuber -->
 <!-- TFX VERSION 1.4 -->
 <!-- TFX END -->
