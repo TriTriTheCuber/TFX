@@ -36,6 +36,12 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 *means same plane as fs2020
 **means currently not functioning
 
+### Alpha tester planes
+
+- FSS 727-200 (2020)
+- FSS 727-200F (2020)
+- Headwind A330N (2020)
+
 ## Installation
 
 Here's how to install this mod:
