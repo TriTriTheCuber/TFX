@@ -150,13 +150,13 @@
 </Component>
 </Component>
 
-<!-- Right winglet -->
+<!-- Tail  -->
 <Component ID="FX_SPARKS_8">
 <OverrideTemplateParameters>
 <FX_CODE>(L:ScrapeTimer:8, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>9.3</FX_OFFSET_X>
 <FX_OFFSET_Y>4</FX_OFFSET_Y>
-<FX_OFFSET_Z>31</FX_OFFSET_Z>
+<FX_OFFSET_Z>-31</FX_OFFSET_Z>
 <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
 <FX_NAME>FX_SPARK_8</FX_NAME>
 </OverrideTemplateParameters>
@@ -233,5 +233,5 @@
     </Component>
 
 <!-- Credits :  DindilloYT -->
-<!-- TFX VERSION 1.4 -->
+<!-- TFX VERSION 1.3_alpha.104 -->
 <!-- TFX END -->
