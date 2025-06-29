@@ -20,7 +20,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.3.95"
+installerversion = "1.5"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -465,6 +465,8 @@ def generate_file_buttons(folder_path, buttontag=None, simversion="2020", extrap
             except:
                 install = False
             planeinstalled = os.path.isfile(pathnv[0])
+            if not planeinstalled:
+                planeinstalled = os.path.isfile(os.path.join(Path(pathnv[0]).parent, "TFXinjbehavior.xml"))
             action = None
             if planeinstalled:
                 if not install:
@@ -501,7 +503,44 @@ def get_first_index_containing(lines, substring):
     return -1  # Not found
 
 
-def quiet_uninstall(target_file):
+
+
+
+def checkmodulemethod(modulepath):
+    with open(modulepath, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    index = get_first_index_containing(lines, "<!-- EX1UFILE = True -->")
+    if index == -1:
+        return("Norm")
+    else:
+        return("EX1")
+
+
+def parse_ex1_metadata(modulepath):
+    exurl = None
+    expath = None
+    newfile = None
+
+    with open(modulepath, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    
+    for line in lines:
+        line = line.strip()
+        
+        if '<!-- EXTERPTH' in line:
+            expath = line.strip().replace('<!-- EXTERPTH =', '').replace('-->', '').strip()
+
+        if '<!-- EXURL' in line:
+            exurl = line.strip().replace('<!-- EXURL =', '').replace('-->', '').strip()
+        
+        if '<!-- NEWFILENAME' in line:
+            newfile = line.strip().replace('<!-- NEWFILENAME =', '').replace('-->', '').strip()
+
+    return exurl, expath, newfile
+
+
+
+def quiet_uninstall(target_file, is_ex1 = False, impath = None):
     with open(target_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
@@ -518,6 +557,7 @@ def quiet_uninstall(target_file):
 
 
 def uninstall_tfx(target_file):
+    extfile = target_file
     with open(target_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
@@ -527,7 +567,19 @@ def uninstall_tfx(target_file):
         del lines[start:end + 1]
         print(r"TFX Uninstalled sucessfully.")
     except ValueError:
-        print(r"TFX is not installed, uninstall skipped")
+        file = rf"{Path(target_file).parent}\TFXinjbehavior.xml"
+        if not os.path.isfile(file):
+            print(r"TFX is not installed, uninstall skipped")
+        else:
+            impath, expath, addedfilename = parse_ex1_metadata(file)
+            os.remove(file)
+            os.remove(extfile)
+            r = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/TFX/refs/heads/main/ex1ini/oldexteriordefenitions/" + impath)
+            r = "\n".join(r)
+            with open(extfile, 'x', encoding='utf-8') as l:
+                l.write(r)
+            print(r"TFX Uninstalled sucessfully.")
+            return
 
     with open(target_file, 'w', encoding='utf-8') as f:
         f.writelines(lines)
@@ -543,8 +595,35 @@ def loopuninstall_tfx(target_files):
         uninstall_tfx(tf)
 
 
+
 def install_tfx(filename, insert_path, module_name, custom_tag="</Behaviors>"):
+    checkmodulemethod(insert_path)
+    mmethod = checkmodulemethod(insert_path)
+    if mmethod == "EX1":
+
+        impath, expath, addedfilename = parse_ex1_metadata(insert_path)
+        print(f"impath = '{impath}'\nexpath = '{expath}'\naddedfilename = '{addedfilename}'")
+        remote = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/ex1ini/newexteriordefinitions/" + impath)
+        remote = "\n".join(remote)
+        os.remove(filename)
+        with open(filename, 'x', encoding='utf-8') as s:
+            s.write(remote)
+        addedfile = fr"{Path(filename).parent}\{addedfilename}"
+        print (addedfile)
+        with open(insert_path, 'r', encoding='utf-8') as f:
+            insert = f.readlines()
+        
+        if os.path.isfile(addedfile):
+            os.remove(addedfile)
+
+        with open(addedfile, "x", encoding='utf-8') as i:
+            insert = "".join(insert)
+            i.write(insert)
+
+        return
+    
     target_file = Path(filename)
+
     insert_content = Path(insert_path).read_text(encoding='utf-8').splitlines(keepends=True)
 
     quiet_uninstall(target_file)
@@ -570,6 +649,10 @@ def install_tfx(filename, insert_path, module_name, custom_tag="</Behaviors>"):
         f.writelines(new_lines)
 
     print(f"TFX installed successfully into {module_name}.")
+
+
+
+
 
 def deleteitem(sender):
     dpg.delete_item(sender)
@@ -674,7 +757,7 @@ def parse_tfx_metadata(file_path):
 
     with open(file_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-
+    
     for line in lines:
         line = line.strip()
         
@@ -700,7 +783,10 @@ def parse_tfx_metadata(file_path):
         elif '<!-- TFX END -->' in line:
             end_line = line
             break
-
+    if not installed:
+        nfp = os.path.join(Path(file_path).parent, "TFXinjbehavior.xml")
+        if not nfp == file_path:
+            path, name, version, tag, installed = parse_tfx_metadata(nfp)
     return path, name, version, tag, installed
 
 
@@ -722,8 +808,8 @@ def uninstall_from_module(modulepath,simversion):
             spath = os.path.join(community_2020, get_top_level_folder(outpat[0]), "layout.json")
     else:
             spath = os.path.join(community_2024, get_top_level_folder(outpat[0]), "layout.json")
-    print (spath)
     regenlayout(spath)
+
 
 def install_from_module(modulepath, simversion):
     outpat, outname, outver, outtag, outinstall = parse_tfx_metadata(modulepath)
@@ -894,6 +980,7 @@ def checkforinstallerupdates():
     except:
         return None
 
+
 def sluce(array=[],length=1,extra=" "):
     ar = []
     l = len(array)
@@ -907,8 +994,6 @@ def sluce(array=[],length=1,extra=" "):
                 ar.append(array[a])
         return ar
                 
-
-
 
 
 def none2020():
