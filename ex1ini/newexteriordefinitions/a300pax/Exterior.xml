@@ -1,0 +1,14 @@
+<ModelInfo>
+	<LODS>
+		<LOD minSize="100" ModelFile="..\..\Part_Exterior_Airframe_Passenger\model\A300_AIRFRAME_PAX_LOD00.gltf"/>
+		<LOD minSize="50" ModelFile="..\..\Part_Exterior_Airframe_Passenger\model\A300_AIRFRAME_PAX_LOD01.gltf"/>
+		<LOD minSize="25" ModelFile="..\..\Part_Exterior_Airframe_Passenger\model\A300_AIRFRAME_PAX_LOD02.gltf"/>
+		<LOD minSize="10" ModelFile="..\..\Part_Exterior_Airframe_Passenger\model\A300_AIRFRAME_PAX_LOD03.gltf"/>
+		<LOD minSize="5" ModelFile="..\..\Part_Exterior_Airframe_Passenger\model\A300_AIRFRAME_PAX_LOD04.gltf"/>
+		<LOD minSize="1" ModelFile="..\..\Part_Exterior_Airframe_Passenger\model\A300_AIRFRAME_PAX_LOD05.gltf"/>
+	</LODS>
+	<Behaviors>
+		<IncludeBase RelativeFile="TFXinjbehavior.xml"/>
+		<IncludeBase RelativeFile="Exterior.behavior.xml"/>
+	</Behaviors>
+</ModelInfo>
