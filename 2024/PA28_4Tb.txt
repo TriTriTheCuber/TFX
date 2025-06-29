@@ -112,7 +112,7 @@
     <Component ID="ScrapeEffectTimer">
         <UseTemplate Name="ASOBO_GT_Update">
             <ANIM_CODE>1</ANIM_CODE>
-	    <FREQUENCY>60</FREQUENCY>
+	    
             <UPDATE_CODE>
 
                 (A:CONTACT POINT IS ON GROUND:4, bool) 1 == if{
@@ -165,5 +165,5 @@
     </Component>
 
 <!-- Credits: DindilloYT -->
-<!-- TFX VERSION 1.41 -->
+<!-- TFX VERSION 1.51 -->
 <!-- TFX END -->
