@@ -1,0 +1,13 @@
+<ModelInfo>
+	<LODS>
+		<LOD minSize="100" ModelFile="..\..\Part_Exterior_Airframe_Freighter\model\A300_AIRFRAME_F_LOD00.gltf"/>
+		<LOD minSize="50" ModelFile="..\..\Part_Exterior_Airframe_Freighter\model\A300_AIRFRAME_F_LOD01.gltf"/>
+		<LOD minSize="25" ModelFile="..\..\Part_Exterior_Airframe_Freighter\model\A300_AIRFRAME_F_LOD02.gltf"/>
+		<LOD minSize="10" ModelFile="..\..\Part_Exterior_Airframe_Freighter\model\A300_AIRFRAME_F_LOD03.gltf"/>
+		<LOD minSize="5" ModelFile="..\..\Part_Exterior_Airframe_Freighter\model\A300_AIRFRAME_F_LOD04.gltf"/>
+		<LOD minSize="1" ModelFile="..\..\Part_Exterior_Airframe_Freighter\model\A300_AIRFRAME_F_LOD05.gltf"/>
+	</LODS>
+	<Behaviors Compiled="True" Version="2" Revision="0">
+		<IncludeBase RelativeFile="Exterior.behavior.xml"/>
+	</Behaviors>
+</ModelInfo>
