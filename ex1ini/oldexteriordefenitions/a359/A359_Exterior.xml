@@ -1,0 +1,14 @@
+<ModelInfo>
+	<LODS>
+		<LOD minSize="100" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD00.gltf"/>
+		<LOD minSize="50" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD01.gltf"/>
+		<LOD minSize="25" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD02.gltf"/>
+		<LOD minSize="12" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD03.gltf"/>
+		<LOD minSize="6" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD04.gltf"/>
+		<LOD minSize="3" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD05.gltf"/>
+		<LOD minSize="1" ModelFile="../../Part_Exterior_A359_Fuselage/model/A359_Fuselage_LOD06.gltf"/>
+	</LODS>
+	<Behaviors Compiled="True" Version="2" Revision="0">
+		<IncludeBase RelativeFile="A359_Exterior.behavior.xml"/>
+	</Behaviors>
+</ModelInfo>
