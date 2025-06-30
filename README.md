@@ -20,6 +20,8 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - iFly 737 Max 8
 - Piper PA28 Turboarrow III/IV
 - Inibuilds A350
+- FSS 727-200
+- FSS 727-200F
 
 ### 2024
 
@@ -31,6 +33,7 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - FlyByWire A320 Neo*
 - FlyByWire A380*
 - iFly 737 Max 8**
+- Piper PA28 Turboarrow III/IV
 
 
 *means same plane as fs2020
@@ -38,9 +41,9 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 
 ### Alpha tester planes
 
-- FSS 727-200 (2020)
-- FSS 727-200F (2020)
-- Headwind A330N (2020)
+- Inibuilds A300-600 (2024)
+- Inibuilds A300-600F (2024)
+- Inibuilds A350 (All variants) (2024)
 
 ## Installation
 
