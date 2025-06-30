@@ -10,11 +10,11 @@
 
 <!-- TFX INSTALLED -->
 <!-- EX1UFILE = True -->
-<!-- PATH = inibuilds-aircraft-a350\SimObjects\Airplanes\A350\attachments\inibuilds\Function_Exterior_A35K\model\A35K_Exterior.xml -->
-<!-- NAME = Inibuilds A350-1000 -->
+<!-- PATH = inibuilds-aircraft-a350\SimObjects\Airplanes\A350\attachments\inibuilds\Function_Exterior_A359\model\A359_Exterior.xml -->
+<!-- NAME = Inibuilds A350-900 -->
 <!-- TAG = None -->
-<!-- EXURL = a35k/A35K_Exterior.xml -->
-<!-- EXTERPTH = inibuilds-aircraft-a350\SimObjects\Airplanes\A350\attachments\inibuilds\Function_Exterior_A35K\model -->
+<!-- EXURL = a359/A359_Exterior.xml -->
+<!-- EXTERPTH = inibuilds-aircraft-a350\SimObjects\Airplanes\A350\attachments\inibuilds\Function_Exterior_A359\model -->
 <!-- NEWFILENAME = TFXinjbehavior.xml -->
 
 
