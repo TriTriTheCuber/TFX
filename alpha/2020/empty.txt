@@ -1,5 +1,5 @@
 <!-- TFX INSTALLED -->
-<!-- NAME = Placeholder -->
+<!-- NAME = PLEASE READ THIS: New update 1.6 supports asobo planes. Please make sure you have the latest version. -->
 <!-- PATH = exampleplane/simobjects/airplanes -->
 <!-- TAG = </Behaviors> -->
 <!-- CREDITS = None -->
