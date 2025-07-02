@@ -160,6 +160,7 @@
     <Component ID="ScrapeEffectTimer">
         <UseTemplate Name="ASOBO_GT_Update">
             <ANIM_CODE>1</ANIM_CODE>
+	    <FREQUENCY>60</FREQUENCY>
 	    
             <UPDATE_CODE>
 
@@ -224,5 +225,5 @@
 
 
 <!-- CREDITS:  @DindilloYT, @TriTriTheCuber -->
-<!-- TFX VERSION 1.5 -->
+<!-- TFX VERSION 1.6 -->
 <!-- TFX END -->
