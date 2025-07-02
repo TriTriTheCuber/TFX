@@ -20,7 +20,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.5"
+installerversion = "1.6"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -30,6 +30,7 @@ else:
     print("Python Version")
     installertype = "py"
 
+print(f"Version {installerversion}")
 
 # Validation
 
@@ -467,6 +468,10 @@ def generate_file_buttons(folder_path, buttontag=None, simversion="2020", extrap
             planeinstalled = os.path.isfile(pathnv[0])
             if not planeinstalled:
                 planeinstalled = os.path.isfile(os.path.join(Path(pathnv[0]).parent, "TFXinjbehavior.xml"))
+            if not planeinstalled:
+                m = checkmodulemethod(full_path)
+                if m == "FXA":
+                    planeinstalled = True
             action = None
             if planeinstalled:
                 if not install:
@@ -509,11 +514,29 @@ def get_first_index_containing(lines, substring):
 def checkmodulemethod(modulepath):
     with open(modulepath, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-    index = get_first_index_containing(lines, "<!-- EX1UFILE = True -->")
-    if index == -1:
-        return("Norm")
+    indexex = get_first_index_containing(lines, "<!-- EX1UFILE = True -->")
+    indexfa = get_first_index_containing(lines, "<!-- ASOBO FXA -->")
+    if indexex == -1:
+        if indexfa == -1:
+            return("Norm")
+        else:
+            return("FXA")
     else:
         return("EX1")
+
+def checkcustlayout(filepath):
+    layout = None
+    with open(filepath, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    
+    for line in lines:
+        line = line.strip()
+        
+        if '<!-- CUSTOMLAYOUTPATH' in line:
+            layout = line.strip().replace('<!-- CUSTOMLAYOUTPATH =', '').replace('-->', '').strip()
+            return layout
+
+    return None
 
 
 def parse_ex1_metadata(modulepath):
@@ -560,29 +583,35 @@ def uninstall_tfx(target_file):
     extfile = target_file
     with open(target_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-
-    try:
-        start = lines.index('<!-- TFX INSTALLED -->\n')
-        end = lines.index('<!-- TFX END -->\n')
-        del lines[start:end + 1]
-        print(r"TFX Uninstalled sucessfully.")
-    except ValueError:
-        file = rf"{Path(target_file).parent}\TFXinjbehavior.xml"
-        if not os.path.isfile(file):
-            print(r"TFX is not installed, uninstall skipped")
-        else:
-            impath, expath, addedfilename = parse_ex1_metadata(file)
-            os.remove(file)
-            os.remove(extfile)
-            r = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/TFX/refs/heads/main/ex1ini/oldexteriordefenitions/" + impath)
-            r = "\n".join(r)
-            with open(extfile, 'x', encoding='utf-8') as l:
-                l.write(r)
+    method = checkmodulemethod(target_file)
+    if method == "FXA":
+        path = target_file
+        path = Path(path).parent
+        path = Path(path).parent
+        removepath(path)
+    else:
+        try:
+            start = lines.index('<!-- TFX INSTALLED -->\n')
+            end = lines.index('<!-- TFX END -->\n')
+            del lines[start:end + 1]
             print(r"TFX Uninstalled sucessfully.")
-            return
+        except ValueError:
+            file = rf"{Path(target_file).parent}\TFXinjbehavior.xml"
+            if not os.path.isfile(file):
+                print(r"TFX is not installed, uninstall skipped")
+            else:
+                impath, expath, addedfilename = parse_ex1_metadata(file)
+                os.remove(file)
+                os.remove(extfile)
+                r = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/TFX/refs/heads/main/ex1ini/oldexteriordefenitions/" + impath)
+                r = "\n".join(r)
+                with open(extfile, 'x', encoding='utf-8') as l:
+                    l.write(r)
+                print(r"TFX Uninstalled sucessfully.")
+                return
 
-    with open(target_file, 'w', encoding='utf-8') as f:
-        f.writelines(lines)
+        with open(target_file, 'w', encoding='utf-8') as f:
+            f.writelines(lines)
 
 
 
@@ -622,6 +651,20 @@ def install_tfx(filename, insert_path, module_name, custom_tag="</Behaviors>"):
 
         return
     
+    if mmethod == "FXA":
+
+        with open(insert_path, 'r', encoding='utf-8') as f:
+            insert = f.readlines()
+            insert = "".join(insert)
+
+        os.makedirs(Path(filename).parent)
+        with open(filename, 'x', encoding='utf-8') as s:
+            s.write(insert)
+
+        return
+
+
+
     target_file = Path(filename)
 
     insert_content = Path(insert_path).read_text(encoding='utf-8').splitlines(keepends=True)
@@ -804,10 +847,18 @@ def uninstall_from_module(modulepath,simversion):
     for index in range(len(outpath)):
         target_file.append(Path(outpath[index]))
     loopuninstall_tfx(target_file)
-    if simversion=="2020":
-            spath = os.path.join(community_2020, get_top_level_folder(outpat[0]), "layout.json")
+    lp = checkcustlayout(modulepath)
+    if not lp:
+        if simversion=="2020":
+                spath = os.path.join(community_2020, get_top_level_folder(outpat[0]), "layout.json")
+        else:
+                spath = os.path.join(community_2024, get_top_level_folder(outpat[0]), "layout.json")
     else:
-            spath = os.path.join(community_2024, get_top_level_folder(outpat[0]), "layout.json")
+        if simversion=="2020":
+                spath = os.path.join(community_2020, lp)
+        else:
+                spath = os.path.join(community_2024, lp)
+
     regenlayout(spath)
 
 
@@ -822,12 +873,20 @@ def install_from_module(modulepath, simversion):
     
     print (f"Outpath -> '{outpath[0]}' \nOutname -> '{outname}' \nOutver -> '{outver}' \nOuttag -> '{outtag}'")
     loopinstall_tfx(filenames=outpath,insert_path=modulepath, module_name=outname, custom_tag=outtag)
-    if simversion=="2020":
-            spath = os.path.join(community_2020, get_top_level_folder(outpat[0]), "layout.json")
+    lp = checkcustlayout(modulepath)
+    if not lp:
+        if simversion=="2020":
+                spath = os.path.join(community_2020, get_top_level_folder(outpat[0]), "layout.json")
+        else:
+                spath = os.path.join(community_2024, get_top_level_folder(outpat[0]), "layout.json")
     else:
-            spath = os.path.join(community_2024, get_top_level_folder(outpat[0]), "layout.json")
-    print (spath)
+        if simversion=="2020":
+                spath = os.path.join(community_2020, lp)
+        else:
+                spath = os.path.join(community_2024, lp)
+
     regenlayout(spath)
+
 
 
 
@@ -942,8 +1001,10 @@ def mainwindow():
                 with dpg.menu(label="Devmode"):
                     dpg.add_checkbox(label="Disable updates", tag="uptog", default_value=disableupdate, callback=uptoggle)
                     dpg.add_menu_item(label="Reset installer", callback=resetapplication)
-            
-        dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an installer:")
+            with dpg.menu(label="About"):
+                dpg.add_text(f"Version {installerversion}")
+
+        dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an your simulator:")
         exist_2020 = community_2020 and not community_2020 == " "
         exist_2024 = community_2024 and not community_2024 == " "
         with dpg.tab_bar(label="tab bar"):

@@ -1,5 +1,5 @@
 Installer
-1.5
+1.6
 Base
 1.01
 SDK
