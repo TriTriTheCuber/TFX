@@ -41,6 +41,10 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 
 ### Alpha tester planes
 
+- Asobo A320 Neo (2020)
+- Asobo 747-8i (2020)
+- Asobo CJ4 (2020)
+- Asobo F18 (2020)
 - Inibuilds A300-600 (2024)
 - Inibuilds A300-600F (2024)
 - Inibuilds A350 (All variants) (2024)
