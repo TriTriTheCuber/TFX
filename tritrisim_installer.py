@@ -20,7 +20,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.6"
+installerversion = "1.6.1"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -656,7 +656,11 @@ def install_tfx(filename, insert_path, module_name, custom_tag="</Behaviors>"):
         with open(insert_path, 'r', encoding='utf-8') as f:
             insert = f.readlines()
             insert = "".join(insert)
-
+        if os.path.isfile(filename):
+            path = filename
+            path = Path(path).parent
+            path = Path(path).parent
+            removepath(path)
         os.makedirs(Path(filename).parent)
         with open(filename, 'x', encoding='utf-8') as s:
             s.write(insert)
