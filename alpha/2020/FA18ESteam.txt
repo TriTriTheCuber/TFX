@@ -187,7 +187,7 @@
 <Component ID="FX_SPARKS_11">
 <OverrideTemplateParameters>
 <FX_CODE>(L:ScrapeTimer:11, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-<FX_OFFSET_X>-1.300</FX_OFFSET_X>
+<FX_OFFSET_X>1.300</FX_OFFSET_X>
 <FX_OFFSET_Y>3.000</FX_OFFSET_Y>
 <FX_OFFSET_Z>1.100</FX_OFFSET_Z>
 <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
@@ -339,6 +339,6 @@
 
 
 <!-- Credits : Arkid77 -->
-<!-- TFX VERSION 1.1_alpha.122 -->
+<!-- TFX VERSION 1.1_alpha.124 -->
 <!-- TFX END -->
 
