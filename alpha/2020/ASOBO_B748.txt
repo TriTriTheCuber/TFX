@@ -141,7 +141,7 @@
 
 <Component ID="FX_SPARKS_4">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:4, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:4, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>14</FX_OFFSET_X>
 <FX_OFFSET_Y>4</FX_OFFSET_Y>
 <FX_OFFSET_Z>-14</FX_OFFSET_Z>
@@ -156,7 +156,7 @@
 
 <Component ID="FX_SPARKS_5">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:5, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:5, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>0</FX_OFFSET_X>
 <FX_OFFSET_Y>-1.5</FX_OFFSET_Y>
 <FX_OFFSET_Z>3</FX_OFFSET_Z>
@@ -172,7 +172,7 @@
 
 <Component ID="FX_SPARKS_6">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:6, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>0</FX_OFFSET_X>
 <FX_OFFSET_Y>-1.5</FX_OFFSET_Y>
 <FX_OFFSET_Z>3</FX_OFFSET_Z>
@@ -187,7 +187,7 @@
 
 <Component ID="FX_SPARKS_7">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:7, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:7, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>-14</FX_OFFSET_X>
 <FX_OFFSET_Y>4</FX_OFFSET_Y>
 <FX_OFFSET_Z>-14</FX_OFFSET_Z>
@@ -202,7 +202,7 @@
 
 <Component ID="FX_SPARKS_8">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:8, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:8, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>0</FX_OFFSET_X>
 <FX_OFFSET_Y>-1.5</FX_OFFSET_Y>
 <FX_OFFSET_Z>3</FX_OFFSET_Z>
@@ -217,7 +217,7 @@
 
 <Component ID="FX_SPARKS_9">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:9, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:9, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>0</FX_OFFSET_X>
 <FX_OFFSET_Y>-1.5</FX_OFFSET_Y>
 <FX_OFFSET_Z>3</FX_OFFSET_Z>
@@ -233,7 +233,7 @@
 
 <Component ID="FX_SPARKS_10">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:10, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:10, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>-12</FX_OFFSET_X>
 <FX_OFFSET_Y>3.5</FX_OFFSET_Y>
 <FX_OFFSET_Z>33.5</FX_OFFSET_Z>
@@ -248,7 +248,7 @@
 
 <Component ID="FX_SPARKS_11">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:11, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:11, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>-12</FX_OFFSET_X>
 <FX_OFFSET_Y>0</FX_OFFSET_Y>
 <FX_OFFSET_Z>20</FX_OFFSET_Z>
@@ -263,7 +263,7 @@
 
 <Component ID="FX_SPARKS_12">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:12, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:12, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>-12</FX_OFFSET_X>
 <FX_OFFSET_Y>0</FX_OFFSET_Y>
 <FX_OFFSET_Z>-15</FX_OFFSET_Z>
@@ -278,7 +278,7 @@
 
 <Component ID="FX_SPARKS_13">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:13, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:13, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>-12</FX_OFFSET_X>
 <FX_OFFSET_Y>2.5</FX_OFFSET_Y>
 <FX_OFFSET_Z>-30</FX_OFFSET_Z>
@@ -293,7 +293,7 @@
 
 <Component ID="FX_SPARKS_14">
 <OverrideTemplateParameters>
-<FX_CODE>(A:CONTACT POINT IS ON GROUND:14, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_CODE>(L:ScrapeTimer:14, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
 <FX_OFFSET_X>-12</FX_OFFSET_X>
 <FX_OFFSET_Y>17</FX_OFFSET_Y>
 <FX_OFFSET_Z>-40</FX_OFFSET_Z>
@@ -305,6 +305,10 @@
 </UseTemplate>
 </Component>
 </Component>
+
+
+
+
 
 
     <Component ID="ScrapeEffectTimer">
@@ -418,7 +422,7 @@
 
 
 <!-- Credits: DindilloYT, TriTriTheCuber-->
-<!-- TFX VERSION 1.1_alpha.121 -->
+<!-- TFX VERSION 1.1_alpha.125 -->
 <!-- TFX END-->
 
 	</Template>
