@@ -15,12 +15,13 @@ import tempfile
 import threading
 import base64
 import math
+import webbrowser
 clear = lambda: os.system('cls')
 global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.6.1"
+installerversion = "1.6.2"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -33,7 +34,6 @@ else:
 print(f"Version {installerversion}")
 
 # Validation
-
 keyform = [5,5,5]
 choices = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F"]
 worth = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
@@ -865,7 +865,6 @@ def uninstall_from_module(modulepath,simversion):
 
     regenlayout(spath)
 
-
 def install_from_module(modulepath, simversion):
     outpat, outname, outver, outtag, outinstall = parse_tfx_metadata(modulepath)
     outpath = []
@@ -1005,8 +1004,10 @@ def mainwindow():
                 with dpg.menu(label="Devmode"):
                     dpg.add_checkbox(label="Disable updates", tag="uptog", default_value=disableupdate, callback=uptoggle)
                     dpg.add_menu_item(label="Reset installer", callback=resetapplication)
-            with dpg.menu(label="About"):
+            with dpg.menu(label="Info"):
                 dpg.add_text(f"Version {installerversion}")
+            with dpg.menu(label="Support TFX"):
+                dpg.add_menu_item(label="Donate (Ko-Fi)", callback=lambda: webbrowser.open("https://ko-fi.com/tritrithecuber"))
 
         dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an your simulator:")
         exist_2020 = community_2020 and not community_2020 == " "
