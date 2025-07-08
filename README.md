@@ -62,6 +62,12 @@ Here's how to install this mod:
 
 - You are done :)
 
+## Supporting the project
+If you would like to support the development of TFX, you could do a few things to help us:
+- Spread the word! Having more people knowing about TFX would strongly support the development.
+- Be active in the server! Honestly, having a community by my side means the world to me sometimes.
+- Consider donating! If you want to, you can donate via the Ko-Fi page: https://ko-fi.com/tritrithecuber
+
 If you experience issues, please contact me via the discord server.
 
 [TriTriSim Discord Server](https://discord.gg/g4bJ3nBmck)
