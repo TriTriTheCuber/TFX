@@ -48,6 +48,7 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - Inibuilds A300-600 (2024)
 - Inibuilds A300-600F (2024)
 - Inibuilds A350 (All variants) (2024)
+- Gen1 Crash Animations for PMDG 777s and 737 (2020 and 2024, 737 for 2020 only)
 
 ## Installation
 
