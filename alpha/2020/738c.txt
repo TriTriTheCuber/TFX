@@ -239,7 +239,7 @@
 	    <FX_GRAPH_PARAM_1>zoffset+, 13.5</FX_GRAPH_PARAM_1>
 	    <FX_GRAPH_PARAM_2>zoffset-, -6</FX_GRAPH_PARAM_2>
             <FX_OFFSET_X>0</FX_OFFSET_X>
-            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Y>-0.2</FX_OFFSET_Y>
             <FX_OFFSET_Z>12</FX_OFFSET_Z>
             <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
             <FX_NAME>KABOOM</FX_NAME>
@@ -262,7 +262,7 @@
 		1 (&gt;L:HasCrashed, bool)
 	}
 
-	(A:G FORCE, GForce) 4.3 &gt; if{
+	(A:G FORCE, GForce) abs 4.3 &gt; if{
 		1 (&gt;L:HasCrashed, bool)
 	}
 
@@ -298,5 +298,5 @@
 
 
 
-<!-- TFX VERSION 1.7 -->
+<!-- TFX VERSION 1.1_alpha.130 -->
 <!-- TFX END -->
