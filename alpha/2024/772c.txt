@@ -253,7 +253,7 @@
 		1 (&gt;L:HasCrashed, bool)
 	}
 
-	(A:G FORCE, GForce) 3.2 &gt; if{
+	(A:G FORCE, GForce) abs 3.2 &gt; if{
 		1 (&gt;L:HasCrashed, bool)
 	}
 
@@ -290,5 +290,5 @@
 
 
 
-<!-- TFX VERSION 1.7 -->
+<!-- TFX VERSION 1.1_alpha.130 -->
 <!-- TFX END -->
