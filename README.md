@@ -22,6 +22,8 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - Inibuilds A350
 - FSS 727-200
 - FSS 727-200F
+- Asobo 747, A320, CJ4
+- Asobo F18
 
 ### 2024
 
@@ -34,6 +36,8 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 - FlyByWire A380*
 - iFly 737 Max 8**
 - Piper PA28 Turboarrow III/IV
+- Inibuilds A300 (All variants)
+- Inibuilds A350 (All variants)
 
 
 *means same plane as fs2020
@@ -41,14 +45,8 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 
 ### Alpha tester planes
 
-- Asobo A320 Neo (2020)
-- Asobo 747-8i (2020)
-- Asobo CJ4 (2020)
-- Asobo F18 (2020)
-- Inibuilds A300-600 (2024)
-- Inibuilds A300-600F (2024)
-- Inibuilds A350 (All variants) (2024)
-- Gen1 Crash Animations for PMDG 777s and 737 (2020 and 2024, 737 for 2020 only)
+- Gen1 Crash Animations for PMDG 777s and 737s (all versions) (2020 and 2024, 737 for 2020 only)
+- Gen1 Crash Animations for CSS 737-500
 
 ## Installation
 
