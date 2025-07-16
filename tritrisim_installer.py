@@ -21,7 +21,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.6.2"
+installerversion = "1.6.3"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -220,7 +220,6 @@ def fetch_remote_file(url):
 
 def read_local_file(filepath):
     if not os.path.exists(filepath):
-        print("Local file does not exist.")
         return None
     with open(filepath, "r", encoding="utf-8") as f:
         return f.read().strip().splitlines()
@@ -1009,7 +1008,7 @@ def mainwindow():
             with dpg.menu(label="Support TFX"):
                 dpg.add_menu_item(label="Donate (Ko-Fi)", callback=lambda: webbrowser.open("https://ko-fi.com/tritrithecuber"))
 
-        dpg.add_text("Welcome to the TriTriSim installer. \nPlease select an your simulator:")
+        dpg.add_text("Welcome to the TriTriSim installer. \nPlease select your simulator:")
         exist_2020 = community_2020 and not community_2020 == " "
         exist_2024 = community_2024 and not community_2024 == " "
         with dpg.tab_bar(label="tab bar"):
