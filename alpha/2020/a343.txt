@@ -1,6 +1,6 @@
 <!-- TFX INSTALLED -->
 <!-- PATH = lvfr-airbus-a340-300\SimObjects\airplanes\lvfr-343-cfm\Model\exterior.xml -->
-<!-- NAME = LVFR A340-300 →
+<!-- NAME = LVFR A340-300 -->
 <!-- TAG = </Behaviors> -->
 
 <Component ID="FX_SMOKE_E1">
@@ -271,5 +271,5 @@
 
 
 <!-- CREDITS:  @Pixel -->
-<!-- TFX VERSION 1.1_alpha.154 -->
+<!-- TFX VERSION 1.1_alpha.155 -->
 <!-- TFX END -->
