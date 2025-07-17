@@ -6,7 +6,7 @@
 
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
-            <FX_CODE>(A:ENG ON FIRE:0, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0.3</FX_OFFSET_Y>
             <FX_OFFSET_Z>-2.5</FX_OFFSET_Z>
@@ -21,7 +21,7 @@
 
 	<Component ID="FX_SMOKE_E2">
         <OverrideTemplateParameters>
-            <FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_CODE>(A:ENG ON FIRE:2, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0.3</FX_OFFSET_Y>
             <FX_OFFSET_Z>-2.5</FX_OFFSET_Z>
@@ -36,7 +36,7 @@
 
 	<Component ID="FX_FIRE_E1">
         <OverrideTemplateParameters>
-            <FX_CODE>(A:ENG ON FIRE:0, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0.3</FX_OFFSET_Y>
             <FX_OFFSET_Z>-3.65</FX_OFFSET_Z>
@@ -51,7 +51,7 @@
 
 	<Component ID="FX_FIRE_E2">
         <OverrideTemplateParameters>
-            <FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_CODE>(A:ENG ON FIRE:2, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>0.3</FX_OFFSET_Y>
             <FX_OFFSET_Z>-3.65</FX_OFFSET_Z>
@@ -367,5 +367,5 @@
 
 
 
-<!-- TFX VERSION 1.1_alpha.155 -->
+<!-- TFX VERSION 1.1_alpha.160 -->
 <!-- TFX END -->
