@@ -1,6 +1,6 @@
 <!-- TFX INSTALLED -->
-<!-- PATH = fnx-aircraft-320\SimObjects\Airplanes\FNX_320_IAE\model\FNX320_Exterior_IAE.xml -->
-<!-- NAME = Fenix A320 (IAE) (Crash animV1) -->
+<!-- PATH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_321_CFM\model\FNX321_Exterior_CFM.xml -->
+<!-- NAME = Fenix A321 (CFM) (Crash animV1) -->
 <!-- TAG = </Behaviors> -->
 
 	<Component ID="FX_SMOKE_E1">
@@ -12,7 +12,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="VFX_Exhaust_IAE_L">
+        <Component ID="FX_SMOKE_ENGL" Node="VFX_Exhaust_L">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -27,7 +27,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGR" Node="VFX_Exhaust_IAE_R">
+        <Component ID="FX_SMOKE_ENGR" Node="VFX_Exhaust_R">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -42,7 +42,7 @@
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
             <FX_NAME>FX_FIRE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="VFX_Exhaust_IAE_L">
+        <Component ID="FX_FIRE_ENGL" Node="VFX_Exhaust_L">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -57,7 +57,7 @@
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGR" Node="VFX_Exhaust_IAE_R">
+        <Component ID="FX_FIRE_ENGR" Node="VFX_Exhaust_R">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -73,7 +73,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_3</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK3" Node="VFX_Exhaust_IAE_L">
+        <Component ID="FX_SPARK3" Node="VFX_Exhaust_L">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -89,7 +89,7 @@
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_4</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SPARK4" Node="VFX_Exhaust_IAE_R">
+        <Component ID="FX_SPARK4" Node="VFX_Exhaust_R">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -116,7 +116,7 @@
 	    <FX_CODE>(L:ScrapeTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_OFFSET_X>0</FX_OFFSET_X>
             <FX_OFFSET_Y>-2.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>36</FX_OFFSET_Z>
+            <FX_OFFSET_Z>42</FX_OFFSET_Z>
             <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
             <FX_NAME>FX_SPARKS_6</FX_NAME>
         </OverrideTemplateParameters>
@@ -140,7 +140,6 @@
             </UseTemplate>
         </Component>
 	</Component>
-
 
     <Component ID="ScrapeEffectTimer">
         <UseTemplate Name="ASOBO_GT_Update">
@@ -196,15 +195,15 @@
         </UseTemplate>
     </Component>
 
-    <Component ID="BIGBOOM">
+<Component ID="BIGBOOM">
         <OverrideTemplateParameters>
         <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
-        <FX_GRAPH_PARAM_0>size, 1.2</FX_GRAPH_PARAM_0>
-        <FX_GRAPH_PARAM_1>zoffset+, -6</FX_GRAPH_PARAM_1>
-        <FX_GRAPH_PARAM_2>zoffset-, 13.5</FX_GRAPH_PARAM_2>
+        <FX_GRAPH_PARAM_0>size, 1.5</FX_GRAPH_PARAM_0>
+        <FX_GRAPH_PARAM_1>zoffset+, 14</FX_GRAPH_PARAM_1>
+        <FX_GRAPH_PARAM_2>zoffset-, -5</FX_GRAPH_PARAM_2>
             <FX_OFFSET_X>0</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1.25</FX_OFFSET_Y>
-            <FX_OFFSET_Z>-20</FX_OFFSET_Z>
+            <FX_OFFSET_Y>-0.9</FX_OFFSET_Y>
+            <FX_OFFSET_Z>-21</FX_OFFSET_Z>
             <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
             <FX_NAME>KABOOM</FX_NAME>
         </OverrideTemplateParameters>
@@ -260,6 +259,8 @@
   </UseTemplate>
 </Component>
 
+	
+<!-- Credits: DindilloYT, Tritrithecuber, kamo1498 -->
 <!-- TFX VERSION 1.1_alpha.170 -->
-<!-- Credits: Tritrithecuber, kamo1498 -->
 <!-- TFX END -->
+
