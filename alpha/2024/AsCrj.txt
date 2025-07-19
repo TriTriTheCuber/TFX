@@ -1,0 +1,214 @@
+<!-- TFX INSTALLED -->
+<!-- PATH1 = aerosoft-crj\SimObjects\Airplanes\Aerosoft_CRJ_Common\ModelBehaviorDefs\ASCRJ_Exterior_900_1000.xml -->
+<!-- PATH2 = aerosoft-crj\SimObjects\Airplanes\Aerosoft_CRJ_Common\ModelBehaviorDefs\ASCRJ_Exterior_550_700.xml -->
+<!-- NAME = Aerosoft CRJ -->
+<!-- TAG = </Behaviors> -->
+
+<Component ID="FX_SMOKE_E1">
+<OverrideTemplateParameters>
+<FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_OFFSET_X>0</FX_OFFSET_X>
+<FX_OFFSET_Y>0</FX_OFFSET_Y>
+<FX_OFFSET_Z>0.4</FX_OFFSET_Z>
+<FX_GUID>{2B9030C5-AD0A-40FE-B08D-0BA8D12B6583}</FX_GUID>
+<FX_NAME>FX_SMOKE_1</FX_NAME>
+</OverrideTemplateParameters>
+<Component ID="FX_SMOKE_ENG1" Node="fx_exhaust_left">
+<UseTemplate Name="ASOBO_GT_FX">
+</UseTemplate>
+</Component>
+</Component>
+
+<Component ID="FX_FIRE_E1">
+<OverrideTemplateParameters>
+<FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_OFFSET_X>0</FX_OFFSET_X>
+<FX_OFFSET_Y>0</FX_OFFSET_Y>
+<FX_OFFSET_Z>0.4</FX_OFFSET_Z>
+<FX_GUID>{4800A9E5-E7A0-4255-89A9-BBAA87446ADF}</FX_GUID>
+<FX_NAME>FX_FIRE_1</FX_NAME>
+</OverrideTemplateParameters>
+<Component ID="FX_FIRE_ENG1" Node="fx_exhaust_left">
+<UseTemplate Name="ASOBO_GT_FX">
+</UseTemplate>
+</Component>
+</Component>
+
+<Component ID="FX_SMOKE_E2">
+<OverrideTemplateParameters>
+<FX_CODE>(A:ENG ON FIRE:2, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_OFFSET_X>0</FX_OFFSET_X>
+<FX_OFFSET_Y>0</FX_OFFSET_Y>
+<FX_OFFSET_Z>0.4</FX_OFFSET_Z>
+<FX_GUID>{2B9030C5-AD0A-40FE-B08D-0BA8D12B6583}</FX_GUID>
+<FX_NAME>FX_SMOKE_2</FX_NAME>
+</OverrideTemplateParameters>
+<Component ID="FX_SMOKE_ENG2" Node="fx_exhaust_right">
+<UseTemplate Name="ASOBO_GT_FX">
+</UseTemplate>
+</Component>
+</Component>
+
+<Component ID="FX_FIRE_E2">
+<OverrideTemplateParameters>
+<FX_CODE>(A:ENG ON FIRE:2, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_OFFSET_X>0</FX_OFFSET_X>
+<FX_OFFSET_Y>0</FX_OFFSET_Y>
+<FX_OFFSET_Z>0.4</FX_OFFSET_Z>
+<FX_GUID>{4800A9E5-E7A0-4255-89A9-BBAA87446ADF}</FX_GUID>
+<FX_NAME>FX_FIRE_2</FX_NAME>
+</OverrideTemplateParameters>
+<Component ID="FX_FIRE_ENG2" Node="fx_exhaust_right">
+<UseTemplate Name="ASOBO_GT_FX">
+</UseTemplate>
+</Component>
+</Component>
+
+<Component ID="FX_SPARKS_C3">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:3, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK3" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C4">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:4, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_4</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK4" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C5">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:5, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_5</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK5" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>5</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C6">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_6</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK6" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>6</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C7">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:7, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_7</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK7" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>7</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C8">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:8, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_8</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK8" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>8</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+    <Component ID="ScrapeEffectTimer">
+        <UseTemplate Name="ASOBO_GT_Update">
+            <ANIM_CODE>1</ANIM_CODE>
+            <FREQUENCY>60</FREQUENCY>
+            <UPDATE_CODE>
+
+               (A:CONTACT POINT IS ON GROUND:3, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:3, number)
+                }
+                els{
+                   (L:ScrapeTimer:3, number) 0 > if{
+                       (L:ScrapeTimer:3, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:3, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:4, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:4, number)
+                }
+                els{
+                   (L:ScrapeTimer:4, number) 0 > if{
+                       (L:ScrapeTimer:4, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:4, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:5, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:5, number)
+                }
+                els{
+                   (L:ScrapeTimer:5, number) 0 > if{
+                       (L:ScrapeTimer:5, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:5, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:6, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:6, number)
+                }
+                els{
+                   (L:ScrapeTimer:6, number) 0 > if{
+                       (L:ScrapeTimer:6, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:6, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:7, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:7, number)
+                }
+                els{
+                   (L:ScrapeTimer:7, number) 0 > if{
+                       (L:ScrapeTimer:7, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:7, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:8, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:8, number)
+                }
+                els{
+                   (L:ScrapeTimer:8, number) 0 > if{
+                       (L:ScrapeTimer:8, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:8, number)
+                    }
+                }
+
+            </UPDATE_CODE>
+        </UseTemplate>
+    </Component>
+
+<!-- Credits :  kamo1498 -->
+<!-- TFX VERSION 1.1_alpha.170 -->
+<!-- TFX END -->
+
