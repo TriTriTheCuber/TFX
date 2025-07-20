@@ -1,6 +1,6 @@
 <!-- TFX INSTALLED -->
 <!-- PATH = Kuro_B787-8\SimObjects\Airplanes\Kuro_B787_8\model.v3.GE\B787.xml -->
-<!-- NAME = Kuro B787-8 -->
+<!-- NAME = Kuro B787-8 (Crash AnimV1) -->
 <!-- TAG = </Behaviors> -->
 
     <Component ID="FX_SMOKE_E1">
