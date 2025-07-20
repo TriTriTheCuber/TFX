@@ -1,5 +1,5 @@
 <!-- TFX INSTALLED -->
-<!-- PATH = tfdidesign-aircraft-md11\SimObjects\Airplanes\TFDi_Design_MD-11F_GE\model.F\TFDi_MD11_EXT.xml -->
+<!-- PATH = tfdidesign-aircraft-md11\SimObjects\Airplanes\TFDi_Design_MD-11F_GE\model.BCF\TFDi_MD11_EXT.xml -->
 <!-- NAME = TFDI MD11F -->
 <!-- TAG = </Behaviors> -->
 
@@ -371,7 +371,7 @@
             </UPDATE_CODE>
         </UseTemplate>
     </Component>
-	
-<!-- Credits :  (Pixel, TriTriTheCuber) -->
-<!-- TFX VERSION (1.7) -->
+
+<!-- Credits :  Pixel, TriTriTheCuber -->
+<!-- TFX VERSION 1.1_alpha.170 -->
 <!-- TFX END -->
