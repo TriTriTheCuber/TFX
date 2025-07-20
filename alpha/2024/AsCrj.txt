@@ -1,7 +1,7 @@
 <!-- TFX INSTALLED -->
 <!-- PATH1 = aerosoft-crj\SimObjects\Airplanes\Aerosoft_CRJ_Common\ModelBehaviorDefs\ASCRJ_Exterior_900_1000.xml -->
 <!-- PATH2 = aerosoft-crj\SimObjects\Airplanes\Aerosoft_CRJ_Common\ModelBehaviorDefs\ASCRJ_Exterior_550_700.xml -->
-<!-- NAME = Aerosoft CRJ -->
+<!-- NAME = Aerosoft CRJ (Crash AnimV1) -->
 <!-- TAG = </Behaviors> -->
 
 <Component ID="FX_SMOKE_E1">
@@ -208,7 +208,107 @@
         </UseTemplate>
     </Component>
 
-<!-- Credits :  kamo1498 -->
+
+
+
+
+	<Component ID="BIGBOOM">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+	    <FX_GRAPH_PARAM_0>size, (L:CRJ_TYPE, enum) 1 == if{
+    1
+} els{
+    (L:CRJ_TYPE, enum) 2 == if{
+        1.1
+    } els{
+        (L:CRJ_TYPE, enum) 3 == if{
+            1.2
+        } els{
+            (L:CRJ_TYPE, enum) 4 == if{
+                1
+            } els{
+                0
+            }
+        }
+    }
+}
+</FX_GRAPH_PARAM_0>
+	    <FX_GRAPH_PARAM_1>zoffset+, (L:CRJ_TYPE, enum) 1 == if{
+    13
+} els{
+    (L:CRJ_TYPE, enum) 2 == if{
+        12
+    } els{
+        (L:CRJ_TYPE, enum) 3 == if{
+            12
+        } els{
+            (L:CRJ_TYPE, enum) 4 == if{
+                11
+            } els{
+                0
+            }
+        }
+    }
+}
+</FX_GRAPH_PARAM_1>
+	    <FX_GRAPH_PARAM_2>zoffset-, (L:CRJ_TYPE, enum) 1 == if{
+    -6
+} els{
+    (L:CRJ_TYPE, enum) 2 == if{
+        -5
+    } els{
+        (L:CRJ_TYPE, enum) 3 == if{
+            -6
+        } els{
+            (L:CRJ_TYPE, enum) 4 == if{
+                -4
+            } els{
+                0
+            }
+        }
+    }
+}
+
+</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>0</FX_OFFSET_Z>
+            <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
+            <FX_NAME>KABOOM</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_Explosion" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+        </Component>
+
+<Component ID="CrashDetector">
+  <UseTemplate Name="ASOBO_GT_Update">
+    <ANIM_CODE>1</ANIM_CODE>
+    <FREQUENCY>60</FREQUENCY>
+
+    <UPDATE_CODE>
+
+	(A:G FORCE, GForce) abs 3.8 &gt; if{
+		1 (&gt;L:HasCrashed, bool)
+	}
+
+	(L:HasCrashed, bool) 1 == if{
+		1 (>A:ENG ON FIRE:1, enum)
+		1 (>A:ENG ON FIRE:2, enum)
+	}
+	els{
+		
+	}
+
+
+    </UPDATE_CODE>
+  </UseTemplate>
+</Component>
+
+
+
+<!-- Credits :  kamo1498, Pepe, Tritrithecuber -->
 <!-- TFX VERSION 1.1_alpha.170 -->
 <!-- TFX END -->
 
