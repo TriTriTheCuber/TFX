@@ -1,0 +1,65 @@
+releases:
+  - name: "Fenix A319 CFM"
+    date: 1721496000000
+  - name: "Fenix A319 IAE"
+    date: 1721496000000
+  - name: "Fenix A320 CFM"
+    date: 1721496000000
+  - name: "Fenix A320 IAE"
+    date: 1721496000000
+  - name: "Fenix A321 CFM"
+    date: 1721496000000
+  - name: "Fenix A321 IAE"
+    date: 1721496000000
+  - name: "FlyByWire A320neo"
+    date: 1721496000000
+  - name: "FlyByWire A380"
+    date: 1721496000000
+  - name: "FlightSim Studios 727-200"
+    date: 1721496000000
+  - name: "FlightSim Studios 727-200F"
+    date: 1721496000000
+  - name: "CSS 737-500"
+    date: 1721496000000
+  - name: "PMDG 737-600"
+    date: 1721496000000
+  - name: "PMDG 737-700"
+    date: 1721496000000
+  - name: "PMDG 737-800"
+    date: 1721496000000
+  - name: "PMDG 737-900"
+    date: 1721496000000
+  - name: "PMDG 777-200"
+    date: 1721496000000
+  - name: "PMDG 777F"
+    date: 1721496000000
+  - name: "PMDG 77l"
+    date: 1721496000000
+  - name: "PMDG 77wc"
+    date: 1721496000000
+  - name: "Kuro 787-800"
+    date: 1721496000000
+  - name: "787-X"
+    date: 1721496000000
+  - name: "Asobo A32N"
+    date: 1721496000000
+  - name: "Asobo CJ4"
+    date: 1721496000000
+  - name: "AsCrj"
+    date: 1721496000000
+  - name: "F22A"
+    date: 1721496000000
+  - name: "F18 MStore"
+    date: 1721496000000
+  - name: "F18E Steam"
+    date: 1721496000000
+  - name: "MD11"
+    date: 1721496000000
+  - name: "MD11F"
+    date: 1721496000000
+  - name: "A343"
+    date: 1721496000000
+  - name: "iFly 737 MAX"
+    date: 1721496000000
+  - name: "iniBuilds A320v2"
+    date: 1721496000000
