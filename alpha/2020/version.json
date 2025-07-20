@@ -1,0 +1,199 @@
+{
+  "sim": "msfs2020experimental",
+  "build": "1.0.5",
+  "lastUpdated": "2025-07-20T18:00:00Z",
+  "addons": [
+    {
+      "key": "fenix319cfm",
+      "name": "Fenix A319 CFM",
+      "description": "Fenix A319 CFM TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/319CFMc.txt"
+    },
+    {
+      "key": "fenix319iae",
+      "name": "Fenix A319 IAE",
+      "description": "Fenix A319 IAE TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/319IAE.txt"
+    },
+    {
+      "key": "fenix320cfm",
+      "name": "Fenix A320 CFM",
+      "description": "Fenix A320 CFM TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/320CFMc.txt"
+    },
+    {
+      "key": "fenix320iae",
+      "name": "Fenix A320 IAE",
+      "description": "Fenix A320 IAE TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/320IAEc.txt"
+    },
+    {
+      "key": "fenix321cfm",
+      "name": "Fenix A321 CFM",
+      "description": "Fenix A321 CFM TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/321CFMc.txt"
+    },
+    {
+      "key": "fenix321iae",
+      "name": "Fenix A321 IAE",
+      "description": "Fenix A321 IAE TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/321IAEc.txt"
+    },
+        {
+      "key": "flybywire320n",
+      "name": "FlyByWire A320neo",
+      "description": "FlyByWire A320neo for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/320Nc.txt"
+    },
+    {
+      "key": "flybywire380",
+      "name": "FlyByWire A380",
+      "description": "FlyByWire A380 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/380c.txt"
+    },
+    {
+      "key": "fss727",
+      "name": "FlightSim Studios 727-200",
+      "description": "FlightSim Studios 727-200 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/727c.txt"
+    },
+    {
+      "key": "fss727f",
+      "name": "FlightSim Studios 727-200F",
+      "description": "FlightSim Studios 727-200F for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/727fc.txt"
+    },
+    {
+      "key": "css737",
+      "name": "CSS 737-500",
+      "description": "CSS 737-500 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/735c.txt"
+    },
+    {
+      "key": "pmdg736",
+      "name": "PMDG 737-600",
+      "description": "PMDG 737-600 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/736.txt"
+    },
+    {
+      "key": "pmdg737",
+      "name": "PMDG 737-700",
+      "description": "PMDG 737-700 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/737.txt"
+    },
+    {
+      "key": "pmdg738",
+      "name": "PMDG 737-800",
+      "description": "PMDG 737-800 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/738.txt"
+    },
+    {
+      "key": "pmdg739",
+      "name": "PMDG 737-900",
+      "description": "PMDG 737-900 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/739.txt"
+    },
+    {
+      "key": "pmdg772",
+      "name": "PMDG 777-200",
+      "description": "PMDG 777-200 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/772c.txt"
+    },
+    {
+      "key": "pmdg77f",
+      "name": "PMDG 777F",
+      "description": "PMDG 777F for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/77fc.txt"
+    },
+    {
+      "key": "pmdg77lc",
+      "name": "PMDG 77l",
+      "description": "PMDG 77lc for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/77lc.txt"
+    },
+    {
+      "key": "pmdg77wc",
+      "name": "PMDG 77wc",
+      "description": "PMDG 77wc for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/77wc.txt"
+    },
+    {
+      "key": "kuro787",
+      "name": "Kuro 787-800",
+      "description": "Kuro 787-800 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/788.txt"
+    },
+    {
+      "key": "78x",
+      "name": "787-X",
+      "description": "787-X for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/78x.txt"
+    },
+    {
+      "key": "asoboa32n",
+      "name": "Asobo A32N",
+      "description": "Asobo A32N for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/ASOBO_A32N.txt"
+    },
+    {
+      "key": "asobocj4",
+      "name": "Asobo CJ4",
+      "description": "Asobo CJ4 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/ASOBO_CJ4.txt"
+    },
+    {
+      "key": "AsCrj",
+      "name": "AsCrj",
+      "description": "AsCrj for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/AsCrj.txt"
+    },
+    {
+      "key": "F22A",
+      "name": "F22A",
+      "description": "F22A for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/F22A.txt"
+    },    
+    {
+      "key": "F18EMSstore",
+      "name": "F18 MStore",
+      "description": "F18 Mstore for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/FA18EMSstore.txt"
+    },
+    {
+      "key": "F18ESteam",
+      "name": "F18E Steam",
+      "description": "F18E Steam for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/FA18EMSteam.txt"
+    },
+    {
+      "key": "MD11",
+      "name": "MD11",
+      "description": "MD11 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/MD11.txt"
+    },
+    {
+      "key": "MD11F",
+      "name": "MD11F",
+      "description": "MD11F for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/MD11F.txt"
+    },
+    {
+      "key": "a343",
+      "name": "A343",
+      "description": "A343 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/a343.txt"
+    },
+    {
+      "key": "ifly737",
+      "name": "iFly 737 MAX",
+      "description": "iFly 737 MAX for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/ifly737c.txt"
+    },
+    {
+      "key": "iniA320v2",
+      "name": "iniBuilds A320v2",
+      "description": "iniBuilds A320V2 for TriTriSim",
+      "url": "https://github.com/TriTriTheCuber/TFX/raw/refs/heads/main/alpha/2020/iniA320v2c.txt"
+    }
+  ]
+}
