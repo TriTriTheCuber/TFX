@@ -1,6 +1,6 @@
 <!-- TFX INSTALLED -->
 <!-- PATH = tfdidesign-aircraft-md11\SimObjects\Airplanes\TFDi_Design_MD-11F_GE\model.BCF\TFDi_MD11_EXT.xml -->
-<!-- NAME = TFDI MD11F -->
+<!-- NAME = TFDI MD11F (Crash AnimV1) -->
 <!-- TAG = </Behaviors> -->
 
 
@@ -367,11 +367,78 @@
                        (L:ScrapeTimer:15, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:15, number)
                     }
                 }
+				
+
 
             </UPDATE_CODE>
         </UseTemplate>
     </Component>
+	
+	<Component ID="BIGBOOM">
+        <OverrideTemplateParameters>
+        <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+        <FX_GRAPH_PARAM_0>size, 2.25</FX_GRAPH_PARAM_0>
+        <FX_GRAPH_PARAM_1>zoffset+, 8</FX_GRAPH_PARAM_1>
+        <FX_GRAPH_PARAM_2>zoffset-, 13</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>2</FX_OFFSET_Y>
+            <FX_OFFSET_Z>-25</FX_OFFSET_Z>
+            <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
+            <FX_NAME>KABOOM</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_Explosion" Node="NO_NODE">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>7</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+        </Component>
 
+<Component ID="CrashDetector">
+  <UseTemplate Name="ASOBO_GT_Update">
+    <ANIM_CODE>1</ANIM_CODE>
+    <FREQUENCY>60</FREQUENCY>
+
+    <UPDATE_CODE>
+
+    (L:cargofire, number) 50 &gt; if{
+        1 (&gt;L:HasCrashed, bool)
+    }
+
+    (A:G FORCE, GForce) abs 3.2 &gt; if{
+        1 (&gt;L:HasCrashed, bool)
+    }
+
+    (L:Failure_FWD_CARGO_FIRE, enum) || (L:Failure_AFT_CARGO_FIRE, enum) if{
+        (L:cargofire, number) (E:SIMULATION DELTA TIME, number) + (>L:cargofire, number)
+    }
+    els{
+        0 (>L:cargofire, number)
+    }
+
+    (L:HasCrashed, bool) 1 == if{
+        1 (>L:Failure_EDP_1_HYD_FAIL, enum)
+        1 (>L:Failure_ACMP_C1_HYD_FAIL, enum)
+        1 (>L:Failure_ACMP_C2_HYD_FAIL, enum)
+        1 (>L:Failure_EDP_2_HYD_FAIL, enum)
+        1 (>L:Failure_ACMP_L_HYD_FAIL, enum)
+        1 (>L:Failure_ADP_C1_HYD_FAIL, enum)
+        1 (>L:Failure_ADP_C2_HYD_FAIL, enum)
+        1 (>L:Failure_ACMP_R_HYD_FAIL, enum)
+        1 (>L:Failure_EDP_1_HYD_LEAK, enum)
+        1 (>L:Failure_ACMP_C1_HYD_LEAK, enum)
+        1 (>A:ENG ON FIRE:1, enum)
+        1 (>A:ENG ON FIRE:2, enum)
+		1 (>A:ENG ON FIRE:3, enum)
+    }
+    els{
+
+    }
+
+
+    </UPDATE_CODE>
+  </UseTemplate>
+</Component>
+	
 <!-- Credits :  Pixel, TriTriTheCuber -->
 <!-- TFX VERSION 1.1_alpha.170 -->
 <!-- TFX END -->
