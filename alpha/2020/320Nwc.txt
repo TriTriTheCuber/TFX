@@ -3,6 +3,7 @@
 <!-- NAME = FlyByWire A320 Neo (Crash animV1, Water) -->
 <!-- TAG = </Behaviors> -->
 
+
 	<Component ID="FX_SMOKE_E1">
         <OverrideTemplateParameters>
             <FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
@@ -64,6 +65,367 @@
 	</Component>
 
 
+
+
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W1L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 43728478748279</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-15</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>9</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH1" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W1R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 21739827398</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>15</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>9</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH2" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W2L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 100239189812039</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-13</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>8.5</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH3" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W2R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 73428749823794878379284</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>13</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>8.5</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH4" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W3L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 3428098230908483287</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-12</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>8</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH5" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W3R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 21839280497349759834990</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>12</FX_OFFSET_X>
+            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>8</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH6" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+    <Component ID="FX_WaterSplash_W4L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 3274832746612784756</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-10</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>7</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH7" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W4R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 374983749872619948476378934273</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>10</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>7</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH8" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W5L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 3742787429374239489283948293</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-8</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>5.5</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH9" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W5R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 912039478437298758932097508</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>8</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>5.5</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH10" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W6L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 37483234787156352615362563512536256356253562</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-6</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>5</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH11" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W6R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 1230293093485439875934789578</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>6</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>5</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH12" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W7L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 127387287878787878237198472938749823</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-4</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>4</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH13" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W7R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 12904909304923094093</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>4</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
+            <FX_OFFSET_Z>4</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH14" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+    <Component ID="FX_WaterSplash_W8L">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 1099999902930912093021903965837</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>-2</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.5</FX_OFFSET_Y>
+            <FX_OFFSET_Z>3</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH15" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_W8R">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 2839873429874983279847983278997789789787</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>2</FX_OFFSET_X>
+            <FX_OFFSET_Y>-0.5</FX_OFFSET_Y>
+            <FX_OFFSET_Z>3</FX_OFFSET_Z>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="WINGSPLASH16" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <Component ID="FX_SPARKS_C3">
         <OverrideTemplateParameters>
             <FX_CODE>(L:ScrapeTimer:3, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
@@ -81,7 +443,8 @@
         <OverrideTemplateParameters>
             <FX_CODE>(L:WaterTimer:3, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 94616419088619369970</FX_GRAPH_PARAM_2>
             <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
             <FX_NAME>FX_SPLASH_3</FX_NAME>
         </OverrideTemplateParameters>
@@ -109,7 +472,8 @@
         <OverrideTemplateParameters>
             <FX_CODE>(L:WaterTimer:4, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 32920628878244119921</FX_GRAPH_PARAM_2>
             <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
             <FX_NAME>FX_SPLASH_4</FX_NAME>
         </OverrideTemplateParameters>
@@ -137,7 +501,8 @@
         <OverrideTemplateParameters>
             <FX_CODE>(L:WaterTimer:5, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_GRAPH_PARAM_0>Contact#, 5</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 53730762779067749624</FX_GRAPH_PARAM_2>
             <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
             <FX_NAME>FX_SPLASH_5</FX_NAME>
         </OverrideTemplateParameters>
@@ -165,7 +530,8 @@
         <OverrideTemplateParameters>
             <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_GRAPH_PARAM_0>Contact#, 6</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 27140534511392640566</FX_GRAPH_PARAM_2>
             <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
             <FX_NAME>FX_SPLASH_6</FX_NAME>
         </OverrideTemplateParameters>
@@ -193,7 +559,8 @@
         <OverrideTemplateParameters>
             <FX_CODE>(L:WaterTimer:7, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_GRAPH_PARAM_0>Contact#, 7</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 84122694090271584491</FX_GRAPH_PARAM_2>
             <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
             <FX_NAME>FX_SPLASH_7</FX_NAME>
         </OverrideTemplateParameters>
@@ -221,7 +588,8 @@
         <OverrideTemplateParameters>
             <FX_CODE>(L:WaterTimer:8, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
             <FX_GRAPH_PARAM_0>Contact#, 8</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 98212716256668422722</FX_GRAPH_PARAM_2>
             <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
             <FX_NAME>FX_SPLASH_8</FX_NAME>
         </OverrideTemplateParameters>
@@ -231,345 +599,6 @@
             </UseTemplate>
         </Component>
     </Component>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W1L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-15</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
-            <FX_OFFSET_Z>9</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH1" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W1R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>15</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
-            <FX_OFFSET_Z>9</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH2" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W2L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-13</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
-            <FX_OFFSET_Z>8.5</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH3" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W2R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>13</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
-            <FX_OFFSET_Z>8.5</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH4" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W3L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-12</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
-            <FX_OFFSET_Z>8</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH5" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W3R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>12</FX_OFFSET_X>
-            <FX_OFFSET_Y>-1</FX_OFFSET_Y>
-            <FX_OFFSET_Z>8</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH6" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-    <Component ID="FX_WaterSplash_W4L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-10</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>7</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH7" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W4R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>10</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>7</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH8" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W5L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-8</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>5.5</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH9" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W5R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>8</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>5.5</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH10" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W6L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-6</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>5</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH11" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W6R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>6</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>5</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH12" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W7L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-4</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>4</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH13" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W7R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>4</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.8</FX_OFFSET_Y>
-            <FX_OFFSET_Z>4</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH14" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
-
-    <Component ID="FX_WaterSplash_W8L">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 3</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>-2</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.5</FX_OFFSET_Y>
-            <FX_OFFSET_Z>3</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH15" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>3</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-    <Component ID="FX_WaterSplash_W8R">
-        <OverrideTemplateParameters>
-            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
-            <FX_GRAPH_PARAM_0>Contact#, 4</FX_GRAPH_PARAM_0>
-            <FX_GRAPH_PARAM_1>Size, 1.6</FX_GRAPH_PARAM_0>
-            <FX_OFFSET_X>2</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.5</FX_OFFSET_Y>
-            <FX_OFFSET_Z>3</FX_OFFSET_Z>
-            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
-            <FX_NAME>FX_SPLASH_3</FX_NAME>
-        </OverrideTemplateParameters>
-        <Component ID="WINGSPLASH16" Node="__NO_NODE__">
-            <UseTemplate Name="ASOBO_GT_FX">
-                <FX_CONTACT_POINT_ID>4</FX_CONTACT_POINT_ID>
-            </UseTemplate>
-        </Component>
-    </Component>
-
-
-
-
 
 
 
@@ -704,6 +733,10 @@
     </Component>
 
 
+
+
+
+
 	<Component ID="BIGBOOM">
         <OverrideTemplateParameters>
 	    <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
@@ -749,5 +782,5 @@
 
 
 
-<!-- TFX VERSION 1.1_alpha.180 -->
+<!-- TFX VERSION 1.1_alpha.172 -->
 <!-- TFX END -->
