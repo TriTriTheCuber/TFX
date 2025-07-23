@@ -1,6 +1,7 @@
 import os
 import re
 from pathlib import Path
+import random
 flight_model = "flight_model.cfg"
 newfile = "f.txt"
 points = []
@@ -21,6 +22,7 @@ if os.path.isfile(newfile):
 with open(newfile,"x") as n:
     lines = []
     for p in points:
+        randid = random.randint(0,100000000000000000000)
         lines.append(f"""    <Component ID="FX_SPARKS_C{p}">""")
         lines.append("""        <OverrideTemplateParameters>""")
         lines.append(f"""            <FX_CODE>(L:ScrapeTimer:{p}, number) 0 > if{{ 1 }} els{{ 0 }}</FX_CODE>""")
@@ -38,7 +40,8 @@ with open(newfile,"x") as n:
         lines.append("""        <OverrideTemplateParameters>""")
         lines.append(f"""            <FX_CODE>(L:WaterTimer:{p}, number) 0 > if{{ 1 }} els{{ 0 }}</FX_CODE>""")
         lines.append(f"""            <FX_GRAPH_PARAM_0>Contact#, {p}</FX_GRAPH_PARAM_0>""")
-        lines.append(f"""            <FX_GRAPH_PARAM_1>Size, {size}</FX_GRAPH_PARAM_0>""")
+        lines.append(f"""            <FX_GRAPH_PARAM_1>Size, {size}</FX_GRAPH_PARAM_1>""")
+        lines.append(f"""            <FX_GRAPH_PARAM_2>randid, {randid}</FX_GRAPH_PARAM_2>""")
         lines.append("""            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>""")
         lines.append(f"""            <FX_NAME>FX_SPLASH_{p}</FX_NAME>""")
         lines.append("""        </OverrideTemplateParameters>""")
