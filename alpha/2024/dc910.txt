@@ -3,20 +3,6 @@
 <!-- NAME = Sky Simulations DC-9-10 -->
 <!-- TAG = </Behaviors> -->
 
-<Component ID="FX_SMOKE_EN">
-<OverrideTemplateParameters>
-<FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
-<FX_OFFSET_X>0.200</FX_OFFSET_X>
-<FX_OFFSET_Y>0.300</FX_OFFSET_Y>
-<FX_OFFSET_Z>4.000</FX_OFFSET_Z>
-<FX_GUID>{2B9030C5-AD0A-40FE-B08D-0BA8D12B658}</FX_GUID>
-<FX_NAME>FX_SMOKE_N</FX_NAME>
-</OverrideTemplateParameters>
-<Component ID="FX_SMOKE_ENG1" Node="fx_exhaust_left">
-<UseTemplate Name="ASOBO_GT_FX">
-</UseTemplate>
-</Component>
-</Component>
 
 <Component ID="FX_FIRE_E1">
 <OverrideTemplateParameters>
@@ -47,6 +33,38 @@
 </UseTemplate>
 </Component>
 </Component>
+
+<Component ID="FX_SMOKE_E1">
+<OverrideTemplateParameters>
+<FX_CODE>(A:ENG ON FIRE:1, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_OFFSET_X>0.200</FX_OFFSET_X>
+<FX_OFFSET_Y>0.300</FX_OFFSET_Y>
+<FX_OFFSET_Z>4.000</FX_OFFSET_Z>
+<FX_GUID>{2B9030C5-AD0A-40FE-B08D-0BA8D12B658}</FX_GUID>
+<FX_NAME>FX_SMOKE_2</FX_NAME>
+</OverrideTemplateParameters>
+<Component ID="FX_SMOKE_ENG1" Node="fx_exhaust_left">
+<UseTemplate Name="ASOBO_GT_FX">
+</UseTemplate>
+</Component>
+</Component>
+
+<Component ID="FX_SMOKE_E2">
+<OverrideTemplateParameters>
+<FX_CODE>(A:ENG ON FIRE:2, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+<FX_OFFSET_X>0.200</FX_OFFSET_X>
+<FX_OFFSET_Y>0.300</FX_OFFSET_Y>
+<FX_OFFSET_Z>4.000</FX_OFFSET_Z>
+<FX_GUID>{2B9030C5-AD0A-40FE-B08D-0BA8D12B658}</FX_GUID>
+<FX_NAME>FX_SMOKE_2</FX_NAME>
+</OverrideTemplateParameters>
+<Component ID="FX_SMOKE_ENG2" Node="fx_exhaust_right">
+<UseTemplate Name="ASOBO_GT_FX">
+</UseTemplate>
+</Component>
+</Component>
+
+
 
     <Component ID="FX_SPARKS_C3">
         <OverrideTemplateParameters>
@@ -305,6 +323,50 @@
         </UseTemplate>
     </Component>
 
+<Component ID="BIGBOOM">
+        <OverrideTemplateParameters>
+        <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+        <FX_GRAPH_PARAM_0>size, 1</FX_GRAPH_PARAM_0>
+        <FX_GRAPH_PARAM_1>zoffset+, 13.1</FX_GRAPH_PARAM_1>
+        <FX_GRAPH_PARAM_2>zoffset-, -4</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>-6</FX_OFFSET_Y>
+            <FX_OFFSET_Z>14</FX_OFFSET_Z>
+            <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
+            <FX_NAME>KABOOM</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_Explosion" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>7</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+        </Component>
+
+<Component ID="CrashDetector">
+  <UseTemplate Name="ASOBO_GT_Update">
+    <ANIM_CODE>1</ANIM_CODE>
+    <FREQUENCY>60</FREQUENCY>
+
+    <UPDATE_CODE>
+
+    (A:G FORCE, GForce) abs 3.8 &gt; if{
+        1 (&gt;L:HasCrashed, bool)
+    }
+
+    (L:HasCrashed, bool) 1 == if{
+        1 (>A:ENG ON FIRE:1, enum)
+        1 (>A:ENG ON FIRE:2, enum)
+    }
+    els{
+        
+    }
+
+
+    </UPDATE_CODE>
+  </UseTemplate>
+</Component>
+
+
 <!-- CREDITS: n1ghtshade -->
-<!-- TFX VERSION 1.1_alpha.160 -->
+<!-- TFX VERSION 1.1_alpha.170 -->
 <!-- TFX END -->
