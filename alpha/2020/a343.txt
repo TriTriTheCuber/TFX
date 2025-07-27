@@ -42,7 +42,7 @@
 <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
 <FX_NAME>FX_SMOKE_3</FX_NAME>
 </OverrideTemplateParameters>
-<Component ID="FX_SMOKE_ENG3" Node="R2_EngineFX">
+<Component ID="FX_SMOKE_ENG3" Node="R1_EngineFX">
 <UseTemplate Name="ASOBO_GT_FX">
 </UseTemplate>
 </Component>
@@ -271,5 +271,5 @@
 
 
 <!-- CREDITS:  @Pixel -->
-<!-- TFX VERSION 1.1_alpha.156 -->
+<!-- TFX VERSION 1.1_alpha.166 -->
 <!-- TFX END -->
