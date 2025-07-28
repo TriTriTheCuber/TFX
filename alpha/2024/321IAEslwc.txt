@@ -8,13 +8,13 @@
 		<Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
 		<Include Path="fnx32x\Templates.xml"/>
 <!-- TFX INSTALLED -->
-<!-- PATH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A321_CFM_WF\model\Exterior.xml -->
-<!-- NAME = Fenix A321 (CFM, WF) (Crash animV1, water) -->
+<!-- PATH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A321_IAE_SL\model\Exterior.xml -->
+<!-- NAME = Fenix A321 (IAE, SL) (Crash animV1, water) -->
 <!-- TAG = None -->
 
 <!-- EX1UFILE = True -->
 <!-- EXURL = a321/Exterior.xml -->
-<!-- EXTERPTH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A321_CFM_WF\model -->
+<!-- EXTERPTH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A321_IAE_SL\model -->
 <!-- NEWFILENAME = TFXinjbehavior.xml -->
 
 	<Component ID="FX_SMOKE_E1">
@@ -26,7 +26,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="VFX_Engine_CFM_L_Exhaust">
+        <Component ID="FX_SMOKE_ENGL" Node="VFX_Engine_IAE_L_Exhaust">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -41,7 +41,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGR" Node="VFX_Engine_CFM_R_Exhaust">
+        <Component ID="FX_SMOKE_ENGR" Node="VFX_Engine_IAE_R_Exhaust">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -56,7 +56,7 @@
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
             <FX_NAME>FX_FIRE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="VFX_Engine_CFM_L_Exhaust">
+        <Component ID="FX_FIRE_ENGL" Node="VFX_Engine_IAE_L_Exhaust">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -71,7 +71,7 @@
             <FX_GUID>{5C7CAB5F-9288-4801-9EFA-6D04D0637EFD}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGR" Node="VFX_Engine_CFM_R_Exhaust">
+        <Component ID="FX_FIRE_ENGR" Node="VFX_Engine_IAE_R_Exhaust">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>

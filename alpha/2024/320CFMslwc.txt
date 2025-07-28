@@ -8,13 +8,13 @@
 		<Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
 		<Include Path="fnx32x\Templates.xml"/>
 <!-- TFX INSTALLED -->
-<!-- PATH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A321_CFM_WF\model\Exterior.xml -->
-<!-- NAME = Fenix A321 (CFM, WF) (Crash animV1, water) -->
+<!-- PATH = fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A320_CFM_SL\model\Exterior.xml -->
+<!-- NAME = Fenix A320 (CFM, SL) (Crash animV1, water) -->
 <!-- TAG = None -->
 
 <!-- EX1UFILE = True -->
-<!-- EXURL = a321/Exterior.xml -->
-<!-- EXTERPTH = fnx-aircraft-319-321\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A321_CFM_WF\model -->
+<!-- EXURL = a320/Exterior.xml -->
+<!-- EXTERPTH = fnx-aircraft-320\SimObjects\Airplanes\FNX_32X\attachments\fnx\Function_Exterior_A320_CFM_SL\model -->
 <!-- NEWFILENAME = TFXinjbehavior.xml -->
 
 	<Component ID="FX_SMOKE_E1">
@@ -818,16 +818,15 @@
     </Component>
 
 
-
 <Component ID="BIGBOOM">
         <OverrideTemplateParameters>
         <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
         <FX_GRAPH_PARAM_0>size, 1.5</FX_GRAPH_PARAM_0>
-        <FX_GRAPH_PARAM_1>zoffset+, 14</FX_GRAPH_PARAM_1>
+        <FX_GRAPH_PARAM_1>zoffset+, 3</FX_GRAPH_PARAM_1>
         <FX_GRAPH_PARAM_2>zoffset-, -5</FX_GRAPH_PARAM_2>
             <FX_OFFSET_X>0</FX_OFFSET_X>
-            <FX_OFFSET_Y>-0.9</FX_OFFSET_Y>
-            <FX_OFFSET_Z>-21</FX_OFFSET_Z>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>-23</FX_OFFSET_Z>
             <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
             <FX_NAME>KABOOM</FX_NAME>
         </OverrideTemplateParameters>
@@ -837,6 +836,8 @@
             </UseTemplate>
         </Component>
         </Component>
+
+
 
 <Component ID="CrashDetector">
   <UseTemplate Name="ASOBO_GT_Update">
@@ -883,9 +884,9 @@
   </UseTemplate>
 </Component>
 
-	
-<!-- Credits: DindilloYT, Tritrithecuber, kamo1498 -->
-<!-- TFX VERSION 1.1_alpha.181 -->
-<!-- TFX END -->
-</ModelBehaviors>
 
+<!-- TFX VERSION 1.1_alpha.181 -->
+<!-- Credits: Tritrithecuber, kamo1498 -->
+<!-- TFX END -->
+
+</ModelBehaviors>
