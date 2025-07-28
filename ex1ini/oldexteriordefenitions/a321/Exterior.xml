@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelInfo>
+	<LODS>
+		<LOD minSize="550" ModelFile="..\..\Part_Exterior_Fuselage_A321\model\FNX_321_Exterior_LOD00.gltf"/>
+		<LOD minSize="350" ModelFile="..\..\Part_Exterior_Fuselage_A321\model\FNX_321_Exterior_LOD01.gltf"/>
+		<LOD minSize="200" ModelFile="..\..\Part_Exterior_Fuselage_A321\model\FNX_321_Exterior_LOD02.gltf"/>
+		<LOD minSize="75" ModelFile="..\..\Part_Exterior_Fuselage_A321\model\FNX_321_Exterior_LOD03.gltf"/>
+		<LOD minSize="5" ModelFile="..\..\Part_Exterior_Fuselage_A321\model\FNX_321_Exterior_LOD04.gltf"/>
+	</LODS>
+	<Behaviors Version="2" Revision="0">
+		<IncludeBase RelativeFile="..\..\Part_Exterior_Fuselage_A321\model\Fuselage_Behavior.xml"/>
+	</Behaviors>
+</ModelInfo>
+
