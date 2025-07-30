@@ -21,7 +21,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.6.4"
+installerversion = "1.7.0"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -764,14 +764,18 @@ def domenu(sender):
         restart_app()
     if sender=="cfu":
         print ("Fetching files...")
-        fetch_and_download_files(folder_path="2020", destination="InstallerInserts", branch="main")
-        fetch_and_download_files(folder_path="2024", destination="InstallerInserts2024", branch="main")
+        fetch_and_download_files(folder_path="2020", destination="InstallerInserts")
+        fetch_and_download_files(folder_path="2024", destination="InstallerInserts2024")
         restart_app()
     if sender=="cfua":
         print ("Fetching alpha files...")
         fetch_and_download_files(folder_path=r"alpha2020", destination=r"alpha\2020")
         fetch_and_download_files(folder_path=r"alpha2024", destination=r"alpha\2024")
         restart_app()
+    if sender=="recom":
+        os.remove("community.txt")
+        sys.exit(0)
+
 
 
 
@@ -989,6 +993,7 @@ def mainwindow():
                 dpg.add_menu_item(label="Restart Installer", callback=lambda: restart_app())
             with dpg.menu(label="Settings"):
                 dpg.add_checkbox(label="Devmode", tag="devtoggle", default_value=devmodet, callback=devtoggle)
+                dpg.add_menu_item(label="Reset Community Folders", tag="recom", callback=domenu)
             with dpg.menu(label="Programs"):
                 if alpha == 0:
                     dpg.add_menu_item(label="Alpha testing login", tag="alphalog", callback=domenu)
