@@ -1,0 +1,1107 @@
+<!-- TFX INSTALLED -->
+<!-- PATH = flybywire-aircraft-a380-842\SimObjects\AirPlanes\FlyByWire_A380_842\model\A380_EXTERIOR.xml -->
+<!-- NAME = FlyByWire A380 (Crash AnimV1) -->
+<!-- TAG = </Behaviors> -->
+
+	<Component ID="FX_SMOKE_E1">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:A32NX_ENG_1_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>2</FX_OFFSET_Z>
+            <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
+            <FX_NAME>FX_SMOKE_L1</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SMOKE_ENGL1" Node="fx_exhaust_left1">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SMOKE_E2">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:A32NX_ENG_2_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>2</FX_OFFSET_Z>
+            <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
+            <FX_NAME>FX_SMOKE_L2</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SMOKE_ENGL2" Node="fx_exhaust_left2">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SMOKE_E3">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:A32NX_ENG_3_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>2</FX_OFFSET_Z>
+            <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
+            <FX_NAME>FX_SMOKE_R3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SMOKE_ENGR3" Node="fx_exhaust_right3">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_SMOKE_E4">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:A32NX_ENG_4_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>2</FX_OFFSET_Z>
+            <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
+            <FX_NAME>FX_SMOKE_R4</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SMOKE_ENGR4" Node="fx_exhaust_right4">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+
+
+
+
+
+
+
+
+
+	<Component ID="FX_FIRE_E1">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:A32NX_ENG_1_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>3.7</FX_OFFSET_Z>
+            <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
+            <FX_NAME>FX_FIRE_L1</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_FIRE_ENGL1" Node="fx_exhaust_left1">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_FIRE_E2">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:A32NX_ENG_2_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>3.7</FX_OFFSET_Z>
+            <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
+            <FX_NAME>FX_FIRE_L2</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_FIRE_ENGL2" Node="fx_exhaust_left2">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_FIRE_E3">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:A32NX_ENG_3_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>3.7</FX_OFFSET_Z>
+            <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
+            <FX_NAME>FX_FIRE_R3</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_FIRE_ENGR3" Node="fx_exhaust_right3">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+	<Component ID="FX_FIRE_E4">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:A32NX_ENG_4_ON_FIRE, enum) 1 == if{ 1 } els{ 0 }</FX_CODE>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0</FX_OFFSET_Y>
+            <FX_OFFSET_Z>3.7</FX_OFFSET_Z>
+            <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
+            <FX_NAME>FX_FIRE_R4</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_FIRE_ENGR4" Node="fx_exhaust_right4">
+            <UseTemplate Name="ASOBO_GT_FX">
+            </UseTemplate>
+        </Component>
+	</Component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <Component ID="FX_SPARKS_C5">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:5, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_5</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK5" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>5</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C5">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:5, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 5</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 51899751267437686131</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_5</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH5" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>5</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C6">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_6</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK6" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>6</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C6">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:6, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 6</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 57027710852619412494</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_6</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH6" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>6</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C7">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:7, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_7</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK7" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>7</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C7">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:7, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 7</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 68102899375823383337</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_7</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH7" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>7</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C8">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:8, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_8</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK8" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>8</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C8">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:8, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 8</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 9674879195726344242</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_8</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH8" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>8</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C9">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:9, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_9</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK9" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>9</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C9">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:9, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 9</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 15212274897643728162</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_9</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH9" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>9</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C10">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:10, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_10</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK10" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>10</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C10">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:10, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 10</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 68805160259671061961</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_10</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH10" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>10</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C11">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:11, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_11</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK11" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>11</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C11">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:11, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 11</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 81647975688904879171</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_11</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH11" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>11</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C12">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:12, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_12</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK12" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>12</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C12">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:12, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 12</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 14796798005039302903</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_12</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH12" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>12</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C13">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:13, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_13</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK13" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>13</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C13">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:13, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 13</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 20809994387481608983</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_13</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH13" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>13</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C14">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:14, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_14</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK14" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>14</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C14">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:14, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 14</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 93109283768991905492</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_14</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH14" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>14</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C15">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:15, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_15</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK15" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>15</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C15">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:15, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 15</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 96243528584290661830</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_15</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH15" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>15</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C16">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:16, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_16</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK16" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>16</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C16">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:16, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 16</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 48451294452174244461</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_16</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH16" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>16</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C17">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:17, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_17</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK17" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>17</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C17">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:17, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 17</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 83903231803016373267</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_17</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH17" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>17</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C18">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:18, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_18</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK18" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>18</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C18">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:18, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 18</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 90405713462302324376</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_18</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH18" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>18</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C19">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:19, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_19</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK19" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>19</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C19">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:19, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 19</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 72902490216989106191</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_19</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH19" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>19</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C20">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:20, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_20</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK20" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>20</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C20">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:20, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 20</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 28657109477178895948</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_20</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH20" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>20</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C21">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:21, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_21</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK21" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>21</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C21">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:21, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 21</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 65541667200481041560</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_21</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH21" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>21</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_SPARKS_C22">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:ScrapeTimer:22, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GUID>{0208217C-8EBE-4673-AB47-2E7E0B969083}</FX_GUID>
+            <FX_NAME>FX_SPARKS_22</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPARK22" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>22</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+    <Component ID="FX_WaterSplash_C22">
+        <OverrideTemplateParameters>
+            <FX_CODE>(L:WaterTimer:22, number) 0 > if{ 1 } els{ 0 }</FX_CODE>
+            <FX_GRAPH_PARAM_0>Contact#, 22</FX_GRAPH_PARAM_0>
+            <FX_GRAPH_PARAM_1>Size, 1.8</FX_GRAPH_PARAM_1>
+            <FX_GRAPH_PARAM_2>randid, 88045812705532809291</FX_GRAPH_PARAM_2>
+            <FX_GUID>{D0BC5EEA-8816-4D78-B33E-9EF6E23BD52C}</FX_GUID>
+            <FX_NAME>FX_SPLASH_22</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_SPLASH22" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+                <FX_CONTACT_POINT_ID>22</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+    </Component>
+
+
+
+    <Component ID="ScrapeEffectTimer">
+        <UseTemplate Name="ASOBO_GT_Update">
+            <ANIM_CODE>1</ANIM_CODE>
+            <FREQUENCY>60</FREQUENCY>
+            <UPDATE_CODE>
+
+               (A:CONTACT POINT IS ON GROUND:5, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:5, number)
+                   0 (>L:WaterTimer:5, number)
+                }
+                els{
+                   (L:ScrapeTimer:5, number) 0 > if{
+                       (L:ScrapeTimer:5, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:5, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:5, ft) 0 > if{
+                   0.5 (>L:WaterTimer:5, number)
+                   0 (>L:ScrapeTimer:5, number)
+                }
+                els{
+                   (L:WaterTimer:5, number) 0 > if{
+                       (L:WaterTimer:5, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:5, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:6, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:6, number)
+                   0 (>L:WaterTimer:6, number)
+                }
+                els{
+                   (L:ScrapeTimer:6, number) 0 > if{
+                       (L:ScrapeTimer:6, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:6, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:6, ft) 0 > if{
+                   0.5 (>L:WaterTimer:6, number)
+                   0 (>L:ScrapeTimer:6, number)
+                }
+                els{
+                   (L:WaterTimer:6, number) 0 > if{
+                       (L:WaterTimer:6, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:6, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:7, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:7, number)
+                   0 (>L:WaterTimer:7, number)
+                }
+                els{
+                   (L:ScrapeTimer:7, number) 0 > if{
+                       (L:ScrapeTimer:7, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:7, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:7, ft) 0 > if{
+                   0.5 (>L:WaterTimer:7, number)
+                   0 (>L:ScrapeTimer:7, number)
+                }
+                els{
+                   (L:WaterTimer:7, number) 0 > if{
+                       (L:WaterTimer:7, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:7, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:8, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:8, number)
+                   0 (>L:WaterTimer:8, number)
+                }
+                els{
+                   (L:ScrapeTimer:8, number) 0 > if{
+                       (L:ScrapeTimer:8, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:8, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:8, ft) 0 > if{
+                   0.5 (>L:WaterTimer:8, number)
+                   0 (>L:ScrapeTimer:8, number)
+                }
+                els{
+                   (L:WaterTimer:8, number) 0 > if{
+                       (L:WaterTimer:8, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:8, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:9, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:9, number)
+                   0 (>L:WaterTimer:9, number)
+                }
+                els{
+                   (L:ScrapeTimer:9, number) 0 > if{
+                       (L:ScrapeTimer:9, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:9, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:9, ft) 0 > if{
+                   0.5 (>L:WaterTimer:9, number)
+                   0 (>L:ScrapeTimer:9, number)
+                }
+                els{
+                   (L:WaterTimer:9, number) 0 > if{
+                       (L:WaterTimer:9, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:9, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:10, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:10, number)
+                   0 (>L:WaterTimer:10, number)
+                }
+                els{
+                   (L:ScrapeTimer:10, number) 0 > if{
+                       (L:ScrapeTimer:10, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:10, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:10, ft) 0 > if{
+                   0.5 (>L:WaterTimer:10, number)
+                   0 (>L:ScrapeTimer:10, number)
+                }
+                els{
+                   (L:WaterTimer:10, number) 0 > if{
+                       (L:WaterTimer:10, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:10, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:11, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:11, number)
+                   0 (>L:WaterTimer:11, number)
+                }
+                els{
+                   (L:ScrapeTimer:11, number) 0 > if{
+                       (L:ScrapeTimer:11, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:11, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:11, ft) 0 > if{
+                   0.5 (>L:WaterTimer:11, number)
+                   0 (>L:ScrapeTimer:11, number)
+                }
+                els{
+                   (L:WaterTimer:11, number) 0 > if{
+                       (L:WaterTimer:11, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:11, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:12, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:12, number)
+                   0 (>L:WaterTimer:12, number)
+                }
+                els{
+                   (L:ScrapeTimer:12, number) 0 > if{
+                       (L:ScrapeTimer:12, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:12, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:12, ft) 0 > if{
+                   0.5 (>L:WaterTimer:12, number)
+                   0 (>L:ScrapeTimer:12, number)
+                }
+                els{
+                   (L:WaterTimer:12, number) 0 > if{
+                       (L:WaterTimer:12, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:12, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:13, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:13, number)
+                   0 (>L:WaterTimer:13, number)
+                }
+                els{
+                   (L:ScrapeTimer:13, number) 0 > if{
+                       (L:ScrapeTimer:13, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:13, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:13, ft) 0 > if{
+                   0.5 (>L:WaterTimer:13, number)
+                   0 (>L:ScrapeTimer:13, number)
+                }
+                els{
+                   (L:WaterTimer:13, number) 0 > if{
+                       (L:WaterTimer:13, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:13, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:14, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:14, number)
+                   0 (>L:WaterTimer:14, number)
+                }
+                els{
+                   (L:ScrapeTimer:14, number) 0 > if{
+                       (L:ScrapeTimer:14, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:14, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:14, ft) 0 > if{
+                   0.5 (>L:WaterTimer:14, number)
+                   0 (>L:ScrapeTimer:14, number)
+                }
+                els{
+                   (L:WaterTimer:14, number) 0 > if{
+                       (L:WaterTimer:14, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:14, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:15, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:15, number)
+                   0 (>L:WaterTimer:15, number)
+                }
+                els{
+                   (L:ScrapeTimer:15, number) 0 > if{
+                       (L:ScrapeTimer:15, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:15, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:15, ft) 0 > if{
+                   0.5 (>L:WaterTimer:15, number)
+                   0 (>L:ScrapeTimer:15, number)
+                }
+                els{
+                   (L:WaterTimer:15, number) 0 > if{
+                       (L:WaterTimer:15, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:15, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:16, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:16, number)
+                   0 (>L:WaterTimer:16, number)
+                }
+                els{
+                   (L:ScrapeTimer:16, number) 0 > if{
+                       (L:ScrapeTimer:16, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:16, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:16, ft) 0 > if{
+                   0.5 (>L:WaterTimer:16, number)
+                   0 (>L:ScrapeTimer:16, number)
+                }
+                els{
+                   (L:WaterTimer:16, number) 0 > if{
+                       (L:WaterTimer:16, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:16, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:17, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:17, number)
+                   0 (>L:WaterTimer:17, number)
+                }
+                els{
+                   (L:ScrapeTimer:17, number) 0 > if{
+                       (L:ScrapeTimer:17, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:17, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:17, ft) 0 > if{
+                   0.5 (>L:WaterTimer:17, number)
+                   0 (>L:ScrapeTimer:17, number)
+                }
+                els{
+                   (L:WaterTimer:17, number) 0 > if{
+                       (L:WaterTimer:17, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:17, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:18, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:18, number)
+                   0 (>L:WaterTimer:18, number)
+                }
+                els{
+                   (L:ScrapeTimer:18, number) 0 > if{
+                       (L:ScrapeTimer:18, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:18, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:18, ft) 0 > if{
+                   0.5 (>L:WaterTimer:18, number)
+                   0 (>L:ScrapeTimer:18, number)
+                }
+                els{
+                   (L:WaterTimer:18, number) 0 > if{
+                       (L:WaterTimer:18, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:18, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:19, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:19, number)
+                   0 (>L:WaterTimer:19, number)
+                }
+                els{
+                   (L:ScrapeTimer:19, number) 0 > if{
+                       (L:ScrapeTimer:19, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:19, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:19, ft) 0 > if{
+                   0.5 (>L:WaterTimer:19, number)
+                   0 (>L:ScrapeTimer:19, number)
+                }
+                els{
+                   (L:WaterTimer:19, number) 0 > if{
+                       (L:WaterTimer:19, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:19, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:20, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:20, number)
+                   0 (>L:WaterTimer:20, number)
+                }
+                els{
+                   (L:ScrapeTimer:20, number) 0 > if{
+                       (L:ScrapeTimer:20, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:20, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:20, ft) 0 > if{
+                   0.5 (>L:WaterTimer:20, number)
+                   0 (>L:ScrapeTimer:20, number)
+                }
+                els{
+                   (L:WaterTimer:20, number) 0 > if{
+                       (L:WaterTimer:20, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:20, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:21, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:21, number)
+                   0 (>L:WaterTimer:21, number)
+                }
+                els{
+                   (L:ScrapeTimer:21, number) 0 > if{
+                       (L:ScrapeTimer:21, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:21, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:21, ft) 0 > if{
+                   0.5 (>L:WaterTimer:21, number)
+                   0 (>L:ScrapeTimer:21, number)
+                }
+                els{
+                   (L:WaterTimer:21, number) 0 > if{
+                       (L:WaterTimer:21, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:21, number)
+                    }
+                }
+
+               (A:CONTACT POINT IS ON GROUND:22, bool) 1 == if{
+                   0.5 (>L:ScrapeTimer:22, number)
+                   0 (>L:WaterTimer:22, number)
+                }
+                els{
+                   (L:ScrapeTimer:22, number) 0 > if{
+                       (L:ScrapeTimer:22, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:ScrapeTimer:22, number)
+                    }
+                }
+
+               (A:CONTACT POINT WATER DEPTH:22, ft) 0 > if{
+                   0.5 (>L:WaterTimer:22, number)
+                   0 (>L:ScrapeTimer:22, number)
+                }
+                els{
+                   (L:WaterTimer:22, number) 0 > if{
+                       (L:WaterTimer:22, number) (E:SIMULATION DELTA TIME, number) - 0 max (>L:WaterTimer:22, number)
+                    }
+                }
+
+            </UPDATE_CODE>
+        </UseTemplate>
+    </Component>
+
+
+
+	<Component ID="BIGBOOM">
+        <OverrideTemplateParameters>
+	    <FX_CODE>(L:HasCrashed, bool) 1 == if{ 1 } els{ 0 }</FX_CODE>
+	    <FX_GRAPH_PARAM_0>size, 2.5</FX_GRAPH_PARAM_0>
+	    <FX_GRAPH_PARAM_1>zoffset+, 12.2</FX_GRAPH_PARAM_1>
+	    <FX_GRAPH_PARAM_2>zoffset-, -4.4</FX_GRAPH_PARAM_2>
+            <FX_OFFSET_X>0</FX_OFFSET_X>
+            <FX_OFFSET_Y>0.1</FX_OFFSET_Y>
+            <FX_OFFSET_Z>20</FX_OFFSET_Z>
+            <FX_GUID>{3B62FA68-5CF6-4996-9B55-642CE6331F49}</FX_GUID>
+            <FX_NAME>KABOOM</FX_NAME>
+        </OverrideTemplateParameters>
+        <Component ID="FX_Explosion" Node="__NO_NODE__">
+            <UseTemplate Name="ASOBO_GT_FX">
+            	<FX_CONTACT_POINT_ID>17</FX_CONTACT_POINT_ID>
+            </UseTemplate>
+        </Component>
+        </Component>
+
+<Component ID="CrashDetector">
+  <UseTemplate Name="ASOBO_GT_Update">
+    <ANIM_CODE>1</ANIM_CODE>
+    <FREQUENCY>60</FREQUENCY>
+
+    <UPDATE_CODE>
+	
+	(L:SimTime, number) (E:SIMULATION DELTA TIME, number) + (>L:SimTime, number)
+
+	((A:G FORCE, GForce) abs 2.7 &gt;) ((L:SimTime, number) 40 &gt;) and if{
+		1 (&gt;L:HasCrashed, bool)
+	}
+	(L:HasCrashed, bool) 1 == if{
+		1 (>L:A32NX_ENG_1_ON_FIRE, enum)
+		1 (>L:A32NX_ENG_2_ON_FIRE, enum)
+		1 (>L:A32NX_ENG_3_ON_FIRE, enum)
+		1 (>L:A32NX_ENG_4_ON_FIRE, enum)
+	}
+	els{
+		
+	}
+
+
+    </UPDATE_CODE>
+  </UseTemplate>
+</Component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- TFX VERSION 1.7 -->
+<!-- TFX END -->
