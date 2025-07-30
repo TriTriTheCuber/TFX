@@ -21,7 +21,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.6.3"
+installerversion = "1.6.4"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -135,7 +135,7 @@ def specialbuttoncallback(sender, appdata, user_data):
 def createspecialbuttons(buttontag="2020tab", simversion="2020"):
     user_data = []
     if simversion == "2020":
-        remotelines = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/tfxbaseversions.txt")
+        remotelines = fetch_remote_file(r"https://installer.cdn.tritrisim.com/tfxbaseversions.txt")
         locallines = read_local_file(os.path.join(community_2020, r"TFX-fxlib\tfx-base-version.txt"))
         if locallines == None:
             if os.path.exists(os.path.join(community_2020, r"TFX-fxlib")):
@@ -163,7 +163,7 @@ def createspecialbuttons(buttontag="2020tab", simversion="2020"):
         dpg.add_button(label=buttonlabel1, tag="2020basebutton", user_data=[simversion, action1], callback=specialbuttoncallback, parent=buttontag)
         dpg.add_button(label=buttonlabel2, tag="2020matbutton", user_data=[simversion, action2], callback=specialbuttoncallback, parent=buttontag, enabled=enabled2)
     else:
-        remotelines = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/tfxbaseversions.txt")
+        remotelines = fetch_remote_file(r"https://installer.cdn.tritrisim.com/tfxbaseversions.txt")
         locallines = read_local_file(os.path.join(community_2024, r"TFX-fxlib\tfx-base-version.txt"))
         if locallines == None:
             if os.path.exists(os.path.join(community_2024, r"TFX-fxlib")):
@@ -341,35 +341,30 @@ def line_exists_flexible(filepath, target_line):
     return False
 
 
-def fetch_and_download_files(owner, repo, folder_path, destination, branch="main"):
-    # GitHub API URL to list folder contents
-    api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{folder_path}?ref={branch}"
-    
-    response = requests.get(api_url)
+def fetch_and_download_files(folder_path, destination):
+    # Baixa o JSON da lista de arquivos
+    base_url = f"https://{folder_path}.cdn.tritrisim.com"
+    filelist_url = f"{base_url}/filelist.json"
+    response = requests.get(filelist_url)
     if response.status_code != 200:
-        print(f"❌ Failed to fetch folder contents: {response.status_code} - {response.text}")
+        print(f"❌ Erro ao baixar lista de arquivos: {response.status_code}")
         return
+    files = response.json()
 
-    os.makedirs(destination, exist_ok=True)  # make destination if missing
+    os.makedirs(destination, exist_ok=True)
 
-    for item in response.json():
-        if item['type'] == 'file':
-            file_name = item['name']
-            download_url = item['download_url']
-            local_path = os.path.join(destination, file_name)
-
-            try:
-                print(f"⬇️ Downloading {file_name}...")
-                file_data = requests.get(download_url)
-                file_data.raise_for_status()
-
-                with open(local_path, 'wb') as f:
-                    f.write(file_data.content)
-
-                print(f"✅ Saved to {local_path}")
-            except Exception as e:
-                print(f"❌ Error downloading {file_name}: {e}")
-
+    for filename in files:
+        file_url = f"{base_url}/{filename}"
+        local_path = os.path.join(destination, filename)
+        try:
+            print(f"⬇️ Baixando {filename}...")
+            r = requests.get(file_url)
+            r.raise_for_status()
+            with open(local_path, "wb") as f:
+                f.write(r.content)
+            print(f"✅ Downloaded: {local_path}")
+        except Exception as e:
+            print(f"❌ Error to download: {filename}: {e}")
 
 def get_usercfg_paths():
     appdata = os.getenv("APPDATA")
@@ -742,8 +737,8 @@ def validatedetails(pekey, pepin, istlog = False):
         goodlogin = 0
     deleteitem("alwin")
     if istlog == True:
-        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2020", destination=r"alpha\2020", branch="main")
-        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2024", destination=r"alpha\2024", branch="main")
+        fetch_and_download_files(folder_path=r"alpha2020", destination=r"alpha/2020")
+        fetch_and_download_files(folder_path=r"alpha2024", destination=r"alpha/2024")
     restart_app()
 
 
@@ -769,20 +764,20 @@ def domenu(sender):
         restart_app()
     if sender=="cfu":
         print ("Fetching files...")
-        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2020", destination="InstallerInserts", branch="main")
-        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2024", destination="InstallerInserts2024", branch="main")
+        fetch_and_download_files(folder_path="2020", destination="InstallerInserts", branch="main")
+        fetch_and_download_files(folder_path="2024", destination="InstallerInserts2024", branch="main")
         restart_app()
     if sender=="cfua":
         print ("Fetching alpha files...")
-        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2020", destination=r"alpha\2020", branch="main")
-        fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path=r"alpha/2024", destination=r"alpha\2024", branch="main")
+        fetch_and_download_files(folder_path=r"alpha2020", destination=r"alpha\2020")
+        fetch_and_download_files(folder_path=r"alpha2024", destination=r"alpha\2024")
         restart_app()
 
 
 
 def verify_and_download(filename, base_url, force = False):
     if not os.path.exists(filename) or force == True:
-        url = f"{base_url}/{filename}"
+        url = f"https://{base_url}.cdn.tritrisim.com/{filename}"
         response = requests.get(url)
         if response.status_code == 200:
             with open(filename, 'wb') as f:
@@ -1158,14 +1153,14 @@ if not os.path.exists("InstallerInserts2024"):
 
 
 if not devmode=="1":
-    fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2020", destination="InstallerInserts", branch="main")
-    fetch_and_download_files(owner="TriTriTheCuber", repo="TFX", folder_path="2024", destination="InstallerInserts2024", branch="main")
+    fetch_and_download_files(folder_path="2020", destination="InstallerInserts")
+    fetch_and_download_files(folder_path="2024", destination="InstallerInserts2024")
 
 currentver = 1
-base_url = "https://raw.githubusercontent.com/TriTriTheCuber/TFX/main"
+base_url = "cdn.tritrisim.com"
 required_files = ["MSFSLayoutGenerator.exe", "ttsupdater.exe"]
 for file in required_files:
-    verify_and_download(file, base_url)
+    verify_and_download(file, f"installer")
 dpg.create_context()
 
 
