@@ -21,7 +21,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.7.0"
+installerversion = "1.7.4"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -347,7 +347,7 @@ def fetch_and_download_files(folder_path, destination):
     filelist_url = f"{base_url}/filelist.json"
     response = requests.get(filelist_url)
     if response.status_code != 200:
-        print(f"❌ Erro ao baixar lista de arquivos: {response.status_code}")
+        print(f"❌ Could not get filelist.json file, status code {response.status_code}")
         return
     files = response.json()
 
@@ -357,24 +357,31 @@ def fetch_and_download_files(folder_path, destination):
         file_url = f"{base_url}/{filename}"
         local_path = os.path.join(destination, filename)
         try:
-            print(f"⬇️ Baixando {filename}...")
+            print(f"⬇️ Downloading {filename}...")
             r = requests.get(file_url)
             r.raise_for_status()
             with open(local_path, "wb") as f:
                 f.write(r.content)
             print(f"✅ Downloaded: {local_path}")
         except Exception as e:
-            print(f"❌ Error to download: {filename}: {e}")
+            print(f"❌ Error downloading {filename}: {e}")
 
 def get_usercfg_paths():
+    paths = []
+
     appdata = os.getenv("APPDATA")
-    if not appdata:
-        print("❌ APPDATA environment variable not found.")
-        return []
-    return [
-        os.path.join(appdata, "Microsoft Flight Simulator", "UserCfg.opt"),
-        os.path.join(appdata, "Microsoft Flight Simulator 2024", "UserCfg.opt")
-    ]
+    localappdata = os.getenv("LOCALAPPDATA")
+
+    if appdata:
+        paths.append(("Steam 2020", os.path.join(appdata, "Microsoft Flight Simulator", "UserCfg.opt")))
+        paths.append(("Steam 2024", os.path.join(appdata, "Microsoft Flight Simulator 2024", "UserCfg.opt")))
+
+    if localappdata:
+        paths.append(("Store 2020", os.path.join(localappdata, "Packages", "Microsoft.FlightSimulator_8wekyb3d8bbwe", "LocalCache", "UserCfg.opt")))
+        paths.append(("Store 2024", os.path.join(localappdata, "Packages", "Limitless_8wekyb3d8bbwe", "LocalCache", "UserCfg.opt")))
+
+    return paths
+
 
 def get_community_folder_from_usercfg(cfg_path):
     if not os.path.isfile(cfg_path):
@@ -399,11 +406,14 @@ def find_msfs_community_folders():
     community_folders = []
     cfg_paths = get_usercfg_paths()
 
-    for cfg_path in cfg_paths:
+    for label, cfg_path in cfg_paths:
         community = get_community_folder_from_usercfg(cfg_path)
         if community:
-            community_folders.append((cfg_path, community))
+            community_folders.append((label, cfg_path, community))
     return community_folders
+
+
+
 
 
 def check_plane(filepath, simversion="2020"):
@@ -861,7 +871,8 @@ def uninstall_from_module(modulepath,simversion):
         else:
                 spath = os.path.join(community_2024, lp)
 
-    regenlayout(spath)
+    shopath = os.path.join(get_top_level_folder(outpat[0]), "layout.json")
+    regenlayout(spath, shopath)
 
 def install_from_module(modulepath, simversion):
     outpat, outname, outver, outtag, outinstall = parse_tfx_metadata(modulepath)
@@ -885,10 +896,11 @@ def install_from_module(modulepath, simversion):
                 spath = os.path.join(community_2020, lp)
         else:
                 spath = os.path.join(community_2024, lp)
+    shopath = os.path.join(get_top_level_folder(outpat[0]), "layout.json")
+    regenlayout(spath, shopath)
 
-    regenlayout(spath)
-
-
+def parent(path):
+    return Path(path).parent
 
 
 def on_window_close():
@@ -896,11 +908,53 @@ def on_window_close():
     dpg.stop_dearpygui()
 
 
-def regenlayout(path):
-    subprocess.run(["MSFSLayoutGenerator.exe", path])
+def regenlayout(path, shopath):
+    alt = get_state("AltLayout")
+    if alt == "1":
+        original_path = parent(path)
+        temp_path = rf"""C:\TFX TEMP\Community\{parent(shopath)}"""
 
-stateemptylines = "Devmode = 0\nAlphaLog = \nDisableUpdates = False"
-statelinecount = 3
+        if os.path.exists(parent(temp_path)):
+            shutil.rmtree(parent(temp_path))
+        shutil.move(original_path, temp_path)
+
+        layout_tool_path = "MSFSLayoutGenerator.exe"
+        layout_xml_path = os.path.join(temp_path, "layout.json")
+        try:
+            subprocess.run([layout_tool_path, layout_xml_path], check=True)
+
+            print("Layout generation complete.")
+        except Exception as e:
+            print("Error generating layout:", e)
+
+        shutil.move(temp_path, original_path)
+        print("Folder moved back to original location.")
+    else:
+        subprocess.run(["MSFSLayoutGenerator.exe", path])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+stateemptylines = "Devmode = 0\nAlphaLog = \nDisableUpdates = False\nAltLayout = 0"
+statelinecount = 4
 
 def set_state(header, value):
     ahead = header + " = "
@@ -966,6 +1020,15 @@ def uptoggle():
     set_state("DisableUpdates", new_value)
     restart_app()
 
+def altlaytoggle():
+    current = get_state("AltLayout")
+    if current == "0":
+        new_value = "1"
+    else:
+        new_value = "0"
+    set_state("AltLayout", new_value)
+    restart_app()
+
 
 def mainwindow():
     global alpha
@@ -976,6 +1039,13 @@ def mainwindow():
         devmodet = True
     else:
         devmodet = False
+
+    AltLayout = get_state("AltLayout")
+    if AltLayout == "1":
+        Altlay = True
+    else:
+        Altlay = False
+
     updateneeded = checkforinstallerupdates()
     if updateneeded == True:
         print("Installer update available")
@@ -993,6 +1063,7 @@ def mainwindow():
                 dpg.add_menu_item(label="Restart Installer", callback=lambda: restart_app())
             with dpg.menu(label="Settings"):
                 dpg.add_checkbox(label="Devmode", tag="devtoggle", default_value=devmodet, callback=devtoggle)
+                dpg.add_checkbox(label="260 Character bug fix", tag="laytoggle", default_value=Altlay, callback=altlaytoggle)
                 dpg.add_menu_item(label="Reset Community Folders", tag="recom", callback=domenu)
             with dpg.menu(label="Programs"):
                 if alpha == 0:
@@ -1005,6 +1076,7 @@ def mainwindow():
                     dpg.add_menu_item(label="Reset installer", callback=resetapplication)
             with dpg.menu(label="Info"):
                 dpg.add_text(f"Version {installerversion}")
+                dpg.add_menu_item(label="Help me!", callback=lambda: webbrowser.open("https://docs.google.com/document/d/1U6IIJoJfVfytcDXPLyJFu2viHpR_RkzAoJ0EAVeVUXM/"))
             with dpg.menu(label="Support TFX"):
                 dpg.add_menu_item(label="Donate (Ko-Fi)", callback=lambda: webbrowser.open("https://ko-fi.com/tritrithecuber"))
 
@@ -1081,21 +1153,23 @@ def getcommunity():
     community_2020f = None
     community_2024f = None
     found = find_msfs_community_folders()
+
     if not found:
         print("❌ No Community folders found from UserCfg.opt files.")
     else:
-        for origin, path in found:
-            if "2024" in origin:
-                print(f"Found MSFS 2024 Community folder:\n{path}")
+        for label, origin, path in found:
+            print(f"✅ Found {label} Community folder:\n{path}")
+            if "2024" in label:
                 community_2024f = path
-            else:
-                print(f"Found MSFS 2020 Community folder:\n{path}")
+            elif "2020" in label:
                 community_2020f = path
+
     if not community_2020f:
         community_2020f = " "
     if not community_2024f:
         community_2024f = " "
     return community_2020f, community_2024f
+
 
 def updateinstaller():
     global installertype
