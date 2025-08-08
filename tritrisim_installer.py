@@ -6,6 +6,7 @@ import sys
 import requests
 import subprocess
 from pathlib import Path
+import concurrent.futures
 import ctypes
 import ctypes.wintypes
 import re
@@ -21,7 +22,7 @@ global goodlogin
 global installerversion
 goodlogin = 0
 global installertype
-installerversion = "1.7.4"
+installerversion = "1.7.5"
 disableupdate = False
 
 if getattr(sys, 'frozen', False):
@@ -342,18 +343,21 @@ def line_exists_flexible(filepath, target_line):
 
 
 def fetch_and_download_files(folder_path, destination):
-    # Baixa o JSON da lista de arquivos
+    # Monta URLs base
     base_url = f"https://{folder_path}.cdn.tritrisim.com"
     filelist_url = f"{base_url}/filelist.json"
+
+    # Obtém lista de arquivos
     response = requests.get(filelist_url)
     if response.status_code != 200:
         print(f"❌ Could not get filelist.json file, status code {response.status_code}")
         return
-    files = response.json()
 
+    files = response.json()
     os.makedirs(destination, exist_ok=True)
 
-    for filename in files:
+    # Função de download individual
+    def download_file(filename):
         file_url = f"{base_url}/{filename}"
         local_path = os.path.join(destination, filename)
         try:
@@ -362,9 +366,13 @@ def fetch_and_download_files(folder_path, destination):
             r.raise_for_status()
             with open(local_path, "wb") as f:
                 f.write(r.content)
-            print(f"✅ Downloaded: {local_path}")
+            print(f"✅ Downloaded: {filename}")
         except Exception as e:
             print(f"❌ Error downloading {filename}: {e}")
+
+    # Executa os downloads em paralelo (até 10 ao mesmo tempo)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        executor.map(download_file, files)
 
 def get_usercfg_paths():
     paths = []
@@ -1108,7 +1116,7 @@ def mainwindow():
 def checkforinstallerupdates():
     global installerversion
     try:
-        rinstallverf = fetch_remote_file(r"https://raw.githubusercontent.com/TriTriTheCuber/tfx/main/versions.txt")
+        rinstallverf = fetch_remote_file(r"https://installer.cdn.tritrisim.com/versions.txt")
         rinstallver = rinstallverf[1]
         if installerversion == rinstallver:
             return False
