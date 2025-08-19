@@ -24,3 +24,4 @@ THE SOFTWARE.
 
 **Note**: This license applies only to the TFX components of the software.  
 The GFX components are excluded from this license and are subject to separate terms.
+The GFX components are not in this repository
