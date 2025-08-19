@@ -8,8 +8,6 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 ## Check out our [website](https://tritrisim.com)
 [tritrisim.com](https://tritrisim.com)
 
-## By installing our product you agree to the [license agreement](https://github.com/TriTriTheCuber/TFX?tab=License-1-ov-file)
-
 ## Supported planes
 
 ### 2020
