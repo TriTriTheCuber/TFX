@@ -11,7 +11,7 @@ It adds emergency effects to pre-existing planes. You can join the [discord](htt
 ## Supported planes
 
 ### 2020
-
+- [Starr Bumblebee 2](flightsim.to/file/93919/starr-bumblebee-2)
 - PMDG 777-200ER
 - PMDG 777-300ER
 - PMDG 777F
