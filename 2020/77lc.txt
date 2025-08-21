@@ -12,7 +12,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="fx_77w_engine1">
+        <Component ID="FX_SMOKE_ENGL" Node="fx_77l_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -27,7 +27,7 @@
             <FX_GUID>{26704DBE-D210-4EE8-A281-0182819EAA9F}</FX_GUID>
             <FX_NAME>FX_SMOKE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_SMOKE_ENGL" Node="fx_77w_engine2">
+        <Component ID="FX_SMOKE_ENGL" Node="fx_77l_engine2">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -42,7 +42,7 @@
             <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
             <FX_NAME>FX_FIRE_R</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="fx_77w_engine1">
+        <Component ID="FX_FIRE_ENGL" Node="fx_77l_engine1">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -57,7 +57,7 @@
             <FX_GUID>{5EF0727B-3156-4D2C-B5F4-E7C00BFC67BF}</FX_GUID>
             <FX_NAME>FX_FIRE_L</FX_NAME>
         </OverrideTemplateParameters>
-        <Component ID="FX_FIRE_ENGL" Node="fx_77w_engine2">
+        <Component ID="FX_FIRE_ENGL" Node="fx_77l_engine2">
             <UseTemplate Name="ASOBO_GT_FX">
             </UseTemplate>
         </Component>
@@ -486,5 +486,5 @@
 </Component>
 
 
-<!-- TFX VERSION 1.7 -->
+<!-- TFX VERSION 1.7.1 -->
 <!-- TFX END -->
